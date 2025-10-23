@@ -1,0 +1,10 @@
+D:\_Dev\HMS-TAX\HMS-TAX\obj\x86\Debug\HMS_TAX.Properties.Resources.resources
+D:\_Dev\HMS-TAX\HMS-TAX\obj\x86\Debug\HMS-TAX.csproj.GenerateResource.Cache
+D:\_Dev\HMS-TAX\HMS-TAX\bin\Debug\ee.exe
+D:\_Dev\HMS-TAX\HMS-TAX\bin\Debug\ee.pdb
+D:\_Dev\HMS-TAX\HMS-TAX\obj\x86\Debug\ee.exe
+D:\_Dev\HMS-TAX\HMS-TAX\obj\x86\Debug\ee.pdb
+D:\_Dev\HMS-TAX\HMS-TAX\obj\x86\Debug\HMS_TAX.FrmLogin.resources
+D:\_Dev\HMS-TAX\HMS-TAX\obj\x86\Debug\HMS_TAX.FrmMain.resources
+D:\_Dev\HMS-TAX\HMS-TAX\obj\x86\Debug\HMS-TAX.csprojResolveAssemblyReference.cache
+D:\_Dev\HMS-TAX\HMS-TAX\bin\Debug\ee.exe.config
