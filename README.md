@@ -1,4 +1,4 @@
-# Template ដែលខ្ញុំបានទិញ បងប្អូនអាចយកទៅប្រើប្រាស់បាន ដោយការទទួលខុសត្រូវ
+# កម្មវិធី Hospital Management System​ (HMS​) + TAX
 
   #### 📫 How to reach me:
 
