@@ -76,6 +76,76 @@ CREATE TABLE [dbo].[sys_user_logins](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]) ON [PRIMARY] ;
 
 
+CREATE TABLE [dbo].[TblTransactions](
+	[sysdoc] [nvarchar](20) NOT NULL,
+	[BranchCode] [nvarchar](10) NOT NULL,
+	[stock_code] [nvarchar](20) NULL,
+	[pro_code] [nvarchar](20) NULL,
+	[barcode] [nvarchar](20) NULL,
+	[trans_date] [date] NULL,
+	[trans_code] [nvarchar](20) NULL,
+	[qty] [int] NULL,
+	[qty_balance] [money] NULL,
+	[referent] [nvarchar](250) NULL,
+	[status] [nvarchar](250) NULL,
+	[inputter] [nvarchar](250) NULL,
+	[create_at] [datetime] NULL,
+	[authoriser] [nvarchar](250) NULL,
+	[authorize_at] [datetime] NULL,
+ CONSTRAINT [PK_TblTransactions_1] PRIMARY KEY CLUSTERED 
+(
+	[sysdoc] ASC,
+	[BranchCode] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]) ON [PRIMARY]
+
+--- Table currencies 
+
+CREATE TABLE [dbo].[tblcurrencies](
+	[currencycode] [nvarchar](10) NOT NULL,
+	[branchcode] [nvarchar](10) NOT NULL,
+	[currency] [nvarchar](250) NULL,
+	[currencysymbol] [nvarchar](10) NULL,
+	[currencyshort] [nvarchar](250) NULL,
+	[smallestcharge] [money] NULL,
+	[basecurrency] [bit] NULL,
+	[active] [bit] NULL,
+	[orders] [int] NULL,
+	[inputter] [nvarchar](250) NULL,
+	[create_at] [datetime] NULL,
+ CONSTRAINT [PK_tblcurrencies] PRIMARY KEY CLUSTERED 
+(
+	[currencycode] ASC,
+	[branchcode] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[tblCustomers](
+	[cus_id] [nvarchar](20) NOT NULL,
+	[BranchCode] [nvarchar](10) NOT NULL,
+	[cus_name] [nvarchar](250) NULL,
+	[gender] [nvarchar](60) NULL,
+	[dob] [date] NULL,
+	[active] [bit] NULL,
+	[age] [tinyint] NULL,
+	[phone] [nvarchar](50) NULL,
+	[province] [nvarchar](20) NULL,
+	[district] [nvarchar](20) NULL,
+	[commune] [nvarchar](20) NULL,
+	[village] [nvarchar](20) NULL,
+	[address] [nvarchar](250) NULL,
+	[inputter] [nvarchar](250) NULL,
+	[create_at] [datetime] NULL,
+	[update_at] [datetime] NULL,
+ CONSTRAINT [PK_tblCustomers] PRIMARY KEY CLUSTERED 
+(
+	[cus_id] ASC,
+	[BranchCode] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
 --- Insert testing DATA
 
 truncate table [sys_user_logins] ;

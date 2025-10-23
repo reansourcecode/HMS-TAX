@@ -12,7 +12,7 @@ namespace HMS_TAX.UserDefined
         public static string vlastVersion = "0.0.0";
         public static string vNewVersion = "0.0.1";
         public static string vReleaseDate = "22-10-2025";
-        public static string vTittle = "Hospital Management System v " + vNewVersion;
+        public static string vTittle = "Hospital & TAX System v " + vNewVersion;
 
         ////------------------Message Tittle
 
