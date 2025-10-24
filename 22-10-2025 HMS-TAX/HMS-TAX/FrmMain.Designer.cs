@@ -30,19 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this._top_menu = new System.Windows.Forms.MenuStrip();
-            this._File_Menu = new System.Windows.Forms.ToolStripMenuItem();
-            this._logout_sub = new System.Windows.Forms.ToolStripMenuItem();
-            this._Inventory_Menu = new System.Windows.Forms.ToolStripMenuItem();
-            this._POS_Menu = new System.Windows.Forms.ToolStripMenuItem();
-            this._Setting_Menu = new System.Windows.Forms.ToolStripMenuItem();
-            this._About_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.lblShowDeveloper = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.lblShowUserlogin = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.LblVersion = new System.Windows.Forms.ToolStripLabel();
+            this._top_menu = new System.Windows.Forms.MenuStrip();
+            this._File_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this._logout_sub = new System.Windows.Forms.ToolStripMenuItem();
             this._Exit_sub = new System.Windows.Forms.ToolStripMenuItem();
+            this._Inventory_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this._register_customer = new System.Windows.Forms.ToolStripMenuItem();
+            this._POS_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this._Setting_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this._permission_sub = new System.Windows.Forms.ToolStripMenuItem();
+            this._About_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this._register_product_sub = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this._top_menu.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +66,36 @@
             this.toolStrip1.Size = new System.Drawing.Size(1911, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // lblShowDeveloper
+            // 
+            this.lblShowDeveloper.ForeColor = System.Drawing.Color.Navy;
+            this.lblShowDeveloper.Name = "lblShowDeveloper";
+            this.lblShowDeveloper.Size = new System.Drawing.Size(225, 22);
+            this.lblShowDeveloper.Text = "Developed by : REAN.CODE";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // lblShowUserlogin
+            // 
+            this.lblShowUserlogin.Name = "lblShowUserlogin";
+            this.lblShowUserlogin.Size = new System.Drawing.Size(135, 22);
+            this.lblShowUserlogin.Text = "Logged : Admin";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // LblVersion
+            // 
+            this.LblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblVersion.Name = "LblVersion";
+            this.LblVersion.Size = new System.Drawing.Size(126, 22);
+            this.LblVersion.Text = "Version 0.0.1";
             // 
             // _top_menu
             // 
@@ -95,22 +128,41 @@
             // 
             // _logout_sub
             // 
-            this._logout_sub.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._logout_sub.Font = new System.Drawing.Font("Consolas", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this._logout_sub.ForeColor = System.Drawing.Color.Navy;
             this._logout_sub.Image = ((System.Drawing.Image)(resources.GetObject("_logout_sub.Image")));
             this._logout_sub.Name = "_logout_sub";
             this._logout_sub.Size = new System.Drawing.Size(152, 24);
-            this._logout_sub.Text = "Logout";
+            this._logout_sub.Text = "LogOut";
             this._logout_sub.Click += new System.EventHandler(this._logout_sub_Click);
+            // 
+            // _Exit_sub
+            // 
+            this._Exit_sub.Image = ((System.Drawing.Image)(resources.GetObject("_Exit_sub.Image")));
+            this._Exit_sub.Name = "_Exit_sub";
+            this._Exit_sub.Size = new System.Drawing.Size(152, 24);
+            this._Exit_sub.Text = "Exit";
+            this._Exit_sub.Click += new System.EventHandler(this._Exit_sub_Click);
             // 
             // _Inventory_Menu
             // 
             this._Inventory_Menu.CheckOnClick = true;
+            this._Inventory_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._register_customer,
+            this._register_product_sub});
             this._Inventory_Menu.ForeColor = System.Drawing.Color.Navy;
             this._Inventory_Menu.Image = ((System.Drawing.Image)(resources.GetObject("_Inventory_Menu.Image")));
             this._Inventory_Menu.Name = "_Inventory_Menu";
             this._Inventory_Menu.Size = new System.Drawing.Size(118, 23);
             this._Inventory_Menu.Text = "&Inventory";
+            // 
+            // _register_customer
+            // 
+            this._register_customer.Image = ((System.Drawing.Image)(resources.GetObject("_register_customer.Image")));
+            this._register_customer.Name = "_register_customer";
+            this._register_customer.Size = new System.Drawing.Size(231, 24);
+            this._register_customer.Text = "Register Customer";
+            this._register_customer.Click += new System.EventHandler(this._register_customer_Click);
             // 
             // _POS_Menu
             // 
@@ -123,11 +175,21 @@
             // 
             // _Setting_Menu
             // 
+            this._Setting_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._permission_sub});
             this._Setting_Menu.ForeColor = System.Drawing.Color.Navy;
             this._Setting_Menu.Image = ((System.Drawing.Image)(resources.GetObject("_Setting_Menu.Image")));
             this._Setting_Menu.Name = "_Setting_Menu";
             this._Setting_Menu.Size = new System.Drawing.Size(100, 23);
             this._Setting_Menu.Text = "Setting";
+            // 
+            // _permission_sub
+            // 
+            this._permission_sub.Image = ((System.Drawing.Image)(resources.GetObject("_permission_sub.Image")));
+            this._permission_sub.Name = "_permission_sub";
+            this._permission_sub.Size = new System.Drawing.Size(168, 24);
+            this._permission_sub.Text = "Permission";
+            this._permission_sub.Click += new System.EventHandler(this._permission_sub_Click);
             // 
             // _About_Menu
             // 
@@ -138,43 +200,13 @@
             this._About_Menu.Size = new System.Drawing.Size(82, 23);
             this._About_Menu.Text = "About";
             // 
-            // lblShowDeveloper
+            // _register_product_sub
             // 
-            this.lblShowDeveloper.ForeColor = System.Drawing.Color.Navy;
-            this.lblShowDeveloper.Name = "lblShowDeveloper";
-            this.lblShowDeveloper.Size = new System.Drawing.Size(225, 22);
-            this.lblShowDeveloper.Text = "Developed by : REAN.CODE";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // lblShowUserlogin
-            // 
-            this.lblShowUserlogin.Name = "lblShowUserlogin";
-            this.lblShowUserlogin.Size = new System.Drawing.Size(135, 22);
-            this.lblShowUserlogin.Text = "Logged : Admin";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // LblVersion
-            // 
-            this.LblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblVersion.Name = "LblVersion";
-            this.LblVersion.Size = new System.Drawing.Size(126, 22);
-            this.LblVersion.Text = "Version 0.0.1";
-            // 
-            // _Exit_sub
-            // 
-            this._Exit_sub.Image = ((System.Drawing.Image)(resources.GetObject("_Exit_sub.Image")));
-            this._Exit_sub.Name = "_Exit_sub";
-            this._Exit_sub.Size = new System.Drawing.Size(152, 24);
-            this._Exit_sub.Text = "Exit";
-            this._Exit_sub.Click += new System.EventHandler(this._Exit_sub_Click);
+            this._register_product_sub.Image = ((System.Drawing.Image)(resources.GetObject("_register_product_sub.Image")));
+            this._register_product_sub.Name = "_register_product_sub";
+            this._register_product_sub.Size = new System.Drawing.Size(231, 24);
+            this._register_product_sub.Text = "Register Product";
+            this._register_product_sub.Click += new System.EventHandler(this._register_product_sub_Click);
             // 
             // FrmMain
             // 
@@ -222,6 +254,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripLabel LblVersion;
         private System.Windows.Forms.ToolStripMenuItem _Exit_sub;
+        private System.Windows.Forms.ToolStripMenuItem _register_customer;
+        private System.Windows.Forms.ToolStripMenuItem _permission_sub;
+        private System.Windows.Forms.ToolStripMenuItem _register_product_sub;
     }
 }
 

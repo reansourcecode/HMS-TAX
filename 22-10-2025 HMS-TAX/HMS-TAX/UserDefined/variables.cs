@@ -12,7 +12,7 @@ namespace HMS_TAX.UserDefined
         public static string vlastVersion = "0.0.0";
         public static string vNewVersion = "0.0.1";
         public static string vReleaseDate = "22-10-2025";
-        public static string vTittle = "Hospital & TAX System v " + vNewVersion;
+        public static string vTittle = "Hospital System (TAX) v " + vNewVersion;
 
         ////------------------Message Tittle
 
@@ -29,6 +29,11 @@ namespace HMS_TAX.UserDefined
         public static string vMsg_pwd_reset = "Password has been changed successfully !";
         public static string vMsg_Report = "Report no data displayed , Please try again !";
         public static string vMsg_Draft = "Draft has been removed successfully !";
+
+        public static string vMsg_user = "Please enter username and password !";
+
+
+        
 
 
 

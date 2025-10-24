@@ -195,5 +195,17 @@ namespace HMS_TAX.UserDefined
             }
             catch { }
         }
+
+
+        public void Filter_ComboBox(ComboBox Cbo, string SQL, string Val, string ID)
+        {
+            Cbo.DataSource = dt_getdata(SQL);
+            Cbo.ValueMember = ID;
+            Cbo.DisplayMember = Val;
+            Cbo.AutoCompleteMode = AutoCompleteMode.Suggest;
+            Cbo.AutoCompleteSource = AutoCompleteSource.ListItems;
+        }
+
+
     }
 }

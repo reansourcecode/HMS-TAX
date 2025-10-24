@@ -57,9 +57,9 @@
             this.btnClose.HoverImage = ((System.Drawing.Image)(resources.GetObject("btnClose.HoverImage")));
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf;
-            this.btnClose.Location = new System.Drawing.Point(122, 164);
+            this.btnClose.Location = new System.Drawing.Point(123, 164);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(100, 41);
+            this.btnClose.Size = new System.Drawing.Size(98, 41);
             this.btnClose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnClose.TabIndex = 4;
             this.btnClose.Text = "Close";
@@ -119,9 +119,9 @@
             this.btnCommit.HoverImage = ((System.Drawing.Image)(resources.GetObject("btnCommit.HoverImage")));
             this.btnCommit.Image = ((System.Drawing.Image)(resources.GetObject("btnCommit.Image")));
             this.btnCommit.ImeMode = System.Windows.Forms.ImeMode.AlphaFull;
-            this.btnCommit.Location = new System.Drawing.Point(228, 164);
+            this.btnCommit.Location = new System.Drawing.Point(229, 164);
             this.btnCommit.Name = "btnCommit";
-            this.btnCommit.Size = new System.Drawing.Size(100, 41);
+            this.btnCommit.Size = new System.Drawing.Size(98, 41);
             this.btnCommit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCommit.TabIndex = 4;
             this.btnCommit.Text = "Commit";

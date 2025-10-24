@@ -33,6 +33,8 @@ namespace HMS_TAX
                 variables.Pcon.Open();
                 variables.Pcon.Close();
 
+                txtUserName.Focus();
+
             }
             catch { }
         }
@@ -43,14 +45,14 @@ namespace HMS_TAX
             if (txtUserName.Text.Trim() == string.Empty)
             {
                 // check user info 
-                MessageBox.Show("Please enter user name", variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(variables.vMsg_user, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtUserName.Focus();
                 return false;
             }
             else if (txtPassword.Text.Trim() == string.Empty)
             {
                 // check user password 
-                MessageBox.Show("Please enter password !", variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(variables.vMsg_user, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
                 return false;
             }
@@ -75,6 +77,14 @@ namespace HMS_TAX
                         bool vpwd = xml_security.ComparePasswords(dt.Rows[0]["user_pwd"].ToString(), txtPassword.Text.ToString());
                         if (vpwd == true)
                         {
+
+                            variables.PBranchCode = dt.Rows[0]["branchcode"].ToString();
+                            variables.PInputter = dt.Rows[0]["user_login"].ToString();
+                            variables.PProfileID = dt.Rows[0]["profile_id"].ToString();
+                            variables.PProfileTitle = dt.Rows[0]["pro_name"].ToString();
+                            variables.PUser_ID = dt.Rows[0]["user_id"].ToString();
+
+
                             FrmMain Main = new FrmMain();
                             this.Hide();
                             Main.ShowDialog();

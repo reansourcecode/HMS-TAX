@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HMS_TAX</RootNamespace>
-    <AssemblyName>ee</AssemblyName>
+    <AssemblyName>HMS_TAX</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
@@ -72,11 +72,29 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="HMS\FrmCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS\FrmCustomers.Designer.cs">
+      <DependentUpon>FrmCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="HMS\FrmProducts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HMS\FrmProducts.Designer.cs">
       <DependentUpon>FrmProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\FrmSearchCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS\FrmSearchCustomer.Designer.cs">
+      <DependentUpon>FrmSearchCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\FrmPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FrmPermission.Designer.cs">
+      <DependentUpon>FrmPermission.cs</DependentUpon>
     </Compile>
     <Compile Include="SystemInfo\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -93,8 +111,17 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HMS\FrmCustomers.resx">
+      <DependentUpon>FrmCustomers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HMS\FrmProducts.resx">
       <DependentUpon>FrmProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMS\FrmSearchCustomer.resx">
+      <DependentUpon>FrmSearchCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\FrmPermission.resx">
+      <DependentUpon>FrmPermission.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SystemInfo\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
