@@ -75,6 +75,7 @@
             this._PO_Expired = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this._PO_delete = new System.Windows.Forms.ToolStripMenuItem();
+            this._styleform = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnUnList)).BeginInit();
             this._menu_short.SuspendLayout();
@@ -419,7 +420,7 @@
             this.dgData.AllowUserToOrderColumns = true;
             this.dgData.AllowUserToResizeColumns = false;
             this.dgData.AllowUserToResizeRows = false;
-            this.dgData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this.dgData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.dgData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgData.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
@@ -456,7 +457,7 @@
             this.dgData.RowHeadersVisible = false;
             this.dgData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgData.Size = new System.Drawing.Size(1215, 500);
+            this.dgData.Size = new System.Drawing.Size(1109, 500);
             this.dgData.StandardTab = true;
             this.dgData.TabIndex = 115;
             this.dgData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgData_CellClick);
@@ -533,7 +534,7 @@
             this.toolStripSeparator2,
             this._PO_delete});
             this._MenuFunction.Name = "_MenuFunction";
-            this._MenuFunction.Size = new System.Drawing.Size(181, 76);
+            this._MenuFunction.Size = new System.Drawing.Size(176, 54);
             this._MenuFunction.Opening += new System.ComponentModel.CancelEventHandler(this._MenuFunction_Opening);
             // 
             // _PO_Expired
@@ -541,30 +542,50 @@
             this._PO_Expired.Image = ((System.Drawing.Image)(resources.GetObject("_PO_Expired.Image")));
             this._PO_Expired.Name = "_PO_Expired";
             this._PO_Expired.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this._PO_Expired.Size = new System.Drawing.Size(180, 22);
+            this._PO_Expired.Size = new System.Drawing.Size(175, 22);
             this._PO_Expired.Text = "Edit Expired";
             this._PO_Expired.Click += new System.EventHandler(this._PO_Expired_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(172, 6);
             // 
             // _PO_delete
             // 
             this._PO_delete.Image = ((System.Drawing.Image)(resources.GetObject("_PO_delete.Image")));
             this._PO_delete.Name = "_PO_delete";
             this._PO_delete.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this._PO_delete.Size = new System.Drawing.Size(180, 22);
+            this._PO_delete.Size = new System.Drawing.Size(175, 22);
             this._PO_delete.Text = "Delete";
             this._PO_delete.Click += new System.EventHandler(this._PO_delete_Click);
+            // 
+            // _styleform
+            // 
+            this._styleform.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
+            this._styleform.ButtonSpecs.FormClose.ColorMap = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this._styleform.ButtonSpecs.FormClose.Image = ((System.Drawing.Image)(resources.GetObject("_styleform.ButtonSpecs.FormClose.Image")));
+            this._styleform.ButtonSpecs.FormClose.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.ButtonSpec;
+            this._styleform.ButtonSpecs.FormClose.ToolTipTitle = "Close";
+            this._styleform.FormStyles.FormMain.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this._styleform.FormStyles.FormMain.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this._styleform.FormStyles.FormMain.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this._styleform.FormStyles.FormMain.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this._styleform.FormStyles.FormMain.StateCommon.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this._styleform.FormStyles.FormMain.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.SolidInside;
+            this._styleform.FormStyles.FormMain.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this._styleform.FormStyles.FormMain.StateCommon.Border.Rounding = 12;
+            this._styleform.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this._styleform.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             // 
             // FrmPurchaseorder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(1215, 619);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.ClientSize = new System.Drawing.Size(1109, 619);
             this.Controls.Add(this.dgData);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this._menu_short);
@@ -576,6 +597,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPurchaseorder";
+            this.Palette = this._styleform;
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -638,5 +661,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn vExp;
         private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel kryptonWrapLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonPalette _styleform;
     }
 }

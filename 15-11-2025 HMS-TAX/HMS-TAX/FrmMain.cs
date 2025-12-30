@@ -1,17 +1,21 @@
-﻿using System;
+﻿using ComponentFactory.Krypton.Toolkit;
+using HMS_TAX.Function;
+using HMS_TAX.HMS_Auth;
+using HMS_TAX.Setting;
+using HMS_TAX.UserDefined;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using System.Reflection;
-using HMS_TAX.UserDefined;
 
 namespace HMS_TAX
 {
-    public partial class FrmMain : Form
+    public partial class FrmMain : KryptonForm
     {
         public FrmMain()
         {
@@ -80,6 +84,9 @@ namespace HMS_TAX
             try
             {
                 this.Text = variables.vTittle;
+                lblShowDeveloper.Text = "Developed by Team REAN Dev Solution";
+                lblShowUserlogin.Text = "User : " + variables.PInputter.ToUpper();
+                LblVersion.Text = "Version : " + variables.vNewVersion +"("+ variables.PDatabaseName+")";
             }
             catch { }
         }
@@ -123,13 +130,78 @@ namespace HMS_TAX
 
         private void _report_list_Click(object sender, EventArgs e)
         {
-            Open_Frm("FrmRepots");
+            Open_Frm("FrmReports");
 
         }
 
         private void _pos_sub_Click(object sender, EventArgs e)
         {
+            try
+            {
+                variables.pos_flag="0";
+                Open_Frm("FrmPOS");
+            }
+            catch { }
+        }
+
+        private void _PurchaseOrder_sub_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmPurchaseorder");
+        }
+
+        private void _authorize_POS_sub_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmAuthPOS");
+        }
+
+        private void _pos_ci_sub_Click(object sender, EventArgs e)
+        {
+            variables.pos_flag = "1";
             Open_Frm("FrmPOS");
+        }
+
+        private void _NBC_Exchange_sub_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmExchangeRate");
+        }
+
+        private void _return_pos_sub_Click(object sender, EventArgs e)
+        {
+            variables.pos_flag="2";
+            Open_Frm("FrmReturnPOS");
+        }
+
+        private void _stock_transfer_sub_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmStockTransfers");
+        }
+
+        private void _auth_stock_transfer_sub_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmAuthStockTransfer");
+        }
+
+        private void _register_supply_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmSupply");
+        }
+
+        private void _product_line_sub_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmLine");
+        }
+
+        private void _user_Account_sub_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmUserAccounts");
+
+        }
+
+        private void _about_me_sub_Click(object sender, EventArgs e)
+        {
+            
+            Open_Frm("FrmAboutMe");
+
         }
     }
 }

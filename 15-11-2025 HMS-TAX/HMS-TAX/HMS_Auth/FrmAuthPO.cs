@@ -105,7 +105,6 @@ namespace HMS_TAX.HMS_Auth
         {
             try
             {
-
                 for (int i = 0; i < dgSearch.Columns.Count; i++)
                 {
                     dgSearch.Columns[i].ReadOnly = true;
@@ -123,19 +122,20 @@ namespace HMS_TAX.HMS_Auth
 
                 dgData.Columns["vID"].HeaderText = "Nº";
                 dgData.Columns["vID"].Width = 30;
-                dgData.Columns["vName"].Width = 130;
-                dgData.Columns["vStock"].Width = 88;
+                dgData.Columns["vName"].Width = 160;
+                dgData.Columns["vStock"].Width = 150;
                 dgData.Columns["vCost"].Width = 88;
-                dgData.Columns["vQty"].Width = 50;
+                dgData.Columns["vQty"].Width = 88;
+                dgData.Columns["vDis"].Width = 100;
 
-                //txtTypeCode
+                //txtTypeCode 
                 this.dgData.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
                 dgData.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
 
-                this.dgData.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Pixel);
+                this.dgData.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
                 dgData.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
 
-                this.dgData.DefaultCellStyle.Font = new Font("Times New Roman", 16F, FontStyle.Italic, GraphicsUnit.Pixel);
+                this.dgData.DefaultCellStyle.Font = new Font("Times New Roman", 14F, FontStyle.Italic, GraphicsUnit.Pixel);
                 this.dgData.DefaultCellStyle.ForeColor = Color.Black;
             }
             catch { }
@@ -168,13 +168,13 @@ namespace HMS_TAX.HMS_Auth
 
                     btnCommit.Enabled = true;
                     btnNew.Enabled = true;
-                    btnEdit.Enabled = true;
+                    btnReject.Enabled = true;
                 }
                 else
                 {
                     btnCommit.Enabled = false;
                     btnNew.Enabled = false;
-                    btnEdit.Enabled = false;
+                    btnReject.Enabled = false;
                 }
             }
             catch { }
@@ -223,7 +223,7 @@ namespace HMS_TAX.HMS_Auth
             try
             {
                 this.FormBorderStyle = FormBorderStyle.FixedSingle;
-                this.Text = variables.vTittle;
+                this.Text = variables.vTittle + " - Authorize Purchase Order";
                 this.gb.Text = "Information";
                 cleartext();
                 FormatDataGridview();
@@ -289,7 +289,7 @@ namespace HMS_TAX.HMS_Auth
         {
             try
             {
-                if (ch_ok("ch_pos", Code) == true)
+                if (ch_ok("ch_po", Code) == true)
                 {
                     if (MessageBox.Show("Do you want to authorize :" + Code + "  ?", variables.vTittle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
@@ -300,27 +300,32 @@ namespace HMS_TAX.HMS_Auth
             catch { }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+         
+        private void btnNew_Click(object sender, EventArgs e)
         {
             try
             {
+                cleartext();
+            }
+            catch { }
+        }
 
-                if (ch_ok("ch_pos", Code) == true)
+        private void btnReject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (PCode.Trim() == string.Empty) {
+                    
+                    MessageBox.Show("Please check transaction purchase to reject !", variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
                 {
                     if (MessageBox.Show("Do you want to reject :" + Code + "  ?", variables.vTittle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         auth_po("PO_Reject", Code, variables.vMsg_Reject);
                     }
                 }
-            }
-            catch { }
-        }
-
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                cleartext();
+               
             }
             catch { }
         }

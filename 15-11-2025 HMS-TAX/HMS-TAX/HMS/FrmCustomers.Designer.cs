@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCustomers));
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.btnCommit = new DevComponents.DotNetBar.ButtonX();
             this.btnNew = new DevComponents.DotNetBar.ButtonX();
-            this.btnClose = new DevComponents.DotNetBar.ButtonX();
             this.btnEdit = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
@@ -49,6 +49,8 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.txtName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtCusID = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this._styleform = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnList)).BeginInit();
@@ -61,10 +63,10 @@
             // 
             this.labelX4.BackgroundStyle.Class = "";
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.labelX4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.labelX4.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX4.ForeColor = System.Drawing.Color.White;
             this.labelX4.Image = ((System.Drawing.Image)(resources.GetObject("labelX4.Image")));
-            this.labelX4.Location = new System.Drawing.Point(56, 14);
+            this.labelX4.Location = new System.Drawing.Point(51, -8);
             this.labelX4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX4.Name = "labelX4";
             this.labelX4.SingleLineColor = System.Drawing.SystemColors.ControlLightLight;
@@ -80,12 +82,11 @@
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel1.Controls.Add(this.btnCommit);
             this.groupPanel1.Controls.Add(this.btnNew);
-            this.groupPanel1.Controls.Add(this.btnClose);
             this.groupPanel1.Controls.Add(this.btnEdit);
             this.groupPanel1.IsShadowEnabled = true;
-            this.groupPanel1.Location = new System.Drawing.Point(515, 72);
+            this.groupPanel1.Location = new System.Drawing.Point(493, 50);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(141, 277);
+            this.groupPanel1.Size = new System.Drawing.Size(134, 277);
             // 
             // 
             // 
@@ -119,17 +120,18 @@
             this.btnCommit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCommit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnCommit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCommit.Font = new System.Drawing.Font("Consolas", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCommit.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCommit.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
             this.btnCommit.HoverImage = ((System.Drawing.Image)(resources.GetObject("btnCommit.HoverImage")));
             this.btnCommit.Image = ((System.Drawing.Image)(resources.GetObject("btnCommit.Image")));
             this.btnCommit.ImeMode = System.Windows.Forms.ImeMode.AlphaFull;
-            this.btnCommit.Location = new System.Drawing.Point(13, 74);
+            this.btnCommit.Location = new System.Drawing.Point(3, 67);
             this.btnCommit.Name = "btnCommit";
-            this.btnCommit.Size = new System.Drawing.Size(111, 44);
+            this.btnCommit.Size = new System.Drawing.Size(113, 46);
             this.btnCommit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnCommit.TabIndex = 15;
+            this.btnCommit.TabIndex = 1;
             this.btnCommit.Text = "Commit";
+            this.btnCommit.TextAlignment = DevComponents.DotNetBar.eButtonTextAlignment.Left;
             this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
             // btnNew
@@ -137,51 +139,36 @@
             this.btnNew.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnNew.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNew.Font = new System.Drawing.Font("Consolas", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImeMode = System.Windows.Forms.ImeMode.AlphaFull;
-            this.btnNew.Location = new System.Drawing.Point(13, 21);
+            this.btnNew.Location = new System.Drawing.Point(3, 14);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(111, 44);
+            this.btnNew.Size = new System.Drawing.Size(113, 46);
             this.btnNew.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNew.TabIndex = 15;
+            this.btnNew.TabIndex = 0;
             this.btnNew.Text = "New";
+            this.btnNew.TextAlignment = DevComponents.DotNetBar.eButtonTextAlignment.Left;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnClose.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Font = new System.Drawing.Font("Consolas", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf;
-            this.btnClose.Location = new System.Drawing.Point(13, 177);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(111, 44);
-            this.btnClose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnClose.TabIndex = 14;
-            this.btnClose.Text = "Close";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnEdit
             // 
             this.btnEdit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnEdit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.Font = new System.Drawing.Font("Consolas", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
             this.btnEdit.HoverImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.HoverImage")));
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf;
-            this.btnEdit.Location = new System.Drawing.Point(13, 127);
+            this.btnEdit.Location = new System.Drawing.Point(3, 120);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(111, 44);
+            this.btnEdit.Size = new System.Drawing.Size(113, 46);
             this.btnEdit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnEdit.TabIndex = 14;
+            this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Edit";
+            this.btnEdit.TextAlignment = DevComponents.DotNetBar.eButtonTextAlignment.Left;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // groupPanel2
@@ -201,9 +188,9 @@
             this.groupPanel2.Controls.Add(this.labelX1);
             this.groupPanel2.Controls.Add(this.txtName);
             this.groupPanel2.Controls.Add(this.txtCusID);
-            this.groupPanel2.Location = new System.Drawing.Point(7, 72);
+            this.groupPanel2.Location = new System.Drawing.Point(2, 50);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(488, 339);
+            this.groupPanel2.Size = new System.Drawing.Size(479, 316);
             // 
             // 
             // 
@@ -240,8 +227,8 @@
             // 
             this.labelX8.BackgroundStyle.Class = "";
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX8.Location = new System.Drawing.Point(9, 152);
+            this.labelX8.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX8.Location = new System.Drawing.Point(9, 140);
             this.labelX8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(92, 37);
@@ -261,11 +248,11 @@
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtAddress.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtAddress.Location = new System.Drawing.Point(116, 158);
+            this.txtAddress.Location = new System.Drawing.Point(116, 144);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(346, 29);
-            this.txtAddress.TabIndex = 79;
+            this.txtAddress.TabIndex = 4;
             this.txtAddress.WatermarkColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txtAddress.WatermarkFont = new System.Drawing.Font("Khmer OS Battambang", 9.75F);
             this.txtAddress.WatermarkImageAlignment = System.Drawing.ContentAlignment.MiddleRight;
@@ -277,9 +264,9 @@
             this.btnList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnList.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnList.ErrorImage")));
             this.btnList.Image = ((System.Drawing.Image)(resources.GetObject("btnList.Image")));
-            this.btnList.Location = new System.Drawing.Point(440, 14);
+            this.btnList.Location = new System.Drawing.Point(435, 13);
             this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(22, 25);
+            this.btnList.Size = new System.Drawing.Size(25, 27);
             this.btnList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnList.TabIndex = 78;
             this.btnList.TabStop = false;
@@ -292,8 +279,8 @@
             // 
             this.labelX7.BackgroundStyle.Class = "";
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX7.Location = new System.Drawing.Point(9, 189);
+            this.labelX7.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX7.Location = new System.Drawing.Point(9, 177);
             this.labelX7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(92, 37);
@@ -313,12 +300,12 @@
             this.txtRemark.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtRemark.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtRemark.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtRemark.Location = new System.Drawing.Point(116, 195);
+            this.txtRemark.Location = new System.Drawing.Point(116, 183);
             this.txtRemark.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(346, 122);
-            this.txtRemark.TabIndex = 20;
+            this.txtRemark.TabIndex = 5;
             this.txtRemark.WatermarkBehavior = DevComponents.DotNetBar.eWatermarkBehavior.HideNonEmpty;
             this.txtRemark.WatermarkColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txtRemark.WatermarkFont = new System.Drawing.Font("Khmer OS Battambang", 9.75F);
@@ -333,12 +320,12 @@
             this.cboActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.cboActive.FormattingEnabled = true;
             this.cboActive.ItemHeight = 23;
-            this.cboActive.Location = new System.Drawing.Point(116, 124);
+            this.cboActive.Location = new System.Drawing.Point(116, 112);
             this.cboActive.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboActive.Name = "cboActive";
             this.cboActive.Size = new System.Drawing.Size(202, 29);
             this.cboActive.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cboActive.TabIndex = 19;
+            this.cboActive.TabIndex = 3;
             this.cboActive.WatermarkColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.cboActive.WatermarkFont = new System.Drawing.Font("Khmer OS Battambang", 9.75F);
             this.cboActive.WatermarkText = "បាទ / ចាស";
@@ -350,8 +337,8 @@
             // 
             this.labelX6.BackgroundStyle.Class = "";
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX6.Location = new System.Drawing.Point(9, 118);
+            this.labelX6.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX6.Location = new System.Drawing.Point(9, 108);
             this.labelX6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(92, 37);
@@ -367,8 +354,8 @@
             // 
             this.labelX5.BackgroundStyle.Class = "";
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX5.Location = new System.Drawing.Point(9, 81);
+            this.labelX5.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX5.Location = new System.Drawing.Point(9, 75);
             this.labelX5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(92, 37);
@@ -388,11 +375,11 @@
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtPhone.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtPhone.Location = new System.Drawing.Point(116, 87);
+            this.txtPhone.Location = new System.Drawing.Point(116, 79);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(346, 29);
-            this.txtPhone.TabIndex = 16;
+            this.txtPhone.TabIndex = 2;
             this.txtPhone.WatermarkColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txtPhone.WatermarkFont = new System.Drawing.Font("Khmer OS Battambang", 9.75F);
             this.txtPhone.WatermarkImageAlignment = System.Drawing.ContentAlignment.MiddleRight;
@@ -405,11 +392,11 @@
             // 
             this.labelX2.BackgroundStyle.Class = "";
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX2.Location = new System.Drawing.Point(9, 44);
+            this.labelX2.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX2.Location = new System.Drawing.Point(1, 38);
             this.labelX2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(92, 37);
+            this.labelX2.Size = new System.Drawing.Size(100, 37);
             this.labelX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
             this.labelX2.TabIndex = 14;
             this.labelX2.Text = "Full Name :";
@@ -422,14 +409,14 @@
             // 
             this.labelX1.BackgroundStyle.Class = "";
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.Location = new System.Drawing.Point(9, 5);
+            this.labelX1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.Location = new System.Drawing.Point(9, 8);
             this.labelX1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(92, 37);
             this.labelX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
             this.labelX1.TabIndex = 12;
-            this.labelX1.Text = "Cus.ID :";
+            this.labelX1.Text = "ID :";
             this.labelX1.TextAlignment = System.Drawing.StringAlignment.Far;
             // 
             // txtName
@@ -443,11 +430,11 @@
             this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtName.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtName.Location = new System.Drawing.Point(116, 50);
+            this.txtName.Location = new System.Drawing.Point(116, 44);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(346, 29);
-            this.txtName.TabIndex = 11;
+            this.txtName.TabIndex = 1;
             this.txtName.WatermarkColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txtName.WatermarkFont = new System.Drawing.Font("Khmer OS Battambang", 9.75F);
             this.txtName.WatermarkImageAlignment = System.Drawing.ContentAlignment.MiddleRight;
@@ -465,11 +452,11 @@
             this.txtCusID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtCusID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtCusID.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtCusID.Location = new System.Drawing.Point(116, 11);
+            this.txtCusID.Location = new System.Drawing.Point(116, 12);
             this.txtCusID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCusID.Name = "txtCusID";
             this.txtCusID.Size = new System.Drawing.Size(314, 29);
-            this.txtCusID.TabIndex = 10;
+            this.txtCusID.TabIndex = 0;
             this.txtCusID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCusID.WatermarkBehavior = DevComponents.DotNetBar.eWatermarkBehavior.HideNonEmpty;
             this.txtCusID.WatermarkColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -479,23 +466,127 @@
             this.txtCusID.WatermarkText = "លេខសម្គាល់";
             this.txtCusID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCusID_KeyPress);
             // 
+            // _styleform
+            // 
+            this._styleform.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
+            this._styleform.BaseRenderMode = ComponentFactory.Krypton.Toolkit.RendererMode.Professional;
+            this._styleform.ButtonSpecs.FormClose.ColorMap = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this._styleform.ButtonSpecs.FormClose.Image = ((System.Drawing.Image)(resources.GetObject("_styleform.ButtonSpecs.FormClose.Image")));
+            this._styleform.ButtonSpecs.FormClose.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.ButtonSpec;
+            this._styleform.ButtonSpecs.FormClose.ToolTipTitle = "Close";
+            this._styleform.ControlStyles.ControlAlternate.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.ControlStyles.ControlAlternate.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.FormStyles.FormCommon.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.FormStyles.FormCommon.StateActive.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.FormStyles.FormCommon.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.FormStyles.FormCommon.StateActive.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.FormStyles.FormCommon.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this._styleform.FormStyles.FormCommon.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.FormStyles.FormCommon.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.FormStyles.FormCustom1.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.FormStyles.FormCustom1.StateActive.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.FormStyles.FormMain.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.FormStyles.FormMain.StateActive.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.FormStyles.FormMain.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this._styleform.FormStyles.FormMain.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this._styleform.FormStyles.FormMain.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this._styleform.FormStyles.FormMain.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this._styleform.FormStyles.FormMain.StateCommon.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this._styleform.FormStyles.FormMain.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.SolidInside;
+            this._styleform.FormStyles.FormMain.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this._styleform.FormStyles.FormMain.StateCommon.Border.Rounding = 12;
+            this._styleform.HeaderStyles.HeaderCalendar.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.SolidInside;
+            this._styleform.HeaderStyles.HeaderCalendar.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this._styleform.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this._styleform.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this._styleform.HeaderStyles.HeaderForm.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderForm.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderForm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this._styleform.HeaderStyles.HeaderForm.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderForm.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderForm.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this._styleform.HeaderStyles.HeaderForm.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderForm.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderForm.StateNormal.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
+            this._styleform.HeaderStyles.HeaderForm.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this._styleform.HeaderStyles.HeaderForm.StateNormal.Border.DrawBorders = ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.None;
+            this._styleform.HeaderStyles.HeaderPrimary.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderPrimary.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderPrimary.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderPrimary.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderPrimary.StateCommon.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Control;
+            this._styleform.HeaderStyles.HeaderPrimary.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this._styleform.HeaderStyles.HeaderPrimary.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderPrimary.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderPrimary.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderPrimary.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.HeaderStyles.HeaderPrimary.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this._styleform.PanelStyles.PanelAlternate.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this._styleform.PanelStyles.PanelAlternate.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.Class = "";
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX3.ForeColor = System.Drawing.Color.White;
+            this.labelX3.Image = ((System.Drawing.Image)(resources.GetObject("labelX3.Image")));
+            this.labelX3.Location = new System.Drawing.Point(59, -5);
+            this.labelX3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.SingleLineColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelX3.Size = new System.Drawing.Size(390, 55);
+            this.labelX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.labelX3.TabIndex = 10;
+            this.labelX3.Text = "Customer Information";
+            this.labelX3.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
             // FrmCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 439);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this.ClientSize = new System.Drawing.Size(655, 368);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
+            this.Controls.Add(this.labelX3);
             this.Controls.Add(this.labelX4);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmCustomers";
+            this.Palette = this._styleform;
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StateActive.Header.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.StateActive.Header.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.StateCommon.Header.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.StateCommon.Header.Content.ShortText.Font = new System.Drawing.Font("Cooper Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StateInactive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this.StateInactive.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this.StateInactive.Header.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this.StateInactive.Header.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.Text = "FrmCustomers";
             this.Load += new System.EventHandler(this.FrmCustomers_Load);
             this.groupPanel1.ResumeLayout(false);
@@ -523,9 +614,10 @@
         private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.DotNetBar.LabelX labelX7;
         private DevComponents.DotNetBar.Controls.TextBoxX txtRemark;
-        private DevComponents.DotNetBar.ButtonX btnClose;
         private System.Windows.Forms.PictureBox btnList;
         private DevComponents.DotNetBar.LabelX labelX8;
         private DevComponents.DotNetBar.Controls.TextBoxX txtAddress;
+        private ComponentFactory.Krypton.Toolkit.KryptonPalette _styleform;
+        private DevComponents.DotNetBar.LabelX labelX3;
     }
 }

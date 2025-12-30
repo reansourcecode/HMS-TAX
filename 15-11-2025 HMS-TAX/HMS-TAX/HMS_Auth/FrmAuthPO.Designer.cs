@@ -58,7 +58,7 @@
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.btnCommit = new DevComponents.DotNetBar.ButtonX();
             this.btnNew = new DevComponents.DotNetBar.ButtonX();
-            this.btnEdit = new DevComponents.DotNetBar.ButtonX();
+            this.btnReject = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnimage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgData)).BeginInit();
@@ -71,34 +71,34 @@
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicControl;
-            this.kryptonLabel4.Location = new System.Drawing.Point(25, 85);
+            this.kryptonLabel4.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel4.Location = new System.Drawing.Point(10, 85);
             this.kryptonLabel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(59, 22);
-            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Monotype Corsiva", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.kryptonLabel4.Size = new System.Drawing.Size(80, 23);
+            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Cooper Black", 12F);
             this.kryptonLabel4.TabIndex = 109;
             this.kryptonLabel4.Values.Text = "Remark";
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicControl;
-            this.kryptonLabel2.Location = new System.Drawing.Point(25, 48);
+            this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel2.Location = new System.Drawing.Point(18, 48);
             this.kryptonLabel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(54, 22);
-            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Monotype Corsiva", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.kryptonLabel2.Size = new System.Drawing.Size(72, 23);
+            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Cooper Black", 12F);
             this.kryptonLabel2.TabIndex = 108;
             this.kryptonLabel2.Values.Text = "Supply";
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicControl;
-            this.kryptonLabel3.Location = new System.Drawing.Point(25, 12);
+            this.kryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel3.Location = new System.Drawing.Point(29, 12);
             this.kryptonLabel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(54, 22);
-            this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Monotype Corsiva", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.kryptonLabel3.Size = new System.Drawing.Size(61, 23);
+            this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Cooper Black", 12F);
             this.kryptonLabel3.TabIndex = 106;
             this.kryptonLabel3.Values.Text = "PO.ID";
             // 
@@ -208,7 +208,7 @@
             this.btnimage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnimage.Image = ((System.Drawing.Image)(resources.GetObject("btnimage.Image")));
             this.btnimage.IsCircle = true;
-            this.btnimage.Location = new System.Drawing.Point(483, 10);
+            this.btnimage.Location = new System.Drawing.Point(482, 8);
             this.btnimage.Margin = new System.Windows.Forms.Padding(4);
             this.btnimage.Name = "btnimage";
             this.btnimage.Size = new System.Drawing.Size(31, 31);
@@ -220,7 +220,7 @@
             // 
             // txtsupply
             // 
-            this.txtsupply.Location = new System.Drawing.Point(95, 45);
+            this.txtsupply.Location = new System.Drawing.Point(95, 44);
             this.txtsupply.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtsupply.Name = "txtsupply";
             this.txtsupply.ReadOnly = true;
@@ -240,7 +240,7 @@
             // 
             // txtRemark
             // 
-            this.txtRemark.Location = new System.Drawing.Point(95, 82);
+            this.txtRemark.Location = new System.Drawing.Point(95, 81);
             this.txtRemark.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.ReadOnly = true;
@@ -264,6 +264,8 @@
             this.dgData.AllowUserToDeleteRows = false;
             this.dgData.AllowUserToResizeColumns = false;
             this.dgData.AllowUserToResizeRows = false;
+            this.dgData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.vID,
@@ -326,7 +328,6 @@
             this.vID.MinimumWidth = 6;
             this.vID.Name = "vID";
             this.vID.ReadOnly = true;
-            this.vID.Width = 125;
             // 
             // vName
             // 
@@ -334,7 +335,6 @@
             this.vName.MinimumWidth = 6;
             this.vName.Name = "vName";
             this.vName.ReadOnly = true;
-            this.vName.Width = 125;
             // 
             // vStock
             // 
@@ -380,7 +380,7 @@
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(95, 9);
+            this.txtid.Location = new System.Drawing.Point(95, 8);
             this.txtid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(385, 31);
@@ -434,18 +434,18 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicControl;
-            this.kryptonLabel1.Location = new System.Drawing.Point(14, 119);
+            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel1.Location = new System.Drawing.Point(5, 121);
             this.kryptonLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(72, 26);
-            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel1.Size = new System.Drawing.Size(85, 23);
+            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Cooper Black", 12F);
             this.kryptonLabel1.TabIndex = 111;
             this.kryptonLabel1.Values.Text = "Inputter";
             // 
             // txtInputter
             // 
-            this.txtInputter.Location = new System.Drawing.Point(95, 119);
+            this.txtInputter.Location = new System.Drawing.Point(95, 117);
             this.txtInputter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtInputter.Name = "txtInputter";
             this.txtInputter.ReadOnly = true;
@@ -489,7 +489,7 @@
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel1.Controls.Add(this.btnCommit);
             this.groupPanel1.Controls.Add(this.btnNew);
-            this.groupPanel1.Controls.Add(this.btnEdit);
+            this.groupPanel1.Controls.Add(this.btnReject);
             this.groupPanel1.IsShadowEnabled = true;
             this.groupPanel1.Location = new System.Drawing.Point(585, 6);
             this.groupPanel1.Name = "groupPanel1";
@@ -545,7 +545,7 @@
             this.btnNew.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnNew.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNew.Font = new System.Drawing.Font("Consolas", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImeMode = System.Windows.Forms.ImeMode.AlphaFull;
@@ -557,23 +557,22 @@
             this.btnNew.Text = "Clear";
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // btnEdit
+            // btnReject
             // 
-            this.btnEdit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnEdit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.Font = new System.Drawing.Font("Consolas", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-            this.btnEdit.HoverImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.HoverImage")));
-            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
-            this.btnEdit.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf;
-            this.btnEdit.Location = new System.Drawing.Point(13, 116);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(111, 44);
-            this.btnEdit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnEdit.TabIndex = 14;
-            this.btnEdit.Text = "Reject";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnReject.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnReject.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnReject.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReject.Font = new System.Drawing.Font("Consolas", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReject.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
+            this.btnReject.Image = ((System.Drawing.Image)(resources.GetObject("btnReject.Image")));
+            this.btnReject.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf;
+            this.btnReject.Location = new System.Drawing.Point(13, 116);
+            this.btnReject.Name = "btnReject";
+            this.btnReject.Size = new System.Drawing.Size(111, 44);
+            this.btnReject.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnReject.TabIndex = 14;
+            this.btnReject.Text = "Reject";
+            this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
             // 
             // FrmAuthPO
             // 
@@ -597,6 +596,12 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StateActive.Header.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.StateActive.Header.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.StateActive.Header.Content.ShortText.Font = new System.Drawing.Font("Cooper Black", 9.75F);
+            this.StateInactive.Header.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.StateInactive.Header.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.StateInactive.Header.Content.ShortText.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Text = "FrmAuthPO";
             this.Load += new System.EventHandler(this.FrmAuthPO_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgSearch)).EndInit();
@@ -633,7 +638,7 @@
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
         private DevComponents.DotNetBar.ButtonX btnCommit;
         private DevComponents.DotNetBar.ButtonX btnNew;
-        private DevComponents.DotNetBar.ButtonX btnEdit;
+        private DevComponents.DotNetBar.ButtonX btnReject;
         private System.Windows.Forms.DataGridViewTextBoxColumn vID;
         private System.Windows.Forms.DataGridViewTextBoxColumn vName;
         private System.Windows.Forms.DataGridViewTextBoxColumn vStock;

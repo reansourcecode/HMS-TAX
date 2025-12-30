@@ -12,7 +12,7 @@ namespace HMS_TAX.UserDefined
         public static string vlastVersion = "0.0.0";
         public static string vNewVersion = "0.0.1";
         public static string vReleaseDate = "22-22-2026";
-        public static string vTittle = "Hospital management system (TAX) V" + vNewVersion;
+        public static string vTittle = "Hospital Management System v" + vNewVersion;
 
         ////------------------Message Tittle
 
@@ -28,7 +28,8 @@ namespace HMS_TAX.UserDefined
         public static string vMsg_Report = "Report no data displayed , Please try again !";
         public static string vMsg_Draft = "Draft has been removed successfully !";
         public static string vMsg_AreSure = "Are you sure to delete this record ??";
-        public static string vMsg_PO = "Purchase order completed, waititng to authorize !";
+        public static string vMsg_PO = "Purchase order has been completed, waititng to authorize !";
+        public static string vMsg_ST = "Stock transfer has been completed, waititng to authorize !";
 
         public static string vMsg_Auth = "Transaction has been authorized !";
         public static string vMsg_Reject = "Transaction has been rejected !";
@@ -36,7 +37,17 @@ namespace HMS_TAX.UserDefined
         public static string vMsg_user = "Please enter username and password !";
         public static string vMsg_wrong = "Information something when wrong !";
 
+        public static string vMsg_AreMerch = "Are you sure want to merch batch id ??";
+        public static string vMsgNotExits = "Record does not exist ! ";
 
+
+        public static string vMsg_user_inactive = "User has been disabled  !";
+
+
+        /// <summary>
+        ///  POS 
+        public static string pos_flag = "0";
+        /// </summary>
 
         //------------------------ Connection Server -----------------------
         public static SqlConnection Pcon = new SqlConnection();

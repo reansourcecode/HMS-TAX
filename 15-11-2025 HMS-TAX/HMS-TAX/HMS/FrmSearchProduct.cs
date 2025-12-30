@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using ComponentFactory.Krypton.Toolkit;
+using DevComponents.DotNetBar.Controls;
+using HMS_TAX.UserDefined;
+using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using DevComponents.DotNetBar;
-using HMS_TAX.UserDefined;
 
 namespace HMS_TAX.HMS
 {
-    public partial class FrmSearchProduct : Office2007RibbonForm
+    public partial class FrmSearchProduct : KryptonForm
     {
         public FrmSearchProduct()
         {
@@ -32,33 +29,36 @@ namespace HMS_TAX.HMS
             set { PCode = value; }
         }
 
-
         void FormatDataGridview()
         {
             try
             {
-                for (int i = 0; i < dgSearch.Columns.Count; i++)
+                for (int i = 0; i < dgView.Columns.Count; i++)
                 {
-                    dgSearch.Columns[i].ReadOnly = true;
-                    dgSearch.Columns[i].Width = 140;
+                    dgView.Columns[i].ReadOnly = true;
                 }
 
-                dgSearch.Columns["vProID"].Width = 150;
-                dgSearch.Columns["vName"].Width = 150;
-                dgSearch.Columns["vLine"].Width = 150;
-                dgSearch.Columns["vMol"].Width = 150;
-                dgSearch.Columns["vPack"].Width = 150;
+                dgView.Columns["vProID"].Width = 150;
+                dgView.Columns["vName"].Width = 200;
+                dgView.Columns["vLine"].Width = 111;
+                dgView.Columns["vMol"].Width = 111;
+                dgView.Columns["vPack"].Width = 111;
+                dgView.Columns["vStatus"].Width = 77;
+
+                // Retrieved 2025-12-28, License - CC BY-SA 3.0
+
+                this.dgView.Columns["vStatus"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 //txtTypeCode
-                this.dgSearch.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-                dgSearch.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+                this.dgView.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+                dgView.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
 
 
-                this.dgSearch.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Pixel);
-                dgSearch.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+                this.dgView.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Pixel);
+                dgView.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
 
-                this.dgSearch.DefaultCellStyle.Font = new Font("Times New Roman", 16F, FontStyle.Italic, GraphicsUnit.Pixel);
-                this.dgSearch.DefaultCellStyle.ForeColor = Color.Black;
+                this.dgView.DefaultCellStyle.Font = new Font("Times New Roman", 16F, FontStyle.Italic, GraphicsUnit.Pixel);
+                this.dgView.DefaultCellStyle.ForeColor = Color.Black;
             }
             catch { }
         }
@@ -73,13 +73,13 @@ namespace HMS_TAX.HMS
                      variables.PBranchCode,
                      vSearch
                     };
-                dgSearch.Rows.Clear();
+                dgView.Rows.Clear();
                 dblist = sql.proc_getdata("proc_get_sql_search", p);
                 if (dblist.Rows.Count > 0)
                 {
                     for (int i = 0; i < dblist.Rows.Count; i++)
                     {
-                        dgSearch.Rows.Add(
+                        dgView.Rows.Add(
                             dblist.Rows[i]["pro_code"].ToString(),
                             dblist.Rows[i]["pro_name"].ToString(),
                             dblist.Rows[i]["line_name"].ToString(),
@@ -88,7 +88,7 @@ namespace HMS_TAX.HMS
                             dblist.Rows[i]["Active"].ToString()
                         );
 
-                        dgSearch.Visible = true;
+                        dgView.Visible = true;
                     }
                 }
             }
@@ -99,6 +99,7 @@ namespace HMS_TAX.HMS
         {
             try
             {
+                this.Text=variables.vTittle+ " - Search Product";
                 load_view(PStatus, PCode);
                 FormatDataGridview();
             }
@@ -109,7 +110,7 @@ namespace HMS_TAX.HMS
         {
             try
             {
-                PCode = dgSearch[0, e.RowIndex].Value.ToString();
+                PCode = dgView[0, e.RowIndex].Value.ToString();
             }
             catch { }
         }
@@ -119,7 +120,7 @@ namespace HMS_TAX.HMS
         {
             try
             {
-                PCode = dgSearch[0, e.RowIndex].Value.ToString();
+                PCode = dgView[0, e.RowIndex].Value.ToString();
                 this.Close();
             }
             catch { }

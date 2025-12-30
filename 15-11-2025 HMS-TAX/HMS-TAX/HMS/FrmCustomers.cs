@@ -1,26 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevComponents.DotNetBar;
+﻿using ComponentFactory.Krypton.Toolkit;
 using HMS_TAX.UserDefined;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
 
 namespace HMS_TAX.HMS
 {
-    public partial class FrmCustomers : Office2007RibbonForm
+    public partial class FrmCustomers : KryptonForm
     {
         public FrmCustomers()
         {
             InitializeComponent();
         }
-
         sqlexcute sql = new sqlexcute();
-        string vcode = string.Empty;
 
+        public string PStatus = string.Empty;
+        public string P_Code = string.Empty;
+        public string Status
+        {
+            get { return PStatus; }
+            set { PStatus = value; }
+        }
+
+        public string Code
+        {
+            get { return P_Code; }
+            set { P_Code = value; }
+        }
         void btn_save_record()
         {
             btnNew.Enabled = true;
@@ -123,13 +130,14 @@ namespace HMS_TAX.HMS
                     txtPhone.Text = dt.Rows[0]["phone"].ToString();
                     txtRemark.Text = dt.Rows[0]["Remark"].ToString();
                     txtAddress.Text = dt.Rows[0]["Address"].ToString();
-
                     cboActive.SelectedValue = dt.Rows[0]["active"].ToString();
+
+
                     btn_edit_record();
                 }
                 else
                 {
-                    MessageBox.Show("Record id does not exist !", variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show(variables.vMsgNotExits, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
             catch { }
@@ -140,7 +148,6 @@ namespace HMS_TAX.HMS
             try
             {
                 this.Text = variables.vTittle;
-
                 sql.Filter_ComboBox(cboActive, "exec pro_get_combo  'Active'", "title", "code");
 
                 btn_save_record();
@@ -197,7 +204,6 @@ namespace HMS_TAX.HMS
                 FRM_SEARCH.Status = "search_customer";
                 FRM_SEARCH.StartPosition = FormStartPosition.CenterParent;
                 FRM_SEARCH.ShowDialog();
-
 
                 if (FRM_SEARCH.Code != string.Empty)
                 {

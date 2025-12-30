@@ -50,6 +50,7 @@ namespace HMS_TAX.HMS
             cboSupply.SelectedValue = "";
 
             this.Code = string.Empty;
+            this.PCode=string.Empty;
 
             DateTime today = DateTime.Today;
             po_date.Value = today;
@@ -164,6 +165,29 @@ namespace HMS_TAX.HMS
             }
         }
 
+        void view_record(string vstatus, string vCode)
+        {
+            try
+            {
+                DataTable dblist = new DataTable();
+                string[] p = {
+                     vstatus,
+                     variables.PBranchCode,
+                     vCode
+                    };
+                dblist = sql.proc_getdata("proc_get_sql_pos", p);
+                if (dblist.Rows.Count > 0)
+                {
+                     cboSupply.SelectedValue = dblist.Rows[0]["sup_id"].ToString();
+                     po_date.Value = DateTime.Parse(dblist.Rows[0]["po_date"].ToString()) ;
+                    txtRemark.Text = dblist.Rows[0]["remark"].ToString();
+
+                }
+            }
+            catch { }
+        }
+
+
         void load_view(string vstatus, string vSearch)
         {
             try
@@ -188,11 +212,6 @@ namespace HMS_TAX.HMS
                             dblist.Rows[i]["status"].ToString()
                         );
                     }
-                }
-                else
-                {
-
-
                 }
             }
             catch { }
@@ -231,7 +250,14 @@ namespace HMS_TAX.HMS
             {
                 if (IsOk() == true)
                 {
-                    Register("I", "", variables.vMsg_insert);
+                    if (PCode == string.Empty)
+                    {
+                        Register("I", "", variables.vMsg_insert);
+                    }
+                    else
+                    {
+                        Register("E", PCode, variables.vMsg_update);
+                    }
                 }
             }
             catch { }
@@ -266,7 +292,6 @@ namespace HMS_TAX.HMS
                 PO.StartPosition = FormStartPosition.CenterParent;
                 PO.PCode = PCode;
                 PO.ShowDialog();
-
                 if (PO.Code != string.Empty)
                 {
                      
@@ -282,12 +307,7 @@ namespace HMS_TAX.HMS
 
         private void dgData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                PCode = dgData[0, e.RowIndex].Value.ToString();
-                txtID.Text = PCode;
-            }
-            catch { }
+
         }
 
         private void dgData_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -296,6 +316,8 @@ namespace HMS_TAX.HMS
             {
                 PCode = dgData[0, e.RowIndex].Value.ToString();
                 txtID.Text = PCode;
+                view_record("view_po", PCode);
+
             }
             catch { }
         }

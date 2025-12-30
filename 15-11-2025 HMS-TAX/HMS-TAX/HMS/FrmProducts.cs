@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ComponentFactory.Krypton.Toolkit;
+using DevComponents.DotNetBar;
+using HMS_TAX.UserDefined;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,12 +9,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using DevComponents.DotNetBar;
-using HMS_TAX.UserDefined;
 
 namespace HMS_TAX.HMS
 {
-    public partial class FrmProducts : Office2007RibbonForm
+    public partial class FrmProducts : KryptonForm
     {
         public FrmProducts()
         {
@@ -311,6 +312,11 @@ namespace HMS_TAX.HMS
                 this.Show();
             }
             catch { }
+        }
+
+        private void labelX8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

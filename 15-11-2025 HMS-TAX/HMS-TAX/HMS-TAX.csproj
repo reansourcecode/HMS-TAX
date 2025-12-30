@@ -195,11 +195,29 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function\FrmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\FrmChangePassword.Designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\FrmChangeProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\FrmChangeProfile.Designer.cs">
+      <DependentUpon>FrmChangeProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Function\FrmEditExpired.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Function\FrmEditExpired.Designer.cs">
       <DependentUpon>FrmEditExpired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\FrmExchangeRate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\FrmExchangeRate.Designer.cs">
+      <DependentUpon>FrmExchangeRate.cs</DependentUpon>
     </Compile>
     <Compile Include="Function\FrmPOSBatchID.cs">
       <SubType>Form</SubType>
@@ -207,17 +225,35 @@
     <Compile Include="Function\FrmPOSBatchID.Designer.cs">
       <DependentUpon>FrmPOSBatchID.cs</DependentUpon>
     </Compile>
-    <Compile Include="Function\FrmRepots.cs">
+    <Compile Include="Function\FrmReports.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Function\FrmRepots.Designer.cs">
-      <DependentUpon>FrmRepots.cs</DependentUpon>
+    <Compile Include="Function\FrmReports.Designer.cs">
+      <DependentUpon>FrmReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\FrmReturnPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\FrmReturnPOS.Designer.cs">
+      <DependentUpon>FrmReturnPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\FrmStockTransfers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\FrmStockTransfers.Designer.cs">
+      <DependentUpon>FrmStockTransfers.cs</DependentUpon>
     </Compile>
     <Compile Include="HMS\FrmCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HMS\FrmCustomers.Designer.cs">
       <DependentUpon>FrmCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\FrmLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS\FrmLine.Designer.cs">
+      <DependentUpon>FrmLine.cs</DependentUpon>
     </Compile>
     <Compile Include="HMS\FrmPOS.cs">
       <SubType>Form</SubType>
@@ -243,6 +279,12 @@
     <Compile Include="HMS\FrmPurchaseOrderHistory.Designer.cs">
       <DependentUpon>FrmPurchaseOrderHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="HMS\FrmRegisterUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS\FrmRegisterUsers.Designer.cs">
+      <DependentUpon>FrmRegisterUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="HMS\FrmSearchCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,11 +297,29 @@
     <Compile Include="HMS\FrmSearchPO.Designer.cs">
       <DependentUpon>FrmSearchPO.cs</DependentUpon>
     </Compile>
+    <Compile Include="HMS\FrmSearchPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS\FrmSearchPOS.Designer.cs">
+      <DependentUpon>FrmSearchPOS.cs</DependentUpon>
+    </Compile>
     <Compile Include="HMS\FrmSearchProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HMS\FrmSearchProduct.Designer.cs">
       <DependentUpon>FrmSearchProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\FrmSupply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS\FrmSupply.Designer.cs">
+      <DependentUpon>FrmSupply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\FrmUserAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS\FrmUserAccounts.Designer.cs">
+      <DependentUpon>FrmUserAccounts.cs</DependentUpon>
     </Compile>
     <Compile Include="HMS_Auth\FrmAuthPO.cs">
       <SubType>Form</SubType>
@@ -267,11 +327,23 @@
     <Compile Include="HMS_Auth\FrmAuthPO.Designer.cs">
       <DependentUpon>FrmAuthPO.cs</DependentUpon>
     </Compile>
-    <Compile Include="HMS_Auth\FrmAuthPurchaseOrder.cs">
+    <Compile Include="HMS_Auth\FrmAuthPOS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HMS_Auth\FrmAuthPurchaseOrder.Designer.cs">
-      <DependentUpon>FrmAuthPurchaseOrder.cs</DependentUpon>
+    <Compile Include="HMS_Auth\FrmAuthPOS.Designer.cs">
+      <DependentUpon>FrmAuthPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMS_Auth\FrmAuthStockTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS_Auth\FrmAuthStockTransfer.Designer.cs">
+      <DependentUpon>FrmAuthStockTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\FrmAboutMe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FrmAboutMe.Designer.cs">
+      <DependentUpon>FrmAboutMe.cs</DependentUpon>
     </Compile>
     <Compile Include="Setting\FrmPermission.cs">
       <SubType>Form</SubType>
@@ -287,25 +359,45 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserDefined\modules.cs" />
     <Compile Include="UserDefined\parasql.cs" />
     <Compile Include="UserDefined\print_invoice.cs" />
     <Compile Include="UserDefined\sqlexcute.cs" />
     <Compile Include="UserDefined\variables.cs" />
+    <Compile Include="UserDefined\xmls.cs" />
     <Compile Include="UserDefined\xml_security.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Function\FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\FrmChangeProfile.resx">
+      <DependentUpon>FrmChangeProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Function\FrmEditExpired.resx">
       <DependentUpon>FrmEditExpired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\FrmExchangeRate.resx">
+      <DependentUpon>FrmExchangeRate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Function\FrmPOSBatchID.resx">
       <DependentUpon>FrmPOSBatchID.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Function\FrmRepots.resx">
-      <DependentUpon>FrmRepots.cs</DependentUpon>
+    <EmbeddedResource Include="Function\FrmReports.resx">
+      <DependentUpon>FrmReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\FrmReturnPOS.resx">
+      <DependentUpon>FrmReturnPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\FrmStockTransfers.resx">
+      <DependentUpon>FrmStockTransfers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HMS\FrmCustomers.resx">
       <DependentUpon>FrmCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMS\FrmLine.resx">
+      <DependentUpon>FrmLine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HMS\FrmPOS.resx">
       <DependentUpon>FrmPOS.cs</DependentUpon>
@@ -319,22 +411,40 @@
     <EmbeddedResource Include="HMS\FrmPurchaseOrderHistory.resx">
       <DependentUpon>FrmPurchaseOrderHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HMS\FrmRegisterUsers.resx">
+      <DependentUpon>FrmRegisterUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HMS\FrmSearchCustomer.resx">
       <DependentUpon>FrmSearchCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HMS\FrmSearchPO.resx">
       <DependentUpon>FrmSearchPO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HMS\FrmSearchPOS.resx">
+      <DependentUpon>FrmSearchPOS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HMS\FrmSearchProduct.resx">
       <DependentUpon>FrmSearchProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMS\FrmSupply.resx">
+      <DependentUpon>FrmSupply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMS\FrmUserAccounts.resx">
+      <DependentUpon>FrmUserAccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HMS_Auth\FrmAuthPO.resx">
       <DependentUpon>FrmAuthPO.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HMS_Auth\FrmAuthPurchaseOrder.resx">
-      <DependentUpon>FrmAuthPurchaseOrder.cs</DependentUpon>
+    <EmbeddedResource Include="HMS_Auth\FrmAuthPOS.resx">
+      <DependentUpon>FrmAuthPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMS_Auth\FrmAuthStockTransfer.resx">
+      <DependentUpon>FrmAuthStockTransfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Setting\FrmAboutMe.resx">
+      <DependentUpon>FrmAboutMe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setting\FrmPermission.resx">
       <DependentUpon>FrmPermission.cs</DependentUpon>
     </EmbeddedResource>

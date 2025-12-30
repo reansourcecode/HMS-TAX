@@ -226,12 +226,34 @@ namespace HMS_TAX.HMS
                         return false;
                     }
 
-                    DateTime.TryParseExact(dgData["vExp", i].Value.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out vExpired);
-                    if (vExpired <= vToday)
+                    //DateTime.TryParseExact(dgData["vExp", i].Value.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out vExpired);
+                    //if (vExpired <= vToday)
+                    //{
+                    //    dgData.Rows[i].Selected = true;
+                    //    MessageBox.Show("Please verify your purchase expired date  !", variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    return false;
+                    //}
+
+                    int vqty_in = 0;
+                    string vSysDocNum = dgData["vSysDocNum", i].Value.ToString().Trim();
+                    string vProID = dgData["vProID", i].Value.ToString().Trim();
+                    string vStock = dgData["vStock", i].Value.ToString().Trim();
+                    string vName = dgData["vName", i].Value.ToString().Trim();
+
+                    int.TryParse(dgData["vqty", i].Value.ToString(), out vqty_in);
+
+                    for (int ch01 = 0; ch01 < dgData.Rows.Count; ch01++)
                     {
-                        dgData.Rows[i].Selected = true;
-                        MessageBox.Show("Please verify your purchase expired date  !", variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
+                        string ch_pro_id = dgData["vProID", ch01].Value.ToString().Trim();
+
+                        if (vProID == ch_pro_id && i != ch01)
+                        {
+                            MessageBox.Show("duplicate items => : " + vName + "  in list", variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            dgData.Rows[i].Selected = true;
+                            return false;
+
+                        }
+
                     }
                 }
                 

@@ -29,13 +29,14 @@ namespace HMS_TAX
                 txtUserName.Text = "reanit";
                 txtPassword.Text = "love";
 
-                // convert to dynamic 
-                variables.PConnectionString = "Data Source=JOINCODER-SV;Initial Catalog=HMS_TAX;User ID=sa;Password=love;";
-                variables.Pcon.ConnectionString = variables.PConnectionString;
-                variables.Pcon.Open();
-                variables.Pcon.Close();
+                //// convert to dynamic 
+                //variables.PConnectionString = "Data Source=JOINCODER-SV;Initial Catalog=HMS_TAX;User ID=sa;Password=love;";
+                //variables.Pcon.ConnectionString = variables.PConnectionString;
+                //variables.Pcon.Open();
+                //variables.Pcon.Close();
+                //txtUserName.Focus();
 
-                txtUserName.Focus();
+                
 
             }
             catch { }
@@ -76,25 +77,30 @@ namespace HMS_TAX
 
                     if (dt.Rows.Count > 0)
                     {
-                        bool vpwd = xml_security.ComparePasswords(dt.Rows[0]["user_pwd"].ToString(), txtPassword.Text.ToString());
-                        if (vpwd == true)
+                        if(dt.Rows[0]["active"].ToString() != "Yes")
                         {
-
-                            variables.PBranchCode = dt.Rows[0]["branchcode"].ToString();
-                            variables.PInputter = dt.Rows[0]["user_login"].ToString();
-                            variables.PProfileID = dt.Rows[0]["profile_id"].ToString();
-                            variables.PProfileTitle = dt.Rows[0]["pro_name"].ToString();
-                            variables.PUser_ID = dt.Rows[0]["user_id"].ToString();
-
-
-                            FrmMain Main = new FrmMain();
-                            this.Hide();
-                            Main.ShowDialog();
+                            MessageBox.Show(variables.vMsg_user_inactive, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
-                            MessageBox.Show(variables.vMsg_user_Invalid, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            bool vpwd = xml_security.ComparePasswords(dt.Rows[0]["user_pwd"].ToString(), txtPassword.Text.ToString());
+                            if (vpwd == true)
+                            {
+                                variables.PBranchCode = dt.Rows[0]["branchcode"].ToString();
+                                variables.PInputter = dt.Rows[0]["user_login"].ToString();
+                                variables.PProfileID = dt.Rows[0]["profile_id"].ToString();
+                                variables.PProfileTitle = dt.Rows[0]["pro_name"].ToString();
+                                variables.PUser_ID = dt.Rows[0]["user_id"].ToString();
+                                FrmMain Main = new FrmMain();
+                                this.Hide();
+                                Main.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show(variables.vMsg_user_Invalid, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
+                            
                     }
                     else
                     {

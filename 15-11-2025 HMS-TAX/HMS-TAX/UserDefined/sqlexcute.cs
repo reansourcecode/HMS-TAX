@@ -100,10 +100,10 @@ namespace HMS_TAX.UserDefined
             {
                 _Cmd.Parameters.Add(tmp.paraname, tmp.sqltype).Value = tmp.values;
 
-                //str = str + "N'" + tmp.values + "',";
+                str = str + "N'" + tmp.values + "',";
 
             }
-            //str = str.Substring(0, str.Length - 1);
+            str = vProcedure +" "+str.Substring(0, str.Length - 1);
 
             connection();
             _Cmd.Connection = variables.Pcon;
@@ -254,7 +254,7 @@ namespace HMS_TAX.UserDefined
             Cbo.DataSource = dt_getdata(SQL);
             Cbo.ValueMember = ID;
             Cbo.DisplayMember = Val;
-            Cbo.AutoCompleteMode = AutoCompleteMode.Suggest;
+            Cbo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             Cbo.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
@@ -263,7 +263,7 @@ namespace HMS_TAX.UserDefined
             Cbo.DataSource = dt_getdata(SQL);
             Cbo.ValueMember = ID;
             Cbo.DisplayMember = Val;
-            Cbo.AutoCompleteMode = AutoCompleteMode.Suggest;
+            Cbo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             Cbo.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 

@@ -30,13 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPOS));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this._styleform = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this._top = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this._gTop = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.lblRunning = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
+            this.lbltotal = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
+            this.lblRate = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.lblMsg = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
-            this.lbltotal = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonWrapLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
-            this.txtexchange = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbocustomer = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -44,7 +48,7 @@
             this.cboproduct = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.dgPos = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.vNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vSysdoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vSysDocNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vpro_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vsto_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -55,20 +59,21 @@
             this.vbatch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._MenuFunction = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._POS_add_batch = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this._POS_merch_batch = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this._POS_delete = new System.Windows.Forms.ToolStripMenuItem();
             this._menu_short = new System.Windows.Forms.MenuStrip();
             this.Function = new System.Windows.Forms.ToolStripMenuItem();
-            this._Customer = new System.Windows.Forms.ToolStripMenuItem();
-            this._SearchProduct = new System.Windows.Forms.ToolStripMenuItem();
-            this._AddNew = new System.Windows.Forms.ToolStripMenuItem();
-            this._POS = new System.Windows.Forms.ToolStripMenuItem();
-            this._draft = new System.Windows.Forms.ToolStripMenuItem();
-            this._invoice = new System.Windows.Forms.ToolStripMenuItem();
             this._clear = new System.Windows.Forms.ToolStripMenuItem();
+            this._Customer = new System.Windows.Forms.ToolStripMenuItem();
+            this._AddNew = new System.Windows.Forms.ToolStripMenuItem();
+            this._draft = new System.Windows.Forms.ToolStripMenuItem();
+            this._POS = new System.Windows.Forms.ToolStripMenuItem();
             this._exit = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this._top)).BeginInit();
-            this._top.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._gTop)).BeginInit();
+            this._gTop.SuspendLayout();
+            this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbocustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboproduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPos)).BeginInit();
@@ -96,73 +101,145 @@
             this._styleform.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this._styleform.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             // 
-            // _top
+            // _gTop
             // 
-            this._top.Controls.Add(this.kryptonLabel5);
-            this._top.Controls.Add(this.lblMsg);
-            this._top.Controls.Add(this.lbltotal);
-            this._top.Controls.Add(this.kryptonWrapLabel1);
-            this._top.Controls.Add(this.txtexchange);
-            this._top.Controls.Add(this.kryptonLabel2);
-            this._top.Controls.Add(this.cbocustomer);
-            this._top.Controls.Add(this.kryptonLabel1);
-            this._top.Controls.Add(this.txtinvoice);
-            this._top.Controls.Add(this.cboproduct);
-            this._top.Dock = System.Windows.Forms.DockStyle.Top;
-            this._top.Location = new System.Drawing.Point(0, 0);
-            this._top.Margin = new System.Windows.Forms.Padding(4);
-            this._top.Name = "_top";
-            this._top.Palette = this._styleform;
-            this._top.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this._top.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridHeaderColumnSheet;
-            this._top.Size = new System.Drawing.Size(1175, 145);
-            this._top.TabIndex = 1;
+            this._gTop.Controls.Add(this.groupPanel1);
+            this._gTop.Controls.Add(this.kryptonLabel5);
+            this._gTop.Controls.Add(this.kryptonWrapLabel1);
+            this._gTop.Controls.Add(this.kryptonLabel2);
+            this._gTop.Controls.Add(this.cbocustomer);
+            this._gTop.Controls.Add(this.kryptonLabel1);
+            this._gTop.Controls.Add(this.txtinvoice);
+            this._gTop.Controls.Add(this.cboproduct);
+            this._gTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this._gTop.Location = new System.Drawing.Point(0, 0);
+            this._gTop.Margin = new System.Windows.Forms.Padding(4);
+            this._gTop.Name = "_gTop";
+            this._gTop.Palette = this._styleform;
+            this._gTop.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this._gTop.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridHeaderColumnSheet;
+            this._gTop.Size = new System.Drawing.Size(1145, 137);
+            this._gTop.TabIndex = 1;
             // 
-            // kryptonLabel5
+            // groupPanel1
             // 
-            this.kryptonLabel5.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel5.Location = new System.Drawing.Point(31, 106);
-            this.kryptonLabel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(67, 21);
-            this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel5.TabIndex = 97;
-            this.kryptonLabel5.Values.Text = "Product";
+            this.groupPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.lblRunning);
+            this.groupPanel1.Controls.Add(this.lbltotal);
+            this.groupPanel1.Controls.Add(this.lblRate);
+            this.groupPanel1.Location = new System.Drawing.Point(931, 4);
+            this.groupPanel1.Name = "groupPanel1";
+            this.groupPanel1.Size = new System.Drawing.Size(211, 117);
             // 
-            // lblMsg
             // 
-            this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblMsg.Image = ((System.Drawing.Image)(resources.GetObject("lblMsg.Image")));
-            this.lblMsg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMsg.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.lblMsg.Location = new System.Drawing.Point(516, 69);
-            this.lblMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(72, 20);
-            this.lblMsg.StateCommon.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAliasGridFit;
-            this.lblMsg.StateCommon.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.lblMsg.StateDisabled.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAliasGridFit;
-            this.lblMsg.StateDisabled.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblMsg.StateNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMsg.StateNormal.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblMsg.Text = "      Msg";
+            // 
+            this.groupPanel1.Style.BackColorGradientAngle = 90;
+            this.groupPanel1.Style.BackColorGradientType = DevComponents.DotNetBar.eGradientType.Radial;
+            this.groupPanel1.Style.BorderBottomWidth = 1;
+            this.groupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel1.Style.BorderLeftWidth = 1;
+            this.groupPanel1.Style.BorderRightWidth = 1;
+            this.groupPanel1.Style.BorderTopWidth = 1;
+            this.groupPanel1.Style.Class = "";
+            this.groupPanel1.Style.CornerDiameter = 4;
+            this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseDown.Class = "";
+            this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseOver.Class = "";
+            this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel1.TabIndex = 101;
+            // 
+            // lblRunning
+            // 
+            this.lblRunning.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRunning.ForeColor = System.Drawing.Color.Red;
+            this.lblRunning.Image = ((System.Drawing.Image)(resources.GetObject("lblRunning.Image")));
+            this.lblRunning.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblRunning.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.lblRunning.Location = new System.Drawing.Point(8, 73);
+            this.lblRunning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRunning.Name = "lblRunning";
+            this.lblRunning.Palette = this._styleform;
+            this.lblRunning.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.lblRunning.Size = new System.Drawing.Size(49, 17);
+            this.lblRunning.StateCommon.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAliasGridFit;
+            this.lblRunning.StateCommon.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblRunning.StateDisabled.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
+            this.lblRunning.StateDisabled.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblRunning.StateNormal.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRunning.StateNormal.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
+            this.lblRunning.StateNormal.TextColor = System.Drawing.Color.Red;
+            this.lblRunning.Text = "      TI";
             // 
             // lbltotal
             // 
-            this.lbltotal.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.lbltotal.Location = new System.Drawing.Point(941, 105);
-            this.lbltotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lbltotal.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotal.ForeColor = System.Drawing.Color.Red;
+            this.lbltotal.Image = ((System.Drawing.Image)(resources.GetObject("lbltotal.Image")));
+            this.lbltotal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbltotal.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.lbltotal.Location = new System.Drawing.Point(8, 42);
+            this.lbltotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbltotal.Name = "lbltotal";
-            this.lbltotal.Size = new System.Drawing.Size(50, 26);
-            this.lbltotal.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
-            this.lbltotal.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotal.TabIndex = 90;
-            this.lbltotal.Values.Text = "total";
+            this.lbltotal.Palette = this._styleform;
+            this.lbltotal.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.lbltotal.Size = new System.Drawing.Size(95, 17);
+            this.lbltotal.StateCommon.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbltotal.StateDisabled.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAliasGridFit;
+            this.lbltotal.StateDisabled.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lbltotal.StateNormal.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotal.StateNormal.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.SystemDefault;
+            this.lbltotal.StateNormal.TextColor = System.Drawing.Color.Red;
+            this.lbltotal.Text = "      Total =0";
+            this.lbltotal.UseWaitCursor = true;
+            // 
+            // lblRate
+            // 
+            this.lblRate.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRate.ForeColor = System.Drawing.Color.Red;
+            this.lblRate.Image = ((System.Drawing.Image)(resources.GetObject("lblRate.Image")));
+            this.lblRate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblRate.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.lblRate.Location = new System.Drawing.Point(8, 8);
+            this.lblRate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRate.Name = "lblRate";
+            this.lblRate.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Silver;
+            this.lblRate.Size = new System.Drawing.Size(81, 17);
+            this.lblRate.StateCommon.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblRate.StateDisabled.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAliasGridFit;
+            this.lblRate.StateDisabled.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblRate.StateNormal.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRate.StateNormal.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.SystemDefault;
+            this.lblRate.StateNormal.TextColor = System.Drawing.Color.Red;
+            this.lblRate.Text = "      1$ = 4200៛";
+            this.lblRate.UseWaitCursor = true;
+            // 
+            // kryptonLabel5
+            // 
+            this.kryptonLabel5.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel5.Location = new System.Drawing.Point(27, 95);
+            this.kryptonLabel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.kryptonLabel5.Name = "kryptonLabel5";
+            this.kryptonLabel5.Size = new System.Drawing.Size(80, 22);
+            this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel5.StateNormal.Padding = new System.Windows.Forms.Padding(1);
+            this.kryptonLabel5.TabIndex = 97;
+            this.kryptonLabel5.Values.Text = "Product :";
             // 
             // kryptonWrapLabel1
             // 
-            this.kryptonWrapLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.kryptonWrapLabel1.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonWrapLabel1.ForeColor = System.Drawing.Color.Green;
             this.kryptonWrapLabel1.Image = ((System.Drawing.Image)(resources.GetObject("kryptonWrapLabel1.Image")));
             this.kryptonWrapLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -170,54 +247,35 @@
             this.kryptonWrapLabel1.Location = new System.Drawing.Point(14, 4);
             this.kryptonWrapLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.kryptonWrapLabel1.Name = "kryptonWrapLabel1";
-            this.kryptonWrapLabel1.Size = new System.Drawing.Size(531, 15);
+            this.kryptonWrapLabel1.Size = new System.Drawing.Size(539, 13);
             this.kryptonWrapLabel1.StateCommon.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAliasGridFit;
             this.kryptonWrapLabel1.StateCommon.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.kryptonWrapLabel1.StateDisabled.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
             this.kryptonWrapLabel1.StateDisabled.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.kryptonWrapLabel1.StateNormal.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonWrapLabel1.StateNormal.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
             this.kryptonWrapLabel1.StateNormal.TextColor = System.Drawing.Color.Green;
-            this.kryptonWrapLabel1.Text = "        F1 : Clear , F2 : Customer ,F3 : Add product into list , F7 : Commit  =>F" +
-    "5 : Draft , F6 : Invoice ";
-            // 
-            // txtexchange
-            // 
-            this.txtexchange.Enabled = false;
-            this.txtexchange.Location = new System.Drawing.Point(501, 28);
-            this.txtexchange.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtexchange.Name = "txtexchange";
-            this.txtexchange.ReadOnly = true;
-            this.txtexchange.Size = new System.Drawing.Size(387, 27);
-            this.txtexchange.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtexchange.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtexchange.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtexchange.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtexchange.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtexchange.StateCommon.Border.Rounding = 10;
-            this.txtexchange.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
-            this.txtexchange.StateCommon.Content.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtexchange.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtexchange.TabIndex = 86;
+            this.kryptonWrapLabel1.Text = "        F1 : Clear , F2 : Customer ,F3 : Add product  , F5 : Draft List , F6 : In" +
+    "voice List ,F7 : Commit";
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel2.Location = new System.Drawing.Point(17, 68);
+            this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel2.Location = new System.Drawing.Point(13, 63);
             this.kryptonLabel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(81, 21);
-            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel2.Size = new System.Drawing.Size(93, 22);
+            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel2.StateNormal.Padding = new System.Windows.Forms.Padding(1);
             this.kryptonLabel2.TabIndex = 85;
-            this.kryptonLabel2.Values.Text = "Customer";
+            this.kryptonLabel2.Values.Text = "Customer :";
             // 
             // cbocustomer
             // 
             this.cbocustomer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbocustomer.DropDownWidth = 263;
             this.cbocustomer.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.cbocustomer.Location = new System.Drawing.Point(108, 63);
+            this.cbocustomer.Location = new System.Drawing.Point(108, 60);
             this.cbocustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbocustomer.MaxDropDownItems = 15;
             this.cbocustomer.Name = "cbocustomer";
@@ -265,18 +323,19 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel1.Location = new System.Drawing.Point(35, 33);
+            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.Custom2;
+            this.kryptonLabel1.Location = new System.Drawing.Point(32, 32);
             this.kryptonLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(63, 21);
-            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel1.Size = new System.Drawing.Size(74, 22);
+            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel1.StateNormal.Padding = new System.Windows.Forms.Padding(1);
             this.kryptonLabel1.TabIndex = 83;
-            this.kryptonLabel1.Values.Text = "Invoice";
+            this.kryptonLabel1.Values.Text = "Invoice : ";
             // 
             // txtinvoice
             // 
-            this.txtinvoice.Location = new System.Drawing.Point(108, 28);
+            this.txtinvoice.Location = new System.Drawing.Point(108, 30);
             this.txtinvoice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtinvoice.Name = "txtinvoice";
             this.txtinvoice.Size = new System.Drawing.Size(387, 27);
@@ -297,11 +356,11 @@
             // 
             this.cboproduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboproduct.DropDownWidth = 263;
-            this.cboproduct.Location = new System.Drawing.Point(108, 100);
+            this.cboproduct.Location = new System.Drawing.Point(108, 92);
             this.cboproduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboproduct.MaxDropDownItems = 15;
             this.cboproduct.Name = "cboproduct";
-            this.cboproduct.Size = new System.Drawing.Size(780, 29);
+            this.cboproduct.Size = new System.Drawing.Size(387, 29);
             this.cboproduct.StateActive.ComboBox.Border.ColorAngle = 10F;
             this.cboproduct.StateActive.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -355,10 +414,14 @@
             this.dgPos.AllowUserToDeleteRows = false;
             this.dgPos.AllowUserToResizeColumns = false;
             this.dgPos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgPos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgPos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgPos.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgPos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.vNum,
-            this.vSysdoc,
+            this.vSysDocNum,
             this.vName,
             this.vpro_id,
             this.vsto_id,
@@ -375,15 +438,18 @@
             this.dgPos.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.dgPos.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.dgPos.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.dgPos.Location = new System.Drawing.Point(0, 145);
+            this.dgPos.Location = new System.Drawing.Point(0, 137);
             this.dgPos.Margin = new System.Windows.Forms.Padding(4);
             this.dgPos.MultiSelect = false;
             this.dgPos.Name = "dgPos";
             this.dgPos.RowHeadersVisible = false;
             this.dgPos.RowHeadersWidth = 51;
             this.dgPos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Navy;
+            this.dgPos.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgPos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPos.Size = new System.Drawing.Size(1175, 572);
+            this.dgPos.Size = new System.Drawing.Size(1145, 548);
             this.dgPos.StateCommon.Background.Color1 = System.Drawing.Color.MistyRose;
             this.dgPos.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.dgPos.StateCommon.Background.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Control;
@@ -396,10 +462,11 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.dgPos.StateCommon.HeaderColumn.Border.Rounding = 5;
             this.dgPos.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.DarkBlue;
-            this.dgPos.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.dgPos.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgPos.StateCommon.HeaderRow.Back.ImageAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
             this.dgPos.StateCommon.HeaderRow.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.TopMiddle;
-            this.dgPos.StateCommon.HeaderRow.Content.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgPos.StateCommon.HeaderRow.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.dgPos.StateCommon.HeaderRow.Content.Font = new System.Drawing.Font("Cooper Black", 11.25F);
             this.dgPos.StateNormal.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -413,28 +480,31 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.dgPos.StateNormal.HeaderRow.Border.ImageAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
             this.dgPos.StateNormal.HeaderRow.Border.Rounding = 5;
+            this.dgPos.StateSelected.HeaderRow.Content.Color1 = System.Drawing.Color.Navy;
             this.dgPos.TabIndex = 113;
             this.dgPos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPos_CellClick);
             this.dgPos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPos_CellClick);
+            this.dgPos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPos_CellEndEdit);
+            this.dgPos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgPos_KeyDown);
             // 
             // vNum
             // 
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vNum.DefaultCellStyle = dataGridViewCellStyle8;
             this.vNum.HeaderText = "No";
             this.vNum.MinimumWidth = 6;
             this.vNum.Name = "vNum";
-            this.vNum.Width = 125;
             // 
-            // vSysdoc
+            // vSysDocNum
             // 
-            this.vSysdoc.HeaderText = "sysdocnum";
-            this.vSysdoc.Name = "vSysdoc";
+            this.vSysDocNum.HeaderText = "sysdocnum";
+            this.vSysDocNum.Name = "vSysDocNum";
             // 
             // vName
             // 
             this.vName.HeaderText = "Items";
             this.vName.MinimumWidth = 6;
             this.vName.Name = "vName";
-            this.vName.Width = 125;
             // 
             // vpro_id
             // 
@@ -470,7 +540,7 @@
             // 
             // vbatch_id
             // 
-            this.vbatch_id.HeaderText = "Batch";
+            this.vbatch_id.HeaderText = "BatchID";
             this.vbatch_id.Name = "vbatch_id";
             // 
             // _MenuFunction
@@ -478,144 +548,189 @@
             this._MenuFunction.Font = new System.Drawing.Font("Segoe UI", 9F);
             this._MenuFunction.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._POS_add_batch,
+            this.toolStripSeparator1,
+            this._POS_merch_batch,
             this.toolStripSeparator2,
             this._POS_delete});
             this._MenuFunction.Name = "_MenuFunction";
-            this._MenuFunction.Size = new System.Drawing.Size(170, 54);
+            this._MenuFunction.Size = new System.Drawing.Size(193, 82);
             this._MenuFunction.Opening += new System.ComponentModel.CancelEventHandler(this._MenuFunction_Opening);
             // 
             // _POS_add_batch
             // 
+            this._POS_add_batch.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._POS_add_batch.Image = ((System.Drawing.Image)(resources.GetObject("_POS_add_batch.Image")));
             this._POS_add_batch.Name = "_POS_add_batch";
             this._POS_add_batch.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this._POS_add_batch.Size = new System.Drawing.Size(169, 22);
+            this._POS_add_batch.Size = new System.Drawing.Size(192, 22);
             this._POS_add_batch.Text = "Add Batch";
             this._POS_add_batch.Click += new System.EventHandler(this._POS_add_batch_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(189, 6);
+            // 
+            // _POS_merch_batch
+            // 
+            this._POS_merch_batch.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._POS_merch_batch.Image = ((System.Drawing.Image)(resources.GetObject("_POS_merch_batch.Image")));
+            this._POS_merch_batch.Name = "_POS_merch_batch";
+            this._POS_merch_batch.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+            this._POS_merch_batch.Size = new System.Drawing.Size(192, 22);
+            this._POS_merch_batch.Text = "Merch Batch";
+            this._POS_merch_batch.Click += new System.EventHandler(this._POS_merch_batch_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(189, 6);
             // 
             // _POS_delete
             // 
+            this._POS_delete.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._POS_delete.Image = ((System.Drawing.Image)(resources.GetObject("_POS_delete.Image")));
             this._POS_delete.Name = "_POS_delete";
             this._POS_delete.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this._POS_delete.Size = new System.Drawing.Size(169, 22);
+            this._POS_delete.Size = new System.Drawing.Size(192, 22);
             this._POS_delete.Text = "Delete";
             this._POS_delete.Click += new System.EventHandler(this._POS_delete_Click);
             // 
             // _menu_short
             // 
+            this._menu_short.AllowMerge = false;
             this._menu_short.Font = new System.Drawing.Font("Segoe UI", 9F);
             this._menu_short.ImageScalingSize = new System.Drawing.Size(24, 24);
             this._menu_short.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Function});
-            this._menu_short.Location = new System.Drawing.Point(0, 145);
+            this._menu_short.Location = new System.Drawing.Point(0, 137);
             this._menu_short.Name = "_menu_short";
-            this._menu_short.Size = new System.Drawing.Size(1175, 24);
+            this._menu_short.Size = new System.Drawing.Size(1145, 32);
             this._menu_short.TabIndex = 114;
-            this._menu_short.Text = "menuStrip1";
             this._menu_short.Visible = false;
             // 
             // Function
             // 
             this.Function.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._Customer,
-            this._SearchProduct,
-            this._AddNew,
-            this._POS,
-            this._draft,
-            this._invoice,
             this._clear,
+            this._Customer,
+            this._AddNew,
+            this._draft,
+            this._POS,
             this._exit});
+            this.Function.Image = ((System.Drawing.Image)(resources.GetObject("Function.Image")));
             this.Function.Name = "Function";
-            this.Function.Size = new System.Drawing.Size(66, 20);
-            this.Function.Text = "Function";
-            // 
-            // _Customer
-            // 
-            this._Customer.Name = "_Customer";
-            this._Customer.Size = new System.Drawing.Size(173, 22);
-            this._Customer.Text = "Search Customer";
-            // 
-            // _SearchProduct
-            // 
-            this._SearchProduct.Name = "_SearchProduct";
-            this._SearchProduct.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this._SearchProduct.Size = new System.Drawing.Size(173, 22);
-            this._SearchProduct.Text = "Search Product";
-            // 
-            // _AddNew
-            // 
-            this._AddNew.Name = "_AddNew";
-            this._AddNew.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this._AddNew.Size = new System.Drawing.Size(173, 22);
-            this._AddNew.Text = "Add Product";
-            this._AddNew.Click += new System.EventHandler(this._AddNew_Click);
-            // 
-            // _POS
-            // 
-            this._POS.Name = "_POS";
-            this._POS.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this._POS.Size = new System.Drawing.Size(173, 22);
-            this._POS.Text = "POS";
-            this._POS.Click += new System.EventHandler(this._POS_Click);
-            // 
-            // _draft
-            // 
-            this._draft.Name = "_draft";
-            this._draft.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this._draft.Size = new System.Drawing.Size(173, 22);
-            this._draft.Text = "Draft";
-            // 
-            // _invoice
-            // 
-            this._invoice.Name = "_invoice";
-            this._invoice.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this._invoice.Size = new System.Drawing.Size(173, 22);
-            this._invoice.Text = "Invoice";
+            this.Function.Size = new System.Drawing.Size(46, 28);
+            this.Function.Text = ".";
+            this.Function.Click += new System.EventHandler(this.Function_Click);
             // 
             // _clear
             // 
+            this._clear.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._clear.Name = "_clear";
-            this._clear.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this._clear.Size = new System.Drawing.Size(173, 22);
+            this._clear.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this._clear.Size = new System.Drawing.Size(191, 22);
             this._clear.Text = "Clear";
+            // 
+            // _Customer
+            // 
+            this._Customer.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Customer.Name = "_Customer";
+            this._Customer.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this._Customer.Size = new System.Drawing.Size(191, 22);
+            this._Customer.Text = "Search Customer";
+            this._Customer.Click += new System.EventHandler(this._Customer_Click);
+            // 
+            // _AddNew
+            // 
+            this._AddNew.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._AddNew.Name = "_AddNew";
+            this._AddNew.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this._AddNew.Size = new System.Drawing.Size(191, 22);
+            this._AddNew.Text = "Add Product";
+            this._AddNew.Click += new System.EventHandler(this._AddNew_Click);
+            // 
+            // _draft
+            // 
+            this._draft.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._draft.Name = "_draft";
+            this._draft.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this._draft.Size = new System.Drawing.Size(191, 22);
+            this._draft.Text = "Draft";
+            this._draft.Click += new System.EventHandler(this._draft_Click);
+            // 
+            // _POS
+            // 
+            this._POS.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._POS.Name = "_POS";
+            this._POS.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this._POS.Size = new System.Drawing.Size(191, 22);
+            this._POS.Text = "POS";
+            this._POS.Click += new System.EventHandler(this._POS_Click);
             // 
             // _exit
             // 
+            this._exit.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._exit.Name = "_exit";
             this._exit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this._exit.Size = new System.Drawing.Size(173, 22);
+            this._exit.Size = new System.Drawing.Size(191, 22);
             this._exit.Text = "Exit";
+            this._exit.Click += new System.EventHandler(this._exit_Click);
             // 
             // FrmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 717);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ClientSize = new System.Drawing.Size(1145, 685);
             this.Controls.Add(this._menu_short);
             this.Controls.Add(this.dgPos);
-            this.Controls.Add(this._top);
+            this.Controls.Add(this._gTop);
             this.Font = new System.Drawing.Font("Consolas", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPOS";
             this.Palette = this._styleform;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StateActive.Border.Color1 = System.Drawing.SystemColors.ControlLight;
+            this.StateActive.Border.Color2 = System.Drawing.SystemColors.ControlLight;
+            this.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.StateActive.Header.Back.Color1 = System.Drawing.SystemColors.ControlLight;
+            this.StateActive.Header.Back.Color2 = System.Drawing.SystemColors.ControlLight;
+            this.StateActive.Header.Border.Color1 = System.Drawing.SystemColors.ControlLight;
+            this.StateActive.Header.Border.Color2 = System.Drawing.SystemColors.ControlLight;
+            this.StateActive.Header.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.StateActive.Header.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.StateActive.Header.Content.ShortText.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.StateCommon.Back.Color2 = System.Drawing.SystemColors.ControlLight;
+            this.StateCommon.Header.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.StateCommon.Header.Content.ShortText.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StateInactive.Back.Color1 = System.Drawing.SystemColors.ControlLight;
+            this.StateInactive.Back.Color2 = System.Drawing.SystemColors.ControlLight;
+            this.StateInactive.Header.Back.Color1 = System.Drawing.SystemColors.ControlLight;
+            this.StateInactive.Header.Back.Color2 = System.Drawing.SystemColors.ControlLight;
+            this.StateInactive.Header.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.StateInactive.Header.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.StateInactive.Header.Content.ShortText.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Text = "FrmPOS";
             this.Load += new System.EventHandler(this.FrmPOS_Load);
             this.Shown += new System.EventHandler(this.frmPOS_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this._top)).EndInit();
-            this._top.ResumeLayout(false);
-            this._top.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._gTop)).EndInit();
+            this._gTop.ResumeLayout(false);
+            this._gTop.PerformLayout();
+            this.groupPanel1.ResumeLayout(false);
+            this.groupPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbocustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboproduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPos)).EndInit();
@@ -630,12 +745,9 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette _styleform;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel _top;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel _gTop;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel lblMsg;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbltotal;
         private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel kryptonWrapLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtexchange;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbocustomer;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
@@ -645,15 +757,23 @@
         private System.Windows.Forms.MenuStrip _menu_short;
         private System.Windows.Forms.ToolStripMenuItem Function;
         private System.Windows.Forms.ToolStripMenuItem _Customer;
-        private System.Windows.Forms.ToolStripMenuItem _SearchProduct;
         private System.Windows.Forms.ToolStripMenuItem _AddNew;
         private System.Windows.Forms.ToolStripMenuItem _POS;
         private System.Windows.Forms.ToolStripMenuItem _draft;
-        private System.Windows.Forms.ToolStripMenuItem _invoice;
         private System.Windows.Forms.ToolStripMenuItem _clear;
         private System.Windows.Forms.ToolStripMenuItem _exit;
+        private System.Windows.Forms.ContextMenuStrip _MenuFunction;
+        private System.Windows.Forms.ToolStripMenuItem _POS_add_batch;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem _POS_delete;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel lbltotal;
+        private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel lblRate;
+        private System.Windows.Forms.ToolStripMenuItem _POS_merch_batch;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel lblRunning;
         private System.Windows.Forms.DataGridViewTextBoxColumn vNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vSysdoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vSysDocNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn vName;
         private System.Windows.Forms.DataGridViewTextBoxColumn vpro_id;
         private System.Windows.Forms.DataGridViewComboBoxColumn vsto_id;
@@ -662,9 +782,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vdiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn vamount;
         private System.Windows.Forms.DataGridViewTextBoxColumn vbatch_id;
-        private System.Windows.Forms.ContextMenuStrip _MenuFunction;
-        private System.Windows.Forms.ToolStripMenuItem _POS_add_batch;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem _POS_delete;
     }
 }
