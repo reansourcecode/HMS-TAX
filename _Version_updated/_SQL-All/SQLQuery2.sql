@@ -1,0 +1,1 @@
+update a set a.BranchCode='0201' from tblReports as a
