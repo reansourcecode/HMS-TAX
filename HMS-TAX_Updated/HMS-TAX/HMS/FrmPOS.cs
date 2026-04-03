@@ -75,7 +75,7 @@ namespace HMS_TAX.HMS
             cbocustomer.Text = "";
 
             lblRate.Text = "       " + variables.p_exchangerateinfo;
-            lbltotal.Text = "        Total : " + String.Format("{0:0.00}", g_totalAmount).ToString();
+            lbltotal.Text = "        Total : " + String.Format("{0:0.##}", g_totalAmount);
             dgPos.Rows.Clear();
             _POS_add_batch.Enabled = false;
             _POS_delete.Enabled = false;
@@ -249,6 +249,8 @@ namespace HMS_TAX.HMS
                     dgPos.Rows.Clear();
                     this.SysDoc_Code=string.Empty;
                     cbocustomer.SelectedValue = dt.Rows[0]["cus_id"].ToString();
+                    txtinvoice.Text = dt.Rows[0]["rcp_num"].ToString();
+                    this.RCP_Code= dt.Rows[0]["rcp_num"].ToString();
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
@@ -536,17 +538,21 @@ namespace HMS_TAX.HMS
                     {
                         try
                         {
-                            DataTable dt = new DataTable();
-                            string[] p = {
+                            try
+                            {
+                                DataTable dt = new DataTable();
+                                string[] p = {
                                     "pos_generate",
                                     variables.PBranchCode,
                                     dts.Rows[0]["trancode"].ToString()
                                 };
-                            dt = sql.proc_getdata("proc_generate_pos", p);
+                                dt = sql.proc_getdata("proc_generate_pos", p);
+                            }
+                            catch { }
 
                             if (MessageBox.Show("Do you want to print reciept ", variables.vTittle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
-                                print.PrintExcelFile("una_print", dts.Rows[0]["trancode"].ToString(),variables.pos_flag);
+                                 print.PrintExcelFile("una_print", dts.Rows[0]["trancode"].ToString(),variables.pos_flag);
                             }
                         }
                         catch { }
@@ -635,6 +641,11 @@ namespace HMS_TAX.HMS
                 if (P_Batch_id == string.Empty)
                 {
                     _POS_merch_batch.Enabled = false;
+                }
+
+                if (dgPos.Rows.Count <= 1)
+                {
+                    _POS_delete.Enabled = false;
                 }
 
             }
@@ -782,15 +793,28 @@ namespace HMS_TAX.HMS
 
         private void dgPos_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete)
+            if (e.KeyCode == Keys.Delete && dgPos.Rows.Count>1)
             {
-
                 DialogResult dialogResult = MessageBox.Show(variables.vMsg_AreSure, variables.vTittle, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (dialogResult == DialogResult.Yes)
                 {
                     delete_pos_sysdoc();
                 }
             }
+        }
+
+        private void txtinvoice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                vDraftID=txtinvoice.Text.Trim();
+                draft_list("pos_una_list", vDraftID);
+            }
+        }
+
+        private void _clear_Click(object sender, EventArgs e)
+        {
+            cleartext();
         }
     }
 }

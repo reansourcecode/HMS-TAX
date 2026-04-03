@@ -124,8 +124,8 @@ namespace HMS_TAX.HMS
                     txtName.Text = dt.Rows[0]["pro_name"].ToString();
                     txtRemark.Text = dt.Rows[0]["Remark"].ToString();
 
-                    txtCost.Text = string.Format("{0:0,0.00}", dt.Rows[0]["cost"]);
-                    txtUnitPrice.Text = string.Format("{0:0,0.00}", dt.Rows[0]["unitprice"]);
+                    txtCost.Text = String.Format("{0:0.##}", dt.Rows[0]["cost"]);
+                    txtUnitPrice.Text = String.Format("{0:0.##}", dt.Rows[0]["unitprice"]);
                     txtDiscount.Text = dt.Rows[0]["discount"].ToString();
 
                     cboLine.SelectedValue = dt.Rows[0]["line_id"].ToString();

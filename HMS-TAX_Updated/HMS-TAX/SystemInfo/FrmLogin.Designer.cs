@@ -88,6 +88,7 @@
             this.txtUserName.WatermarkImage = ((System.Drawing.Image)(resources.GetObject("txtUserName.WatermarkImage")));
             this.txtUserName.WatermarkImageAlignment = System.Drawing.ContentAlignment.MiddleRight;
             this.txtUserName.WatermarkText = "User name";
+            this.txtUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName_KeyPress);
             // 
             // txtPassword
             // 
@@ -111,6 +112,7 @@
             this.txtPassword.WatermarkImage = ((System.Drawing.Image)(resources.GetObject("txtPassword.WatermarkImage")));
             this.txtPassword.WatermarkImageAlignment = System.Drawing.ContentAlignment.MiddleRight;
             this.txtPassword.WatermarkText = "Password";
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // btnCommit
             // 
@@ -218,7 +220,6 @@
             this.Name = "FrmLogin";
             this.Palette = this._styleform;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.StateActive.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));

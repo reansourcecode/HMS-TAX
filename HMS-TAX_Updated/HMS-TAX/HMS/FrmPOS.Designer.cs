@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPOS));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this._styleform = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this._gTop = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -129,9 +129,10 @@
             this.groupPanel1.Controls.Add(this.lblRunning);
             this.groupPanel1.Controls.Add(this.lbltotal);
             this.groupPanel1.Controls.Add(this.lblRate);
+            this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.Location = new System.Drawing.Point(931, 4);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(211, 117);
+            this.groupPanel1.Size = new System.Drawing.Size(211, 125);
             // 
             // 
             // 
@@ -142,7 +143,6 @@
             this.groupPanel1.Style.BorderLeftWidth = 1;
             this.groupPanel1.Style.BorderRightWidth = 1;
             this.groupPanel1.Style.BorderTopWidth = 1;
-            this.groupPanel1.Style.Class = "";
             this.groupPanel1.Style.CornerDiameter = 4;
             this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
@@ -151,12 +151,10 @@
             // 
             // 
             // 
-            this.groupPanel1.StyleMouseDown.Class = "";
             this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 101;
             // 
@@ -247,7 +245,7 @@
             this.kryptonWrapLabel1.Location = new System.Drawing.Point(14, 4);
             this.kryptonWrapLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.kryptonWrapLabel1.Name = "kryptonWrapLabel1";
-            this.kryptonWrapLabel1.Size = new System.Drawing.Size(539, 13);
+            this.kryptonWrapLabel1.Size = new System.Drawing.Size(451, 13);
             this.kryptonWrapLabel1.StateCommon.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAliasGridFit;
             this.kryptonWrapLabel1.StateCommon.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.kryptonWrapLabel1.StateDisabled.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
@@ -255,8 +253,8 @@
             this.kryptonWrapLabel1.StateNormal.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonWrapLabel1.StateNormal.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
             this.kryptonWrapLabel1.StateNormal.TextColor = System.Drawing.Color.Green;
-            this.kryptonWrapLabel1.Text = "        F1 : Clear , F2 : Customer ,F3 : Add product  , F5 : Draft List , F6 : In" +
-    "voice List ,F7 : Commit";
+            this.kryptonWrapLabel1.Text = "        F1 : Clear , F2 : Customer ,F3 : Add product  , F5 : Invoice List ,F7 : C" +
+    "ommit";
             // 
             // kryptonLabel2
             // 
@@ -351,6 +349,7 @@
             this.txtinvoice.StateCommon.Content.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtinvoice.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.txtinvoice.TabIndex = 82;
+            this.txtinvoice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtinvoice_KeyPress);
             // 
             // cboproduct
             // 
@@ -414,8 +413,8 @@
             this.dgPos.AllowUserToDeleteRows = false;
             this.dgPos.AllowUserToResizeColumns = false;
             this.dgPos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgPos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgPos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgPos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgPos.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgPos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -445,9 +444,9 @@
             this.dgPos.RowHeadersVisible = false;
             this.dgPos.RowHeadersWidth = 51;
             this.dgPos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Navy;
-            this.dgPos.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Navy;
+            this.dgPos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgPos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgPos.Size = new System.Drawing.Size(1145, 548);
             this.dgPos.StateCommon.Background.Color1 = System.Drawing.Color.MistyRose;
@@ -489,8 +488,8 @@
             // 
             // vNum
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vNum.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vNum.DefaultCellStyle = dataGridViewCellStyle2;
             this.vNum.HeaderText = "No";
             this.vNum.MinimumWidth = 6;
             this.vNum.Name = "vNum";
@@ -631,6 +630,7 @@
             this._clear.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this._clear.Size = new System.Drawing.Size(191, 22);
             this._clear.Text = "Clear";
+            this._clear.Click += new System.EventHandler(this._clear_Click);
             // 
             // _Customer
             // 

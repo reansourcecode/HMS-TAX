@@ -6,16 +6,17 @@ using System.Data.SqlClient;
 
 namespace HMS_TAX.UserDefined
 {
-    class variables
+
+    public static class variables
     {
-
-        public static string vlastVersion = "0.0.0";
-        public static string vNewVersion = "0.0.1";
+        #region Version Info
+        public static string vlastVersion = "0.0.0.1";
+        public static string vNewVersion = "0.0.0.2";
         public static string vReleaseDate = "22-22-2026";
-        public static string vTittle = "Hospital Management System v" + vNewVersion;
+        public static string vTittle = "Hospital Management System V " + vNewVersion;
+        #endregion
 
-        ////------------------Message Tittle
-
+        #region Message Titles
         public static string vMsg_user_register = "User account has been created successfully !";
         public static string vMsg_insert = "Data has been inserted successfully !";
         public static string vMsg_draft = "Record inserted to draft successfully !";
@@ -30,34 +31,29 @@ namespace HMS_TAX.UserDefined
         public static string vMsg_AreSure = "Are you sure to delete this record ??";
         public static string vMsg_PO = "Purchase order has been completed, waititng to authorize !";
         public static string vMsg_ST = "Stock transfer has been completed, waititng to authorize !";
-
         public static string vMsg_Auth = "Transaction has been authorized !";
         public static string vMsg_Reject = "Transaction has been rejected !";
-
         public static string vMsg_user = "Please enter username and password !";
         public static string vMsg_wrong = "Information something when wrong !";
-
         public static string vMsg_AreMerch = "Are you sure want to merch batch id ??";
         public static string vMsgNotExits = "Record does not exist ! ";
-
-
         public static string vMsg_user_inactive = "User has been disabled  !";
+        #endregion
 
-
-        /// <summary>
-        ///  POS 
+        #region POS Info
         public static string pos_flag = "0";
-        /// </summary>
+        #endregion
 
-        //------------------------ Connection Server -----------------------
+        #region Connection Server
         public static SqlConnection Pcon = new SqlConnection();
         public static string PServerName = "";
         public static string PDatabaseName = "";
         public static string PUserName = "";
         public static string PPassword = "";
         public static string PConnectionString = "";
+        #endregion
 
-        //--------------public Necessary variables------------------
+        #region User Variables
         public static string PUser_ID = "";
         public static string PInputter = "";
         public static string PIdCard = "";
@@ -65,19 +61,20 @@ namespace HMS_TAX.UserDefined
         public static string PSubBranchCode = "";
         public static string PProfileID = "";
         public static string PProfileTitle = "";
+        #endregion
 
-        //--------------public from tittle------------------
+        #region Form Titles
         public static string vFrm_Draft = "Form view draft V." + vNewVersion;
         public static string vFrm_V_Issue = "Form view issue in progress V." + vNewVersion;
+        #endregion
 
-
-        //--------------public variables Fix------------------
+        #region Fixed Values
         public static string vDraft_Fix = "V_DRAFT";
         public static string vIssue_Fix = "V_ISSUE";
         public static string vGuidelines_Fix = "\\Document\\guidelines.pdf";
+        #endregion
 
-
-
+        #region Currency & Exchange
         public static string p_exchangerateinfo = string.Empty;
         public static string p_bestcurrencycode = string.Empty;
         public static string p_secondcurrencycode = string.Empty;
@@ -87,5 +84,23 @@ namespace HMS_TAX.UserDefined
         public static Double p_exchange_rate = 0;
         public static float p_beasecurrency = 0;
         public static float p_secondcurrecy = 0;
+        #endregion
+
+        #region Helper Methods
+        public static void ResetUser()
+        {
+            PUser_ID = PInputter = PIdCard = PBranchCode = PSubBranchCode = PProfileID = PProfileTitle = string.Empty;
+        }
+
+        public static void ResetCurrency()
+        {
+            p_exchangerateinfo = p_bestcurrencycode = p_secondcurrencycode =
+            p_bestcurrencysymbol = p_secondcurrencysymbol = string.Empty;
+            p_exchange = false;
+            p_exchange_rate = 0;
+            p_beasecurrency = p_secondcurrecy = 0;
+        }
+        #endregion
     }
+
 }

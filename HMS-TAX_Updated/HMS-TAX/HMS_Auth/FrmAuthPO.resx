@@ -183,7 +183,7 @@
   <data name="btnCommit.HoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qwAAAKsB1E2SqwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOKSURBVEhL7ZTv
+        qgAAAKoBBgpwTwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOKSURBVEhL7ZTv
         bxN1HMfrgz3zofrAxBASI4+I0XZl1FmL19+9tmvBrut+EDCosaQzsFhhQCoM6DQ1aEU2RhiiOFe6sYBx
         yYwSNZEYYjAhJpR2K+3W+329rrOUXsn3S7qw5u7Luv0DvJ7d58fr/c03d6dQPEWhUJw28i+dMrOb0HpD
         OFVCPd+cmkhtmeP+2zoH/9Gk4V+tGXhdm4XTugU4hRE/rcwOm5i9UQtb/dzGwQE8H1Uo4DNyGwL/emIP
@@ -205,7 +205,7 @@
   <data name="btnCommit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJWSURBVEhL3ZVP
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJWSURBVEhL3ZVP
         iM1RFMfPO/fNSP6llA1LIWIrGxtsSBYsKJI0Rf40CHn3/NymsbC2sBBRFnp2FpM39/zeSzNJ09MkMUJS
         svYn1AwZnfvuPL/fmXkzv+z41K3X/Z5/995zfg/g/6bZ02XY7kG2dzClMWT6ikwfke0oMt2A2tkF2qUw
         pm53IdMrZJrssH7CoF2l/eZmEkrIdBmZfrUC2Sfo7VGo29Wh4oZbCN6uhZpbo10LgT7pjxWOm5SOSEJt

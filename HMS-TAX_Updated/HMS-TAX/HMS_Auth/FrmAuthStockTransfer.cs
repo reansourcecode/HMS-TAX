@@ -81,36 +81,50 @@ namespace HMS_TAX.HMS_Auth
         {
             try
             {
-                DataTable record = new DataTable();
-                string[] p = {
-                     vstatus,
-                     variables.PBranchCode,
-                     vSearch
-                    };
+                string[] p =
+                {
+                    vstatus,
+                    variables.PBranchCode,
+                    vSearch
+                };
+
+                DataTable record = sql.proc_getdata("proc_get_sql_pos", p);
                 dgData.Rows.Clear();
                 dgView.Rows.Clear();
-                record = sql.proc_getdata("proc_get_sql_pos", p);
-                if (record.Rows.Count > 0)
+
+                if (record != null && record.Rows.Count > 0)
                 {
                     dg_action.Enabled = true;
-                    ST_CODE=String.Empty;
+                    ST_CODE = string.Empty;
+                    dgData.SuspendLayout(); // performance improvement
 
                     for (int i = 0; i < record.Rows.Count; i++)
                     {
+                        DataRow row = record.Rows[i];
                         dgData.Rows.Add(
-                            (i + 1).ToString(),
-                            record.Rows[i]["ts_id"].ToString(),
-                            record.Rows[i]["inputter"].ToString(),
-                            record.Rows[i]["create_at"].ToString()
+                            i + 1,
+                            row["ts_id"]?.ToString(),
+                            row["inputter"]?.ToString(),
+                            Convert.ToDateTime(row["create_at"]).ToString("dd/MM/yyyy HH:mm")
                         );
                     }
+
+                    dgData.ResumeLayout();
                 }
                 else
                 {
                     dg_action.Enabled = false;
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error loading records : " + ex.Message,
+                    variables.vTittle,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
         void list_details(string vstatus, string vCode)
         {

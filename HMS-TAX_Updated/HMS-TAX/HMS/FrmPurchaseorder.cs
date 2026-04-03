@@ -1,16 +1,13 @@
-﻿using System;
+﻿using ComponentFactory.Krypton.Toolkit;
+using HMS_TAX.Function;
+using HMS_TAX.UserDefined;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevComponents.DotNetBar;
-using HMS_TAX.UserDefined;
-using ComponentFactory.Krypton.Toolkit;
-using HMS_TAX.Function;
 using System.Globalization;
+using System.Windows.Forms;
 
 namespace HMS_TAX.HMS
 {
@@ -136,7 +133,7 @@ namespace HMS_TAX.HMS
 
                         T_Amount = T_Amount + TotalAmount + OtherTotalAmount;
                     }
-                    lbltotal.Text = "Total : " + String.Format("{0:0.00}", T_Amount).ToString();
+                    lbltotal.Text = "Total : " + String.Format("{0:0.##}", T_Amount).ToString();
                 }
             }
             catch { }
@@ -158,7 +155,7 @@ namespace HMS_TAX.HMS
                 dgData.Columns["vProID"].Width = 150;
                 dgData.Columns["vName"].Width = 150;
                 dgData.Columns["vCost"].Width = 88;
-                dgData.Columns["vOtherCost"].Width = 88;
+                dgData.Columns["vOtherCost"].Width = 100;
                 dgData.Columns["vQty"].Width = 88;
                 dgData.Columns["vDiscount"].Width = 88;
                 dgData.Columns["vStock"].Width = 111;
@@ -207,8 +204,6 @@ namespace HMS_TAX.HMS
                 }
 
                 double vqty = 0;
-
-                DateTime vExpired;
                 DateTime vToday;
 
                 DateTime.TryParseExact(DateTime.Today.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out vToday);
@@ -379,7 +374,6 @@ namespace HMS_TAX.HMS
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        
                         dgData.Rows.Add((i+1).ToString(),
                                  dt.Rows[i]["sysdocnum"].ToString(),
                                  dt.Rows[i]["pro_code"].ToString(),
@@ -617,7 +611,6 @@ namespace HMS_TAX.HMS
                 double vdiscount = 0;
                 vsysdoc_num = dgData["vSysDocNum", e.RowIndex].Value.ToString();
                 vstockid = dgData["vStock", e.RowIndex].Value.ToString();
-
 
                 double.TryParse(dgData["vCost", e.RowIndex].Value.ToString(), out vcost);
                 double.TryParse(dgData["vOtherCost", e.RowIndex].Value.ToString(), out vother_cost);

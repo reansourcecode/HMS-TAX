@@ -201,6 +201,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accounting\FrmAccountPayable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\FrmAccountPayable.Designer.cs">
+      <DependentUpon>FrmAccountPayable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Function\FrmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,12 @@
     </Compile>
     <Compile Include="Function\FrmExchangeRate.Designer.cs">
       <DependentUpon>FrmExchangeRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\FrmMakePaymentAP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\FrmMakePaymentAP.Designer.cs">
+      <DependentUpon>FrmMakePaymentAP.cs</DependentUpon>
     </Compile>
     <Compile Include="Function\FrmPOSBatchID.cs">
       <SubType>Form</SubType>
@@ -261,6 +273,12 @@
     <Compile Include="HMS\FrmLine.Designer.cs">
       <DependentUpon>FrmLine.cs</DependentUpon>
     </Compile>
+    <Compile Include="HMS\FrmPaymentVoucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS\FrmPaymentVoucher.Designer.cs">
+      <DependentUpon>FrmPaymentVoucher.cs</DependentUpon>
+    </Compile>
     <Compile Include="HMS\FrmPOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,28 +309,52 @@
     <Compile Include="HMS\FrmRegisterUsers.Designer.cs">
       <DependentUpon>FrmRegisterUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="HMS\FrmSearchCustomer.cs">
+    <Compile Include="HMS_Auth\FrmAuthAccountPayable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HMS\FrmSearchCustomer.Designer.cs">
+    <Compile Include="HMS_Auth\FrmAuthAccountPayable.Designer.cs">
+      <DependentUpon>FrmAuthAccountPayable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMS_Search\FrmSearchAccountPaid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS_Search\FrmSearchAccountPaid.Designer.cs">
+      <DependentUpon>FrmSearchAccountPaid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMS_Search\FrmSearchCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS_Search\FrmSearchCustomer.Designer.cs">
       <DependentUpon>FrmSearchCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="HMS\FrmSearchPO.cs">
+    <Compile Include="HMS_Search\FrmSearchAccountPayable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HMS\FrmSearchPO.Designer.cs">
+    <Compile Include="HMS_Search\FrmSearchAccountPayable.Designer.cs">
+      <DependentUpon>FrmSearchAccountPayable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMS_Search\FrmSearchPaymentVoucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS_Search\FrmSearchPaymentVoucher.Designer.cs">
+      <DependentUpon>FrmSearchPaymentVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMS_Search\FrmSearchPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS_Search\FrmSearchPO.Designer.cs">
       <DependentUpon>FrmSearchPO.cs</DependentUpon>
     </Compile>
-    <Compile Include="HMS\FrmSearchPOS.cs">
+    <Compile Include="HMS_Search\FrmSearchPOS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HMS\FrmSearchPOS.Designer.cs">
+    <Compile Include="HMS_Search\FrmSearchPOS.Designer.cs">
       <DependentUpon>FrmSearchPOS.cs</DependentUpon>
     </Compile>
-    <Compile Include="HMS\FrmSearchProduct.cs">
+    <Compile Include="HMS_Search\FrmSearchProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HMS\FrmSearchProduct.Designer.cs">
+    <Compile Include="HMS_Search\FrmSearchProduct.Designer.cs">
       <DependentUpon>FrmSearchProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="HMS\FrmSupply.cs">
@@ -326,6 +368,12 @@
     </Compile>
     <Compile Include="HMS\FrmUserAccounts.Designer.cs">
       <DependentUpon>FrmUserAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMS_Auth\FrmAuthPaymentVoucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HMS_Auth\FrmAuthPaymentVoucher.Designer.cs">
+      <DependentUpon>FrmAuthPaymentVoucher.cs</DependentUpon>
     </Compile>
     <Compile Include="HMS_Auth\FrmAuthPO.cs">
       <SubType>Form</SubType>
@@ -351,11 +399,29 @@
     <Compile Include="Setting\FrmAboutMe.Designer.cs">
       <DependentUpon>FrmAboutMe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Setting\FrmBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FrmBackup.Designer.cs">
+      <DependentUpon>FrmBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Setting\FrmPermission.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Setting\FrmPermission.Designer.cs">
       <DependentUpon>FrmPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\FrmRePrintPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FrmRePrintPOS.Designer.cs">
+      <DependentUpon>FrmRePrintPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\FrmUpdateVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FrmUpdateVersion.Designer.cs">
+      <DependentUpon>FrmUpdateVersion.cs</DependentUpon>
     </Compile>
     <Compile Include="SystemInfo\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -365,7 +431,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserDefined\FormatGrids.cs" />
+    <Compile Include="UserDefined\InputValidator.cs" />
     <Compile Include="UserDefined\modules.cs" />
+    <Compile Include="UserDefined\MoneyConverter.cs" />
     <Compile Include="UserDefined\parasql.cs" />
     <Compile Include="UserDefined\print_invoice.cs" />
     <Compile Include="UserDefined\sqlexcute.cs" />
@@ -374,6 +443,9 @@
     <Compile Include="UserDefined\xml_security.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\FrmAccountPayable.resx">
+      <DependentUpon>FrmAccountPayable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Function\FrmChangePassword.resx">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
@@ -386,6 +458,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Function\FrmExchangeRate.resx">
       <DependentUpon>FrmExchangeRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\FrmMakePaymentAP.resx">
+      <DependentUpon>FrmMakePaymentAP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Function\FrmPOSBatchID.resx">
       <DependentUpon>FrmPOSBatchID.cs</DependentUpon>
@@ -405,6 +480,9 @@
     <EmbeddedResource Include="HMS\FrmLine.resx">
       <DependentUpon>FrmLine.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HMS\FrmPaymentVoucher.resx">
+      <DependentUpon>FrmPaymentVoucher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HMS\FrmPOS.resx">
       <DependentUpon>FrmPOS.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,16 +498,28 @@
     <EmbeddedResource Include="HMS\FrmRegisterUsers.resx">
       <DependentUpon>FrmRegisterUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HMS\FrmSearchCustomer.resx">
+    <EmbeddedResource Include="HMS_Auth\FrmAuthAccountPayable.resx">
+      <DependentUpon>FrmAuthAccountPayable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMS_Search\FrmSearchAccountPaid.resx">
+      <DependentUpon>FrmSearchAccountPaid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMS_Search\FrmSearchCustomer.resx">
       <DependentUpon>FrmSearchCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HMS\FrmSearchPO.resx">
+    <EmbeddedResource Include="HMS_Search\FrmSearchAccountPayable.resx">
+      <DependentUpon>FrmSearchAccountPayable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMS_Search\FrmSearchPaymentVoucher.resx">
+      <DependentUpon>FrmSearchPaymentVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMS_Search\FrmSearchPO.resx">
       <DependentUpon>FrmSearchPO.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HMS\FrmSearchPOS.resx">
+    <EmbeddedResource Include="HMS_Search\FrmSearchPOS.resx">
       <DependentUpon>FrmSearchPOS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HMS\FrmSearchProduct.resx">
+    <EmbeddedResource Include="HMS_Search\FrmSearchProduct.resx">
       <DependentUpon>FrmSearchProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HMS\FrmSupply.resx">
@@ -437,6 +527,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HMS\FrmUserAccounts.resx">
       <DependentUpon>FrmUserAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMS_Auth\FrmAuthPaymentVoucher.resx">
+      <DependentUpon>FrmAuthPaymentVoucher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HMS_Auth\FrmAuthPO.resx">
       <DependentUpon>FrmAuthPO.cs</DependentUpon>
@@ -451,8 +544,17 @@
     <EmbeddedResource Include="Setting\FrmAboutMe.resx">
       <DependentUpon>FrmAboutMe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setting\FrmBackup.resx">
+      <DependentUpon>FrmBackup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setting\FrmPermission.resx">
       <DependentUpon>FrmPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\FrmRePrintPOS.resx">
+      <DependentUpon>FrmRePrintPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\FrmUpdateVersion.resx">
+      <DependentUpon>FrmUpdateVersion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SystemInfo\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

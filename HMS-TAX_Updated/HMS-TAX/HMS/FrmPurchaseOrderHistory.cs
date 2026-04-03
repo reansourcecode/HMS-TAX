@@ -1,4 +1,8 @@
-﻿using System;
+﻿using ComponentFactory.Krypton.Toolkit;
+using DevComponents.DotNetBar;
+using HMS_TAX.UserDefined;
+using Microsoft.Office.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,9 +10,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using DevComponents.DotNetBar;
-using HMS_TAX.UserDefined;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace HMS_TAX.HMS
 {
@@ -19,6 +20,8 @@ namespace HMS_TAX.HMS
             InitializeComponent();
         }
         sqlexcute sql = new sqlexcute();
+        FormatGrids formatg = new FormatGrids();
+
         string vcode = string.Empty;
         public string PStatus = string.Empty;
         public string PCode = string.Empty;
@@ -72,25 +75,15 @@ namespace HMS_TAX.HMS
         {
             try
             {
-                for (int i = 0; i < dgData.Columns.Count; i++)
-                {
-                    dgData.Columns[i].ReadOnly = true;
-                    dgData.Columns[i].Width = 140;
-                }
+                formatg.FormatGrid(dgData);
+                //---------------------------------
+                // dgData Columns 
+                //---------------------------------
+                formatg.SetColumn(dgData, "vPO_ID", 111, true);
+                formatg.SetColumn(dgData, "vSupply", 133, true);
+                formatg.SetColumn(dgData, "vDate", 99, true);
+                formatg.SetColumn(dgData, "vRemark", 199, true);
 
-                dgData.Columns["vPO_ID"].Width = 133;
-                dgData.Columns["vSupply"].Width = 133;
-                dgData.Columns["vDate"].Width = 99;
-                dgData.Columns["vRemark"].Width = 150;
-
-                //txtTypeCode
-                //this.dgData.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-                //dgData.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
-                //this.dgData.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Pixel);
-                //dgData.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
-
-                this.dgData.DefaultCellStyle.Font = new Font("Times New Roman", 16F, FontStyle.Italic, GraphicsUnit.Pixel);
-                this.dgData.DefaultCellStyle.ForeColor = Color.Black;
             }
             catch { }
         }
@@ -108,37 +101,45 @@ namespace HMS_TAX.HMS
             return true;
         }
 
-
         void Register(string vStatus, string vCode, string vMsg)
         {
             try
             {
-
-                DataTable dt = new DataTable();
-                List<parasql> arr = new List<parasql>();
-                arr.Add(new parasql { paraname = "@vCMD", sqltype = SqlDbType.NVarChar, values = vStatus });
-                arr.Add(new parasql { paraname = "@vpo_id", sqltype = SqlDbType.NVarChar, values = vCode });
-                arr.Add(new parasql { paraname = "@vBranchcode", sqltype = SqlDbType.NVarChar, values = variables.PBranchCode });
-                arr.Add(new parasql { paraname = "@vsup_id", sqltype = SqlDbType.NVarChar, values = cboSupply.SelectedValue.ToString() });
-                arr.Add(new parasql { paraname = "@vpo_date", sqltype = SqlDbType.Date, values = po_date.Value});
-                arr.Add(new parasql { paraname = "@vRemark", sqltype = SqlDbType.NVarChar, values = txtRemark.Text.Trim() });
-                arr.Add(new parasql { paraname = "@vInputter", sqltype = SqlDbType.NVarChar, values = variables.PInputter });
-                dt = sql.Data_Execute("proc_register_po", arr);
-                if (dt.Rows.Count > 0)
+                // Prepare parameters for stored procedure
+                List<parasql> parameters = new List<parasql>
                 {
-                    this.Code = dt.Rows[0]["TRANCODE"].ToString();
+                    new parasql { paraname = "@vCMD", sqltype = SqlDbType.NVarChar, values = vStatus ?? string.Empty },
+                    new parasql { paraname = "@vpo_id", sqltype = SqlDbType.NVarChar, values = vCode ?? string.Empty },
+                    new parasql { paraname = "@vBranchcode", sqltype = SqlDbType.NVarChar, values = variables.PBranchCode ?? string.Empty },
+                    new parasql { paraname = "@vsup_id", sqltype = SqlDbType.NVarChar, values = cboSupply.SelectedValue?.ToString() ?? string.Empty },
+                    new parasql { paraname = "@vpo_date", sqltype = SqlDbType.Date, values = po_date.Value },
+                    new parasql { paraname = "@vRemark", sqltype = SqlDbType.NVarChar, values = txtRemark.Text.Trim() },
+                    new parasql { paraname = "@vInputter", sqltype = SqlDbType.NVarChar, values = variables.PInputter ?? string.Empty }
+                };
+
+                // Execute stored procedure
+                DataTable dt = sql.Data_Execute("proc_register_po", parameters);
+
+                // Check result
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    this.Code = dt.Rows[0]["TRANCODE"]?.ToString() ?? string.Empty;
                     MessageBox.Show("New PO ID: " + this.Code, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    // Clear inputs and reload view
                     cleartext();
                     load_view("search_po_history", "");
+                }
+                else
+                {
+                    MessageBox.Show("No data returned from the server.", variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error registering PO: " + ex.Message, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
 
         void Delete_PO_History(string vStatus, string vCode)
@@ -217,7 +218,6 @@ namespace HMS_TAX.HMS
             catch { }
         }
 
-
         private void FrmPurchaseOrderHistory_Load(object sender, EventArgs e)
         {
             try
@@ -226,7 +226,6 @@ namespace HMS_TAX.HMS
                 sql.Filter_ComboBox(cboSupply, "exec pro_get_combo_by_branch  'SupplyActive','" + variables.PBranchCode + "'", "title", "code");
                 cleartext();
                 FormatDataGridview();
-
                 load_view("search_po_history","");
             }
             catch { }
@@ -307,7 +306,13 @@ namespace HMS_TAX.HMS
 
         private void dgData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            try
+            {
+                PCode = dgData[0, e.RowIndex].Value.ToString();
+                txtID.Text = PCode;
+                view_record("view_po", PCode);
+            }
+            catch { }
         }
 
         private void dgData_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -26,8 +26,8 @@ namespace HMS_TAX
             try
             {
                 this.Text = variables.vTittle;
-                txtUserName.Text = "reanit";
-                txtPassword.Text = "love";
+                //txtUserName.Text = "reanit";
+                //txtPassword.Text = "love";
 
                 //// convert to dynamic 
                 //variables.PConnectionString = "Data Source=JOINCODER-SV;Initial Catalog=HMS_TAX;User ID=sa;Password=love;";
@@ -35,8 +35,6 @@ namespace HMS_TAX
                 //variables.Pcon.Open();
                 //variables.Pcon.Close();
                 //txtUserName.Focus();
-
-                
 
             }
             catch { }
@@ -48,14 +46,14 @@ namespace HMS_TAX
             if (txtUserName.Text.Trim() == string.Empty)
             {
                 // check user info 
-                MessageBox.Show(variables.vMsg_user, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this,variables.vMsg_user, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtUserName.Focus();
                 return false;
             }
             else if (txtPassword.Text.Trim() == string.Empty)
             {
                 // check user password 
-                MessageBox.Show(variables.vMsg_user, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this,variables.vMsg_user, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
                 return false;
             }
@@ -71,21 +69,29 @@ namespace HMS_TAX
                 {
 
                     DataTable dt = new DataTable();
+                    
                     List<parasql> arr = new List<parasql>();
                     arr.Add(new parasql { paraname = "@vUserlogin", sqltype = SqlDbType.NVarChar, values = txtUserName.Text.Trim() });
                     dt = sql.Data_Execute("proc_user_login", arr);
 
+                   /// ប្រសិនបើមាន user 
                     if (dt.Rows.Count > 0)
                     {
+                        /// មាន user ហើយតើវានៅប្រើប្រាស់បាន ឬមួយគេបិទចោលហើយ 
+                        /// 
                         if(dt.Rows[0]["active"].ToString() != "Yes")
                         {
                             MessageBox.Show(variables.vMsg_user_inactive, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+
                         else
                         {
                             bool vpwd = xml_security.ComparePasswords(dt.Rows[0]["user_pwd"].ToString(), txtPassword.Text.ToString());
+                           // ឆែកមើល password តើត្រឹមត្រូវដែរឬទេ ដោយប្រើប្រាស់ salt 
                             if (vpwd == true)
                             {
+                                /// ប្រសិនបើមាន user + password ត្រឹមត្រូវ ទើបយើងធ្វើការងារបន្ត
+                                /// 
                                 variables.PBranchCode = dt.Rows[0]["branchcode"].ToString();
                                 variables.PInputter = dt.Rows[0]["user_login"].ToString();
                                 variables.PProfileID = dt.Rows[0]["profile_id"].ToString();
@@ -115,6 +121,22 @@ namespace HMS_TAX
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+               btnCommit_Click(sender, e);  
+            }
+        }
+
+        private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                txtPassword.Focus();
+            }
         }
     }
 }

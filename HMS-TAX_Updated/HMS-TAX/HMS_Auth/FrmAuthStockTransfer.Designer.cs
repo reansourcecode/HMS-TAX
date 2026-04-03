@@ -151,7 +151,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtSearch.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtSearch.Location = new System.Drawing.Point(0, 275);
+            this.txtSearch.Location = new System.Drawing.Point(0, 220);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(1005, 29);
@@ -188,7 +188,7 @@
             this.dgView.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.dgView.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.dgView.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.dgView.Location = new System.Drawing.Point(0, 307);
+            this.dgView.Location = new System.Drawing.Point(0, 252);
             this.dgView.Margin = new System.Windows.Forms.Padding(4);
             this.dgView.MultiSelect = false;
             this.dgView.Name = "dgView";
@@ -199,7 +199,7 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Navy;
             this.dgView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgView.Size = new System.Drawing.Size(997, 311);
+            this.dgView.Size = new System.Drawing.Size(997, 366);
             this.dgView.StateCommon.Background.Color1 = System.Drawing.Color.MistyRose;
             this.dgView.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.dgView.StateCommon.Background.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Control;
@@ -333,6 +333,7 @@
             this.dg_action.Controls.Add(this.btnCommit);
             this.dg_action.Controls.Add(this.btnNew);
             this.dg_action.Controls.Add(this.btnReject);
+            this.dg_action.DisabledBackColor = System.Drawing.Color.Empty;
             this.dg_action.IsShadowEnabled = true;
             this.dg_action.Location = new System.Drawing.Point(617, 38);
             this.dg_action.Name = "dg_action";
@@ -347,7 +348,6 @@
             this.dg_action.Style.BorderLeftWidth = 1;
             this.dg_action.Style.BorderRightWidth = 1;
             this.dg_action.Style.BorderTopWidth = 1;
-            this.dg_action.Style.Class = "";
             this.dg_action.Style.CornerDiameter = 4;
             this.dg_action.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.dg_action.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
@@ -356,12 +356,10 @@
             // 
             // 
             // 
-            this.dg_action.StyleMouseDown.Class = "";
             this.dg_action.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.dg_action.StyleMouseOver.Class = "";
             this.dg_action.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.dg_action.TabIndex = 123;
             // 
@@ -397,7 +395,7 @@
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgData.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgData.Size = new System.Drawing.Size(610, 260);
+            this.dgData.Size = new System.Drawing.Size(610, 213);
             this.dgData.StateCommon.Background.Color1 = System.Drawing.Color.MistyRose;
             this.dgData.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.dgData.StateCommon.Background.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Control;
@@ -481,11 +479,14 @@
             this.StateActive.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.StateActive.Header.Back.Color1 = System.Drawing.Color.MistyRose;
             this.StateActive.Header.Back.Color2 = System.Drawing.Color.MistyRose;
-            this.StateActive.Header.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.StateActive.Header.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.StateActive.Header.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.StateActive.Header.Content.ShortText.Color2 = System.Drawing.Color.Navy;
             this.StateActive.Header.Content.ShortText.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StateInactive.Header.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.StateInactive.Header.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.StateInactive.Header.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.StateInactive.Header.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.StateInactive.Header.Content.ShortText.Color2 = System.Drawing.Color.Navy;
             this.StateInactive.Header.Content.ShortText.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Text = "FrmAuthStockTransfer";
             this.Load += new System.EventHandler(this.FrmAuthStockTransfer_Load);

@@ -161,6 +161,7 @@
             this.groupPanel1.Controls.Add(this.labelX6);
             this.groupPanel1.Controls.Add(this.labelX1);
             this.groupPanel1.Controls.Add(this.txtID);
+            this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.Location = new System.Drawing.Point(1, 1);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(1100, 111);
@@ -174,7 +175,6 @@
             this.groupPanel1.Style.BorderLeftWidth = 1;
             this.groupPanel1.Style.BorderRightWidth = 1;
             this.groupPanel1.Style.BorderTopWidth = 1;
-            this.groupPanel1.Style.Class = "";
             this.groupPanel1.Style.CornerDiameter = 4;
             this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
@@ -183,12 +183,10 @@
             // 
             // 
             // 
-            this.groupPanel1.StyleMouseDown.Class = "";
             this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 18;
             // 
@@ -199,7 +197,7 @@
             this.kryptonWrapLabel1.Image = ((System.Drawing.Image)(resources.GetObject("kryptonWrapLabel1.Image")));
             this.kryptonWrapLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.kryptonWrapLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.kryptonWrapLabel1.Location = new System.Drawing.Point(854, 6);
+            this.kryptonWrapLabel1.Location = new System.Drawing.Point(800, 60);
             this.kryptonWrapLabel1.Name = "kryptonWrapLabel1";
             this.kryptonWrapLabel1.Size = new System.Drawing.Size(103, 15);
             this.kryptonWrapLabel1.StateCommon.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAliasGridFit;
@@ -209,6 +207,7 @@
             this.kryptonWrapLabel1.StateNormal.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
             this.kryptonWrapLabel1.StateNormal.TextColor = System.Drawing.Color.Green;
             this.kryptonWrapLabel1.Text = "        F7 : Commit  ";
+            this.kryptonWrapLabel1.Visible = false;
             // 
             // vexpired_date
             // 
@@ -231,7 +230,6 @@
             // 
             // 
             // 
-            this.lbltotal.BackgroundStyle.Class = "";
             this.lbltotal.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbltotal.Font = new System.Drawing.Font("Khmer OS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -247,7 +245,6 @@
             // 
             // 
             // 
-            this.lblInfo.BackgroundStyle.Class = "";
             this.lblInfo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblInfo.Font = new System.Drawing.Font("Khmer OS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -295,7 +292,6 @@
             // 
             // 
             // 
-            this.labelX2.BackgroundStyle.Class = "";
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Font = new System.Drawing.Font("Cascadia Code", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX2.Location = new System.Drawing.Point(424, 44);
@@ -312,7 +308,6 @@
             // 
             // 
             // 
-            this.labelX6.BackgroundStyle.Class = "";
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX6.Font = new System.Drawing.Font("Cascadia Code", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX6.Location = new System.Drawing.Point(16, 43);
@@ -329,7 +324,6 @@
             // 
             // 
             // 
-            this.labelX1.BackgroundStyle.Class = "";
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Cascadia Code", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.Location = new System.Drawing.Point(16, 5);
@@ -373,7 +367,7 @@
             this._menu_short.ImageScalingSize = new System.Drawing.Size(24, 24);
             this._menu_short.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._Add_to_list});
-            this._menu_short.Location = new System.Drawing.Point(1089, 0);
+            this._menu_short.Location = new System.Drawing.Point(983, 0);
             this._menu_short.Name = "_menu_short";
             this._menu_short.Size = new System.Drawing.Size(126, 619);
             this._menu_short.TabIndex = 114;
@@ -503,7 +497,7 @@
             // 
             // vOtherCost
             // 
-            this.vOtherCost.HeaderText = "Exp";
+            this.vOtherCost.HeaderText = "OtherCost";
             this.vOtherCost.Name = "vOtherCost";
             // 
             // vQty
@@ -649,6 +643,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem _PO_Expired;
         private DevComponents.DotNetBar.LabelX lbltotal;
+        private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel kryptonWrapLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonPalette _styleform;
         private System.Windows.Forms.DataGridViewTextBoxColumn vNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn vSysDocNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn vProID;
@@ -660,7 +656,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn vAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn vExp;
-        private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel kryptonWrapLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPalette _styleform;
     }
 }

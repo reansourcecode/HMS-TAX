@@ -79,7 +79,6 @@ namespace HMS_TAX.UserDefined
             foreach (parasql tmp in para)
             {
                 _Cmd.Parameters.Add(tmp.paraname, tmp.sqltype).Value = tmp.values;
-
             }
             connection();
             _Cmd.Connection = variables.Pcon;
@@ -229,7 +228,6 @@ namespace HMS_TAX.UserDefined
                     Values = Convert.ToInt32(s1);
                     Values = Values + 100;
                 }
-
             }
             catch { }
             return Values;
@@ -267,7 +265,51 @@ namespace HMS_TAX.UserDefined
             Cbo.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
+        public string invoice_value(string vstatus, string vInvoice, string vID)
+        {
+            DataTable dt = new DataTable();
+            string[] p = {
+                        vstatus,
+                        variables.PBranchCode,
+                        vInvoice,
+                        vID
+                    };
+            dt = proc_getdata("proc_generate_return_value", p);
 
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0][0].ToString();
+            }
+            return string.Empty;
+        }
+
+
+        public string return_value(string vstatus, string vID)
+        {
+            DataTable dt = new DataTable();
+            string[] p = {
+                        vstatus,
+                        variables.PBranchCode,
+                        vID
+                    };
+            dt =proc_getdata("proc_generate_return_value", p);
+
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0][0].ToString();
+            }
+            return string.Empty;
+        }
+
+        public void ShowError(string message, Control control)
+        {
+            MessageBox.Show(
+                message,
+                variables.vTittle,
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            control.Focus();
+        }
 
     }
 }

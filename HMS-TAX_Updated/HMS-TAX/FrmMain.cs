@@ -21,6 +21,8 @@ namespace HMS_TAX
         {
             InitializeComponent();
         }
+        sqlexcute sql = new sqlexcute();
+        modules mod = new modules();
         void LoadChild(Form vFrm, string FrmTag)
         {
             try
@@ -79,6 +81,26 @@ namespace HMS_TAX
             login.ShowDialog();
         }
 
+         string check_version ()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                List<parasql> arr = new List<parasql>();
+
+                arr.Add(new parasql { paraname = "@vstatus", sqltype = SqlDbType.NVarChar, values = "CH_VERSION" });
+                arr.Add(new parasql { paraname = "@vCurrentVersion", sqltype = SqlDbType.NVarChar, values = variables.vlastVersion });
+                arr.Add(new parasql { paraname = "@vNewVersion", sqltype = SqlDbType.NVarChar, values = variables.vNewVersion });
+                dt = sql.Data_Execute("proc_version", arr);
+                if (dt.Rows.Count > 0)
+                {
+                    return dt.Rows[0]["STATUS"].ToString();
+                }
+            }
+            catch {  }
+            return "UPDATED";
+        }
+
         private void FrmMain_Load(object sender, EventArgs e)
         {
             try
@@ -86,7 +108,25 @@ namespace HMS_TAX
                 this.Text = variables.vTittle;
                 lblShowDeveloper.Text = "Developed by Team REAN Dev Solution";
                 lblShowUserlogin.Text = "User : " + variables.PInputter.ToUpper();
-                LblVersion.Text = "Version : " + variables.vNewVersion +"("+ variables.PDatabaseName+")";
+                LblVersion.Text = "Version : " + variables.vNewVersion + "(" + variables.PDatabaseName + ")";
+
+                if (check_version() == "UPDATED")
+                {
+                    FrmUpdateVersion version = new FrmUpdateVersion();
+                    version.ShowDialog();
+                }
+                else if (check_version() == "DB-HIGH")
+                {
+                    MessageBox.Show("The database version is newer than the application version.", variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    Application.Exit();
+                }
+                else if (check_version() == "DB-LOWER")
+                {
+                    MessageBox.Show("The application version is newer than the database version.", variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    Application.Exit();
+                }
+                //this._Payment_Menu.Visible = false;
+
             }
             catch { }
         }
@@ -202,6 +242,56 @@ namespace HMS_TAX
             
             Open_Frm("FrmAboutMe");
 
+        }
+
+        private void _backup_db_sub_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmBackup");
+        }
+
+        private void _payment_voucher_sub_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmPaymentVoucher");
+        }
+
+        private void _reprint_pos_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmRePrintPOS");
+        }
+
+        private void _auth_paymentvoucher_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmAuthPaymentVoucher");
+
+        }
+
+        private void _accountsPayable_sub_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void _auth_account_payable_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmAuthAccountPayable");
+        }
+
+        private void _make_payment_ap_sub_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void _booking_acc_ap_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmAccountPayable");
+        }
+
+        private void _payment_acc_ap_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmMakePaymentAP");
+        }
+        private void _auth_acc_ap_Click(object sender, EventArgs e)
+        {
+            Open_Frm("FrmAuthAccountPayable");
         }
     }
 }

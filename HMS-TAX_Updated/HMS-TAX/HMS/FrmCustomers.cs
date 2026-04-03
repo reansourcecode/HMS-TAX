@@ -116,32 +116,39 @@ namespace HMS_TAX.HMS
         {
             try
             {
-                DataTable dt = new DataTable();
-                string[] p = {
-                     vstatus,
-                     variables.PBranchCode,
-                     vcode
-                    };
-                dt = sql.proc_getdata("proc_get_sql", p);
-                if (dt.Rows.Count > 0)
+                string[] p =
                 {
-                    txtCusID.Text = dt.Rows[0]["cus_id"].ToString();
-                    txtName.Text = dt.Rows[0]["cus_name"].ToString();
-                    txtPhone.Text = dt.Rows[0]["phone"].ToString();
-                    txtRemark.Text = dt.Rows[0]["Remark"].ToString();
-                    txtAddress.Text = dt.Rows[0]["Address"].ToString();
-                    cboActive.SelectedValue = dt.Rows[0]["active"].ToString();
+                    vstatus,
+                    variables.PBranchCode,
+                    vcode
+                };
 
+                DataTable dt = sql.proc_getdata("proc_get_sql", p);
 
-                    btn_edit_record();
-                }
-                else
+                if (dt == null || dt.Rows.Count == 0)
                 {
-                    MessageBox.Show(variables.vMsgNotExits, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show(
+                        variables.vMsgNotExits,
+                        variables.vTittle,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Stop
+                    );
+                    return;
                 }
+
+                DataRow row = dt.Rows[0];
+                txtCusID.Text = Convert.ToString(row["cus_id"]);
+                txtName.Text = Convert.ToString(row["cus_name"]);
+                txtPhone.Text = Convert.ToString(row["phone"]);
+                txtRemark.Text = Convert.ToString(row["Remark"]);
+                txtAddress.Text = Convert.ToString(row["Address"]);
+
+                cboActive.SelectedValue = Convert.ToString(row["active"]);
+                btn_edit_record();
             }
             catch { }
         }
+
 
         private void FrmCustomers_Load(object sender, EventArgs e)
         {
@@ -221,10 +228,18 @@ namespace HMS_TAX.HMS
 
         private void txtCusID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\r')
+            try
             {
-                GetInfor("show_customer", txtCusID.Text.Trim());
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    GetInfor("show_customer", txtCusID.Text.Trim());
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void groupPanel2_Click(object sender, EventArgs e)

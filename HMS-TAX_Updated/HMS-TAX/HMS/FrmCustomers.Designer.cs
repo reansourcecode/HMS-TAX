@@ -51,6 +51,7 @@
             this.txtCusID = new DevComponents.DotNetBar.Controls.TextBoxX();
             this._styleform = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.wizard1 = new DevComponents.DotNetBar.Wizard();
             this.groupPanel1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnList)).BeginInit();
@@ -84,7 +85,7 @@
             this.groupPanel1.Controls.Add(this.btnEdit);
             this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.IsShadowEnabled = true;
-            this.groupPanel1.Location = new System.Drawing.Point(493, 50);
+            this.groupPanel1.Location = new System.Drawing.Point(479, 50);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(134, 277);
             // 
@@ -188,7 +189,7 @@
             this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel2.Location = new System.Drawing.Point(2, 50);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(479, 316);
+            this.groupPanel2.Size = new System.Drawing.Size(469, 316);
             // 
             // 
             // 
@@ -242,7 +243,7 @@
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtAddress.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtAddress.Location = new System.Drawing.Point(116, 144);
+            this.txtAddress.Location = new System.Drawing.Point(108, 144);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(346, 29);
@@ -258,7 +259,7 @@
             this.btnList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnList.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnList.ErrorImage")));
             this.btnList.Image = ((System.Drawing.Image)(resources.GetObject("btnList.Image")));
-            this.btnList.Location = new System.Drawing.Point(435, 13);
+            this.btnList.Location = new System.Drawing.Point(427, 13);
             this.btnList.Name = "btnList";
             this.btnList.Size = new System.Drawing.Size(25, 27);
             this.btnList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -293,7 +294,7 @@
             this.txtRemark.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtRemark.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtRemark.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtRemark.Location = new System.Drawing.Point(116, 183);
+            this.txtRemark.Location = new System.Drawing.Point(108, 183);
             this.txtRemark.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
@@ -313,7 +314,7 @@
             this.cboActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.cboActive.FormattingEnabled = true;
             this.cboActive.ItemHeight = 23;
-            this.cboActive.Location = new System.Drawing.Point(116, 112);
+            this.cboActive.Location = new System.Drawing.Point(108, 112);
             this.cboActive.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboActive.Name = "cboActive";
             this.cboActive.Size = new System.Drawing.Size(202, 29);
@@ -366,7 +367,7 @@
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtPhone.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtPhone.Location = new System.Drawing.Point(116, 79);
+            this.txtPhone.Location = new System.Drawing.Point(108, 79);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(346, 29);
@@ -419,7 +420,7 @@
             this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtName.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtName.Location = new System.Drawing.Point(116, 44);
+            this.txtName.Location = new System.Drawing.Point(108, 44);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(346, 29);
@@ -441,7 +442,7 @@
             this.txtCusID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtCusID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtCusID.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtCusID.Location = new System.Drawing.Point(116, 12);
+            this.txtCusID.Location = new System.Drawing.Point(108, 12);
             this.txtCusID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCusID.Name = "txtCusID";
             this.txtCusID.Size = new System.Drawing.Size(314, 29);
@@ -544,12 +545,42 @@
             this.labelX3.Text = "Customer Information";
             this.labelX3.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // wizard1
+            // 
+            this.wizard1.CancelButtonText = "Cancel";
+            this.wizard1.FinishButtonTabIndex = 3;
+            // 
+            // 
+            // 
+            this.wizard1.FooterStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.wizard1.HeaderCaptionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wizard1.HeaderDescriptionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.wizard1.HeaderDescriptionIndent = 16;
+            // 
+            // 
+            // 
+            this.wizard1.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.wizard1.HeaderStyle.BackColorGradientAngle = 90;
+            this.wizard1.HeaderStyle.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Etched;
+            this.wizard1.HeaderStyle.BorderBottomWidth = 1;
+            this.wizard1.HeaderStyle.BorderColor = System.Drawing.SystemColors.Control;
+            this.wizard1.HeaderStyle.BorderLeftWidth = 1;
+            this.wizard1.HeaderStyle.BorderRightWidth = 1;
+            this.wizard1.HeaderStyle.BorderTopWidth = 1;
+            this.wizard1.HeaderStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.wizard1.HeaderStyle.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.wizard1.HeaderStyle.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.wizard1.Location = new System.Drawing.Point(0, 0);
+            this.wizard1.Name = "wizard1";
+            this.wizard1.Size = new System.Drawing.Size(548, 375);
+            this.wizard1.TabIndex = 0;
+            // 
             // FrmCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(655, 368);
+            this.ClientSize = new System.Drawing.Size(628, 368);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.labelX3);
@@ -607,5 +638,6 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtAddress;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette _styleform;
         private DevComponents.DotNetBar.LabelX labelX3;
+        private DevComponents.DotNetBar.Wizard wizard1;
     }
 }

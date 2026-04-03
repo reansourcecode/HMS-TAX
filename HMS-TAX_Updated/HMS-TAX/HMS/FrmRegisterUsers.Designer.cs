@@ -127,9 +127,10 @@
             this.groupPanel2.Controls.Add(this.txtuserlogin);
             this.groupPanel2.Controls.Add(this.labelX1);
             this.groupPanel2.Controls.Add(this.txtId);
-            this.groupPanel2.Location = new System.Drawing.Point(-2, 44);
+            this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
+            this.groupPanel2.Location = new System.Drawing.Point(-2, 31);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(393, 183);
+            this.groupPanel2.Size = new System.Drawing.Size(393, 170);
             // 
             // 
             // 
@@ -140,7 +141,6 @@
             this.groupPanel2.Style.BorderLeftWidth = 1;
             this.groupPanel2.Style.BorderRightWidth = 1;
             this.groupPanel2.Style.BorderTopWidth = 1;
-            this.groupPanel2.Style.Class = "";
             this.groupPanel2.Style.CornerDiameter = 4;
             this.groupPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.groupPanel2.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
@@ -149,12 +149,10 @@
             // 
             // 
             // 
-            this.groupPanel2.StyleMouseDown.Class = "";
             this.groupPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel2.TabIndex = 18;
             // 
@@ -163,7 +161,6 @@
             // 
             // 
             // 
-            this.labelX4.BackgroundStyle.Class = "";
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX4.Location = new System.Drawing.Point(-3, 117);
@@ -180,7 +177,6 @@
             // 
             // 
             // 
-            this.labelX2.BackgroundStyle.Class = "";
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX2.Location = new System.Drawing.Point(-3, 79);
@@ -197,7 +193,6 @@
             // 
             // 
             // 
-            this.labelX5.BackgroundStyle.Class = "";
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX5.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX5.Location = new System.Drawing.Point(-3, 41);
@@ -282,7 +277,6 @@
             // 
             // 
             // 
-            this.labelX1.BackgroundStyle.Class = "";
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.Location = new System.Drawing.Point(-3, 10);
@@ -328,7 +322,7 @@
             this.btnCommit.HoverImage = ((System.Drawing.Image)(resources.GetObject("btnCommit.HoverImage")));
             this.btnCommit.Image = ((System.Drawing.Image)(resources.GetObject("btnCommit.Image")));
             this.btnCommit.ImeMode = System.Windows.Forms.ImeMode.AlphaFull;
-            this.btnCommit.Location = new System.Drawing.Point(397, 60);
+            this.btnCommit.Location = new System.Drawing.Point(397, 40);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(72, 134);
             this.btnCommit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -341,11 +335,11 @@
             // 
             // 
             // 
-            this.labelX3.BackgroundStyle.Class = "";
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX3.ForeColor = System.Drawing.Color.Navy;
-            this.labelX3.Location = new System.Drawing.Point(65, -1);
+            this.labelX3.Image = ((System.Drawing.Image)(resources.GetObject("labelX3.Image")));
+            this.labelX3.Location = new System.Drawing.Point(65, -7);
             this.labelX3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(253, 37);

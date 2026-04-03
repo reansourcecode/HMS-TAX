@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPurchaseOrderHistory));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.po_date = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
@@ -45,12 +45,6 @@
             this.btnCommit = new DevComponents.DotNetBar.ButtonX();
             this.btnNew = new DevComponents.DotNetBar.ButtonX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.dgData = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.vPO_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vSupply = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._MenuFunction = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._PurchaseOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -61,12 +55,17 @@
             this._addproductlist = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitMenu = new System.Windows.Forms.ToolStripMenuItem();
             this._styleform = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.dgData = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.vPO_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vSupply = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.po_date)).BeginInit();
             this.groupPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgData)).BeginInit();
             this._MenuFunction.SuspendLayout();
             this._menu_short.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgData)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel2
@@ -81,9 +80,10 @@
             this.groupPanel2.Controls.Add(this.labelX6);
             this.groupPanel2.Controls.Add(this.labelX1);
             this.groupPanel2.Controls.Add(this.txtID);
+            this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel2.Location = new System.Drawing.Point(5, 41);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(468, 216);
+            this.groupPanel2.Size = new System.Drawing.Size(469, 206);
             // 
             // 
             // 
@@ -94,7 +94,6 @@
             this.groupPanel2.Style.BorderLeftWidth = 1;
             this.groupPanel2.Style.BorderRightWidth = 1;
             this.groupPanel2.Style.BorderTopWidth = 1;
-            this.groupPanel2.Style.Class = "";
             this.groupPanel2.Style.CornerDiameter = 4;
             this.groupPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.groupPanel2.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
@@ -103,12 +102,10 @@
             // 
             // 
             // 
-            this.groupPanel2.StyleMouseDown.Class = "";
             this.groupPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel2.TabIndex = 17;
             // 
@@ -117,7 +114,6 @@
             // 
             // 
             // 
-            this.labelX2.BackgroundStyle.Class = "";
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX2.Location = new System.Drawing.Point(7, 79);
@@ -149,7 +145,6 @@
             // 
             // 
             // 
-            this.po_date.MonthCalendar.BackgroundStyle.Class = "";
             this.po_date.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.po_date.MonthCalendar.ClearButtonVisible = true;
             // 
@@ -161,7 +156,6 @@
             this.po_date.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
             this.po_date.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
             this.po_date.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.po_date.MonthCalendar.CommandsBackgroundStyle.Class = "";
             this.po_date.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.po_date.MonthCalendar.DisplayMonth = new System.DateTime(2025, 10, 1, 0, 0, 0, 0);
             this.po_date.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
@@ -173,7 +167,6 @@
             this.po_date.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
             this.po_date.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
             this.po_date.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.po_date.MonthCalendar.NavigationBackgroundStyle.Class = "";
             this.po_date.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.po_date.MonthCalendar.TodayButtonVisible = true;
             this.po_date.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
@@ -187,7 +180,6 @@
             // 
             // 
             // 
-            this.labelX7.BackgroundStyle.Class = "";
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX7.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX7.Location = new System.Drawing.Point(7, 118);
@@ -207,14 +199,14 @@
             this.txtRemark.Border.Class = "TextBoxBorder";
             this.txtRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtRemark.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtRemark.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.txtRemark.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemark.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtRemark.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtRemark.Location = new System.Drawing.Point(94, 119);
             this.txtRemark.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(346, 82);
+            this.txtRemark.Size = new System.Drawing.Size(371, 82);
             this.txtRemark.TabIndex = 3;
             this.txtRemark.WatermarkBehavior = DevComponents.DotNetBar.eWatermarkBehavior.HideNonEmpty;
             this.txtRemark.WatermarkColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -226,14 +218,14 @@
             // 
             this.cboSupply.DisplayMember = "Text";
             this.cboSupply.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboSupply.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.cboSupply.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSupply.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.cboSupply.FormattingEnabled = true;
-            this.cboSupply.ItemHeight = 23;
+            this.cboSupply.ItemHeight = 20;
             this.cboSupply.Location = new System.Drawing.Point(94, 50);
             this.cboSupply.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboSupply.Name = "cboSupply";
-            this.cboSupply.Size = new System.Drawing.Size(346, 29);
+            this.cboSupply.Size = new System.Drawing.Size(371, 26);
             this.cboSupply.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cboSupply.TabIndex = 1;
             this.cboSupply.WatermarkColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -245,10 +237,9 @@
             // 
             // 
             // 
-            this.labelX6.BackgroundStyle.Class = "";
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX6.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX6.Location = new System.Drawing.Point(7, 46);
+            this.labelX6.Location = new System.Drawing.Point(7, 45);
             this.labelX6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(81, 37);
@@ -262,7 +253,6 @@
             // 
             // 
             // 
-            this.labelX1.BackgroundStyle.Class = "";
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.Location = new System.Drawing.Point(7, 10);
@@ -282,13 +272,13 @@
             this.txtID.Border.Class = "TextBoxBorder";
             this.txtID.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.txtID.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtID.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtID.Location = new System.Drawing.Point(94, 14);
+            this.txtID.Location = new System.Drawing.Point(94, 15);
             this.txtID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(346, 29);
+            this.txtID.Size = new System.Drawing.Size(371, 26);
             this.txtID.TabIndex = 0;
             this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtID.WatermarkBehavior = DevComponents.DotNetBar.eWatermarkBehavior.HideNonEmpty;
@@ -304,10 +294,11 @@
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel1.Controls.Add(this.btnCommit);
             this.groupPanel1.Controls.Add(this.btnNew);
+            this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.IsShadowEnabled = true;
             this.groupPanel1.Location = new System.Drawing.Point(480, 41);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(143, 206);
+            this.groupPanel1.Size = new System.Drawing.Size(137, 206);
             // 
             // 
             // 
@@ -318,7 +309,6 @@
             this.groupPanel1.Style.BorderLeftWidth = 1;
             this.groupPanel1.Style.BorderRightWidth = 1;
             this.groupPanel1.Style.BorderTopWidth = 1;
-            this.groupPanel1.Style.Class = "";
             this.groupPanel1.Style.CornerDiameter = 4;
             this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
@@ -327,12 +317,10 @@
             // 
             // 
             // 
-            this.groupPanel1.StyleMouseDown.Class = "";
             this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 18;
             // 
@@ -376,12 +364,11 @@
             // 
             // 
             // 
-            this.labelX4.BackgroundStyle.Class = "";
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX4.ForeColor = System.Drawing.Color.Navy;
             this.labelX4.Image = ((System.Drawing.Image)(resources.GetObject("labelX4.Image")));
-            this.labelX4.Location = new System.Drawing.Point(15, -2);
+            this.labelX4.Location = new System.Drawing.Point(49, -2);
             this.labelX4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX4.Name = "labelX4";
             this.labelX4.SingleLineColor = System.Drawing.SystemColors.ControlLightLight;
@@ -392,84 +379,6 @@
             this.labelX4.TextAlignment = System.Drawing.StringAlignment.Center;
             this.labelX4.Click += new System.EventHandler(this.labelX4_Click);
             // 
-            // dgData
-            // 
-            this.dgData.AllowUserToAddRows = false;
-            this.dgData.AllowUserToDeleteRows = false;
-            this.dgData.AllowUserToResizeColumns = false;
-            this.dgData.AllowUserToResizeRows = false;
-            this.dgData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgData.BackgroundColor = System.Drawing.Color.MistyRose;
-            this.dgData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
-            this.dgData.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            this.dgData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.dgData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.vPO_ID,
-            this.vSupply,
-            this.vDate,
-            this.vRemark,
-            this.vStatus});
-            this.dgData.ContextMenuStrip = this._MenuFunction;
-            this.dgData.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgData.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgData.Location = new System.Drawing.Point(0, 265);
-            this.dgData.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgData.Name = "dgData";
-            this.dgData.ReadOnly = true;
-            this.dgData.RowHeadersVisible = false;
-            this.dgData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.dgData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgData.Size = new System.Drawing.Size(672, 207);
-            this.dgData.StandardTab = true;
-            this.dgData.TabIndex = 0;
-            this.dgData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgData_CellContentDoubleClick);
-            this.dgData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgData_CellContentDoubleClick);
-            this.dgData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgData_CellContentDoubleClick);
-            this.dgData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgData_CellContentDoubleClick);
-            // 
-            // vPO_ID
-            // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vPO_ID.DefaultCellStyle = dataGridViewCellStyle1;
-            this.vPO_ID.HeaderText = "PO ID";
-            this.vPO_ID.Name = "vPO_ID";
-            this.vPO_ID.ReadOnly = true;
-            // 
-            // vSupply
-            // 
-            this.vSupply.HeaderText = "Supply";
-            this.vSupply.Name = "vSupply";
-            this.vSupply.ReadOnly = true;
-            // 
-            // vDate
-            // 
-            this.vDate.HeaderText = "Date";
-            this.vDate.Name = "vDate";
-            this.vDate.ReadOnly = true;
-            // 
-            // vRemark
-            // 
-            this.vRemark.HeaderText = "Remark";
-            this.vRemark.Name = "vRemark";
-            this.vRemark.ReadOnly = true;
-            // 
-            // vStatus
-            // 
-            this.vStatus.HeaderText = "Status";
-            this.vStatus.Name = "vStatus";
-            this.vStatus.ReadOnly = true;
-            // 
             // _MenuFunction
             // 
             this._MenuFunction.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -479,27 +388,29 @@
             this.toolStripSeparator1,
             this._PO_delete});
             this._MenuFunction.Name = "_MenuFunction";
-            this._MenuFunction.Size = new System.Drawing.Size(164, 70);
+            this._MenuFunction.Size = new System.Drawing.Size(186, 70);
             this._MenuFunction.Opening += new System.ComponentModel.CancelEventHandler(this._MenuFunction_Opening);
             // 
             // _PurchaseOrder
             // 
+            this._PurchaseOrder.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._PurchaseOrder.Image = ((System.Drawing.Image)(resources.GetObject("_PurchaseOrder.Image")));
             this._PurchaseOrder.Name = "_PurchaseOrder";
-            this._PurchaseOrder.Size = new System.Drawing.Size(163, 30);
+            this._PurchaseOrder.Size = new System.Drawing.Size(185, 30);
             this._PurchaseOrder.Text = "PurchaseOrder ";
             this._PurchaseOrder.Click += new System.EventHandler(this._PurchaseOrder_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
             // 
             // _PO_delete
             // 
+            this._PO_delete.Font = new System.Drawing.Font("Cooper Black", 9.75F);
             this._PO_delete.Image = ((System.Drawing.Image)(resources.GetObject("_PO_delete.Image")));
             this._PO_delete.Name = "_PO_delete";
-            this._PO_delete.Size = new System.Drawing.Size(163, 30);
+            this._PO_delete.Size = new System.Drawing.Size(185, 30);
             this._PO_delete.Text = "Delete";
             this._PO_delete.Click += new System.EventHandler(this._PO_delete_Click);
             // 
@@ -569,17 +480,110 @@
             this._styleform.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this._styleform.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             // 
+            // dgData
+            // 
+            this.dgData.AllowUserToAddRows = false;
+            this.dgData.AllowUserToDeleteRows = false;
+            this.dgData.AllowUserToResizeColumns = false;
+            this.dgData.AllowUserToResizeRows = false;
+            this.dgData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.vPO_ID,
+            this.vSupply,
+            this.vDate,
+            this.vRemark});
+            this.dgData.ContextMenuStrip = this._MenuFunction;
+            this.dgData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgData.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
+            this.dgData.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
+            this.dgData.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.dgData.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.dgData.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.dgData.Location = new System.Drawing.Point(0, 254);
+            this.dgData.Margin = new System.Windows.Forms.Padding(4);
+            this.dgData.MultiSelect = false;
+            this.dgData.Name = "dgData";
+            this.dgData.RowHeadersVisible = false;
+            this.dgData.RowHeadersWidth = 51;
+            this.dgData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgData.Size = new System.Drawing.Size(660, 256);
+            this.dgData.StateCommon.Background.Color1 = System.Drawing.Color.MistyRose;
+            this.dgData.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.dgData.StateCommon.Background.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Control;
+            this.dgData.StateCommon.Background.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Linear;
+            this.dgData.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
+            this.dgData.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.MistyRose;
+            this.dgData.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.White;
+            this.dgData.StateCommon.HeaderColumn.Border.Color1 = System.Drawing.Color.MistyRose;
+            this.dgData.StateCommon.HeaderColumn.Border.Color2 = System.Drawing.Color.White;
+            this.dgData.StateCommon.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.dgData.StateCommon.HeaderColumn.Border.Rounding = 5;
+            this.dgData.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.DarkBlue;
+            this.dgData.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.dgData.StateCommon.HeaderRow.Back.Color1 = System.Drawing.Color.MistyRose;
+            this.dgData.StateCommon.HeaderRow.Back.ImageAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.dgData.StateCommon.HeaderRow.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.TopMiddle;
+            this.dgData.StateCommon.HeaderRow.Content.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgData.StateNormal.Background.Color1 = System.Drawing.Color.MistyRose;
+            this.dgData.StateNormal.Background.Color2 = System.Drawing.Color.White;
+            this.dgData.StateNormal.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.dgData.StateNormal.HeaderColumn.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.dgData.StateNormal.HeaderColumn.Border.ImageAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Form;
+            this.dgData.StateNormal.HeaderColumn.Border.Rounding = 5;
+            this.dgData.StateNormal.HeaderRow.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Form;
+            this.dgData.StateNormal.HeaderRow.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
+            this.dgData.StateNormal.HeaderRow.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.dgData.StateNormal.HeaderRow.Border.ImageAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.dgData.StateNormal.HeaderRow.Border.Rounding = 5;
+            this.dgData.TabIndex = 34;
+            this.dgData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgData_CellContentClick);
+            this.dgData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgData_CellContentClick);
+            this.dgData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgData_CellContentDoubleClick);
+            // 
+            // vPO_ID
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.vPO_ID.DefaultCellStyle = dataGridViewCellStyle1;
+            this.vPO_ID.HeaderText = "ID";
+            this.vPO_ID.MinimumWidth = 6;
+            this.vPO_ID.Name = "vPO_ID";
+            // 
+            // vSupply
+            // 
+            this.vSupply.HeaderText = "Supply";
+            this.vSupply.Name = "vSupply";
+            // 
+            // vDate
+            // 
+            this.vDate.HeaderText = "Date";
+            this.vDate.Name = "vDate";
+            // 
+            // vRemark
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vRemark.DefaultCellStyle = dataGridViewCellStyle2;
+            this.vRemark.HeaderText = "Reamark";
+            this.vRemark.Name = "vRemark";
+            // 
             // FrmPurchaseOrderHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
-            this.ClientSize = new System.Drawing.Size(672, 472);
-            this.Controls.Add(this._menu_short);
+            this.ClientSize = new System.Drawing.Size(660, 511);
             this.Controls.Add(this.dgData);
             this.Controls.Add(this.labelX4);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.groupPanel2);
+            this.Controls.Add(this._menu_short);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -635,10 +639,10 @@
             this.groupPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.po_date)).EndInit();
             this.groupPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgData)).EndInit();
             this._MenuFunction.ResumeLayout(false);
             this._menu_short.ResumeLayout(false);
             this._menu_short.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -659,12 +663,6 @@
         private DevComponents.DotNetBar.ButtonX btnCommit;
         private DevComponents.DotNetBar.ButtonX btnNew;
         private DevComponents.DotNetBar.LabelX labelX4;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dgData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vPO_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vSupply;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vRemark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vStatus;
         private System.Windows.Forms.MenuStrip _menu_short;
         private System.Windows.Forms.ToolStripMenuItem Function;
         private System.Windows.Forms.ToolStripMenuItem _SearchProduct;
@@ -675,5 +673,10 @@
         private System.Windows.Forms.ToolStripMenuItem _PO_delete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette _styleform;
+        public ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vPO_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vSupply;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vRemark;
     }
 }

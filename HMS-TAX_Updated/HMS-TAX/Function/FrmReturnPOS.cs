@@ -622,7 +622,6 @@ namespace HMS_TAX.Function
                     arr.Add(new parasql { paraname = "@vPOS_ID", sqltype = SqlDbType.NVarChar, values = PReinvoice });
                     arr.Add(new parasql { paraname = "@vInputter", sqltype = SqlDbType.NVarChar, values = variables.PInputter });
                     arr.Add(new parasql { paraname = "@vCus_ID", sqltype = SqlDbType.NVarChar, values = PReferentCode });
-
                     dts = sql.Data_Execute("proc_auth_pos", arr);
 
                     if (dts.Rows.Count > 0)
@@ -635,6 +634,11 @@ namespace HMS_TAX.Function
                 }
             }
             catch { }
+        }
+
+        private void _invoice_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

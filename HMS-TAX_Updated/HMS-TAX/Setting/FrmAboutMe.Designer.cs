@@ -61,9 +61,8 @@
             // 
             // 
             // 
-            this.lblsysteminfo.BackgroundStyle.Class = "";
             this.lblsysteminfo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblsysteminfo.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsysteminfo.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblsysteminfo.Location = new System.Drawing.Point(4, 61);
             this.lblsysteminfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblsysteminfo.Name = "lblsysteminfo";
@@ -77,9 +76,8 @@
             // 
             // 
             // 
-            this.lblbranchinfo.BackgroundStyle.Class = "";
             this.lblbranchinfo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblbranchinfo.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblbranchinfo.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblbranchinfo.Location = new System.Drawing.Point(4, 108);
             this.lblbranchinfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblbranchinfo.Name = "lblbranchinfo";
@@ -93,9 +91,8 @@
             // 
             // 
             // 
-            this.lblInfo.BackgroundStyle.Class = "";
             this.lblInfo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblInfo.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.Location = new System.Drawing.Point(4, 14);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblInfo.Name = "lblInfo";

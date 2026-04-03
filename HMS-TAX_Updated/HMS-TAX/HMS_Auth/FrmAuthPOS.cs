@@ -46,8 +46,8 @@ namespace HMS_TAX.HMS_Auth
 
                 dgData.Columns["gNum"].HeaderText = "Nº";
                 dgData.Columns["gNum"].Width = 33;
-                dgData.Columns["vrcp_num"].Width = 130;
-                dgData.Columns["vcustomer"].Width = 155;
+                dgData.Columns["vrcp_num"].Width = 155;
+                dgData.Columns["vcustomer"].Width = 200;
                 dgData.Columns["vinputter"].Width = 100;
 
                 for (int i = 0; i < dgView.Columns.Count; i++)

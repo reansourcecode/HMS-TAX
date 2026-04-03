@@ -48,21 +48,41 @@
             this._Exit_sub = new System.Windows.Forms.ToolStripMenuItem();
             this._Inventory_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this._ticket_PurchaseOrder_sub = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this._stock_transfer_sub = new System.Windows.Forms.ToolStripMenuItem();
-            this.st_03 = new System.Windows.Forms.ToolStripSeparator();
-            this._return_pos_sub = new System.Windows.Forms.ToolStripMenuItem();
+            this._Payment_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this._payment_voucher_sub = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this._accountsPayable_sub = new System.Windows.Forms.ToolStripMenuItem();
+            this._booking_acc_ap = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this._payment_acc_ap = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this._auth_acc_ap = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this._POS_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this._pos_sub = new System.Windows.Forms.ToolStripMenuItem();
             this._pos_ci_sub = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this._return_pos_sub = new System.Windows.Forms.ToolStripMenuItem();
             this._Authorized_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this._authorizePO_sub = new System.Windows.Forms.ToolStripMenuItem();
             this._authorize_POS_sub = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this._auth_stock_transfer_sub = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this._auth_paymentvoucher = new System.Windows.Forms.ToolStripMenuItem();
+            this._auth_account_payable = new System.Windows.Forms.ToolStripMenuItem();
             this._Setting_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this._user_Account_sub = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this._NBC_Exchange_sub = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this._product_line_sub = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this._reprint_pos = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this._backup_db_sub = new System.Windows.Forms.ToolStripMenuItem();
             this._About_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this._about_me_sub = new System.Windows.Forms.ToolStripMenuItem();
             this._styleform = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
@@ -81,10 +101,10 @@
             this.lblShowUserlogin,
             this.toolStripSeparator2,
             this.LblVersion});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 945);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 881);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(1911, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1482, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -134,6 +154,7 @@
             this._top_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._File_Menu,
             this._Inventory_Menu,
+            this._Payment_Menu,
             this._POS_Menu,
             this._Authorized_Menu,
             this._Setting_Menu,
@@ -142,7 +163,7 @@
             this._top_menu.Location = new System.Drawing.Point(0, 0);
             this._top_menu.Name = "_top_menu";
             this._top_menu.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this._top_menu.Size = new System.Drawing.Size(1911, 32);
+            this._top_menu.Size = new System.Drawing.Size(1482, 32);
             this._top_menu.TabIndex = 2;
             this._top_menu.Text = "show top menu";
             // 
@@ -229,7 +250,7 @@
             this._Exit_sub.Name = "_Exit_sub";
             this._Exit_sub.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this._Exit_sub.Size = new System.Drawing.Size(209, 28);
-            this._Exit_sub.Text = "Exit";
+            this._Exit_sub.Text = "Close";
             this._Exit_sub.Click += new System.EventHandler(this._Exit_sub_Click);
             // 
             // _Inventory_Menu
@@ -237,9 +258,8 @@
             this._Inventory_Menu.CheckOnClick = true;
             this._Inventory_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._ticket_PurchaseOrder_sub,
-            this._stock_transfer_sub,
-            this.st_03,
-            this._return_pos_sub});
+            this.toolStripSeparator14,
+            this._stock_transfer_sub});
             this._Inventory_Menu.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._Inventory_Menu.ForeColor = System.Drawing.Color.Navy;
             this._Inventory_Menu.Image = ((System.Drawing.Image)(resources.GetObject("_Inventory_Menu.Image")));
@@ -253,39 +273,120 @@
             this._ticket_PurchaseOrder_sub.Image = ((System.Drawing.Image)(resources.GetObject("_ticket_PurchaseOrder_sub.Image")));
             this._ticket_PurchaseOrder_sub.Name = "_ticket_PurchaseOrder_sub";
             this._ticket_PurchaseOrder_sub.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this._ticket_PurchaseOrder_sub.Size = new System.Drawing.Size(199, 24);
+            this._ticket_PurchaseOrder_sub.Size = new System.Drawing.Size(203, 28);
             this._ticket_PurchaseOrder_sub.Text = "Ticket PO";
             this._ticket_PurchaseOrder_sub.Click += new System.EventHandler(this._ticket_PurchaseOrder_sub_Click);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(200, 6);
             // 
             // _stock_transfer_sub
             // 
             this._stock_transfer_sub.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._stock_transfer_sub.Image = ((System.Drawing.Image)(resources.GetObject("_stock_transfer_sub.Image")));
             this._stock_transfer_sub.Name = "_stock_transfer_sub";
-            this._stock_transfer_sub.Size = new System.Drawing.Size(199, 24);
+            this._stock_transfer_sub.Size = new System.Drawing.Size(203, 28);
             this._stock_transfer_sub.Text = "Stock Transfer";
             this._stock_transfer_sub.Click += new System.EventHandler(this._stock_transfer_sub_Click);
             // 
-            // st_03
+            // _Payment_Menu
             // 
-            this.st_03.Name = "st_03";
-            this.st_03.Size = new System.Drawing.Size(196, 6);
+            this._Payment_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._payment_voucher_sub,
+            this.toolStripSeparator10,
+            this._accountsPayable_sub});
+            this._Payment_Menu.Font = new System.Drawing.Font("Cooper Black", 12F);
+            this._Payment_Menu.ForeColor = System.Drawing.Color.Navy;
+            this._Payment_Menu.Image = ((System.Drawing.Image)(resources.GetObject("_Payment_Menu.Image")));
+            this._Payment_Menu.Name = "_Payment_Menu";
+            this._Payment_Menu.Size = new System.Drawing.Size(137, 26);
+            this._Payment_Menu.Text = "Accounting";
             // 
-            // _return_pos_sub
+            // _payment_voucher_sub
             // 
-            this._return_pos_sub.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._return_pos_sub.Image = ((System.Drawing.Image)(resources.GetObject("_return_pos_sub.Image")));
-            this._return_pos_sub.Name = "_return_pos_sub";
-            this._return_pos_sub.Size = new System.Drawing.Size(199, 24);
-            this._return_pos_sub.Text = "Return POS";
-            this._return_pos_sub.Click += new System.EventHandler(this._return_pos_sub_Click);
+            this._payment_voucher_sub.Font = new System.Drawing.Font("Cooper Black", 12F);
+            this._payment_voucher_sub.Image = ((System.Drawing.Image)(resources.GetObject("_payment_voucher_sub.Image")));
+            this._payment_voucher_sub.Name = "_payment_voucher_sub";
+            this._payment_voucher_sub.Size = new System.Drawing.Size(235, 28);
+            this._payment_voucher_sub.Text = "Payments Voucher";
+            this._payment_voucher_sub.Click += new System.EventHandler(this._payment_voucher_sub_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(214, 6);
+            // 
+            // _accountsPayable_sub
+            // 
+            this._accountsPayable_sub.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._booking_acc_ap,
+            this.toolStripSeparator13,
+            this._payment_acc_ap,
+            this.toolStripSeparator11,
+            this._auth_acc_ap,
+            this.toolStripSeparator12});
+            this._accountsPayable_sub.Font = new System.Drawing.Font("Cooper Black", 12F);
+            this._accountsPayable_sub.Image = ((System.Drawing.Image)(resources.GetObject("_accountsPayable_sub.Image")));
+            this._accountsPayable_sub.Name = "_accountsPayable_sub";
+            this._accountsPayable_sub.Size = new System.Drawing.Size(225, 28);
+            this._accountsPayable_sub.Text = "Accounts Payable";
+            this._accountsPayable_sub.Click += new System.EventHandler(this._accountsPayable_sub_Click);
+            // 
+            // _booking_acc_ap
+            // 
+            this._booking_acc_ap.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._booking_acc_ap.ForeColor = System.Drawing.Color.Red;
+            this._booking_acc_ap.Image = ((System.Drawing.Image)(resources.GetObject("_booking_acc_ap.Image")));
+            this._booking_acc_ap.Name = "_booking_acc_ap";
+            this._booking_acc_ap.Size = new System.Drawing.Size(190, 22);
+            this._booking_acc_ap.Text = "Booking AP";
+            this._booking_acc_ap.Click += new System.EventHandler(this._booking_acc_ap_Click);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(187, 6);
+            // 
+            // _payment_acc_ap
+            // 
+            this._payment_acc_ap.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._payment_acc_ap.ForeColor = System.Drawing.Color.Red;
+            this._payment_acc_ap.Image = ((System.Drawing.Image)(resources.GetObject("_payment_acc_ap.Image")));
+            this._payment_acc_ap.Name = "_payment_acc_ap";
+            this._payment_acc_ap.Size = new System.Drawing.Size(190, 22);
+            this._payment_acc_ap.Text = "Payments";
+            this._payment_acc_ap.Click += new System.EventHandler(this._payment_acc_ap_Click);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(187, 6);
+            // 
+            // _auth_acc_ap
+            // 
+            this._auth_acc_ap.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._auth_acc_ap.ForeColor = System.Drawing.Color.Red;
+            this._auth_acc_ap.Image = ((System.Drawing.Image)(resources.GetObject("_auth_acc_ap.Image")));
+            this._auth_acc_ap.Name = "_auth_acc_ap";
+            this._auth_acc_ap.Size = new System.Drawing.Size(190, 22);
+            this._auth_acc_ap.Text = "Authorized AP";
+            this._auth_acc_ap.Click += new System.EventHandler(this._auth_acc_ap_Click);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(187, 6);
             // 
             // _POS_Menu
             // 
             this._POS_Menu.CheckOnClick = true;
             this._POS_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._pos_sub,
-            this._pos_ci_sub});
+            this._pos_ci_sub,
+            this.toolStripSeparator7,
+            this._return_pos_sub});
             this._POS_Menu.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._POS_Menu.ForeColor = System.Drawing.Color.Navy;
             this._POS_Menu.Image = ((System.Drawing.Image)(resources.GetObject("_POS_Menu.Image")));
@@ -295,28 +396,46 @@
             // 
             // _pos_sub
             // 
-            this._pos_sub.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._pos_sub.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._pos_sub.Image = ((System.Drawing.Image)(resources.GetObject("_pos_sub.Image")));
             this._pos_sub.Name = "_pos_sub";
-            this._pos_sub.Size = new System.Drawing.Size(195, 24);
+            this._pos_sub.Size = new System.Drawing.Size(202, 22);
             this._pos_sub.Text = "Point of Sale - TI";
             this._pos_sub.Click += new System.EventHandler(this._pos_sub_Click);
             // 
             // _pos_ci_sub
             // 
-            this._pos_ci_sub.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._pos_ci_sub.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._pos_ci_sub.Image = ((System.Drawing.Image)(resources.GetObject("_pos_ci_sub.Image")));
             this._pos_ci_sub.Name = "_pos_ci_sub";
-            this._pos_ci_sub.Size = new System.Drawing.Size(195, 24);
+            this._pos_ci_sub.Size = new System.Drawing.Size(202, 22);
             this._pos_ci_sub.Text = "Point of Sale - CI";
             this._pos_ci_sub.Click += new System.EventHandler(this._pos_ci_sub_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(199, 6);
+            // 
+            // _return_pos_sub
+            // 
+            this._return_pos_sub.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._return_pos_sub.Image = ((System.Drawing.Image)(resources.GetObject("_return_pos_sub.Image")));
+            this._return_pos_sub.Name = "_return_pos_sub";
+            this._return_pos_sub.Size = new System.Drawing.Size(202, 22);
+            this._return_pos_sub.Text = "Return POS";
+            this._return_pos_sub.Click += new System.EventHandler(this._return_pos_sub_Click);
             // 
             // _Authorized_Menu
             // 
             this._Authorized_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._authorizePO_sub,
             this._authorize_POS_sub,
-            this._auth_stock_transfer_sub});
+            this.toolStripSeparator9,
+            this._auth_stock_transfer_sub,
+            this.toolStripSeparator8,
+            this._auth_paymentvoucher,
+            this._auth_account_payable});
             this._Authorized_Menu.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._Authorized_Menu.ForeColor = System.Drawing.Color.Navy;
             this._Authorized_Menu.Image = ((System.Drawing.Image)(resources.GetObject("_Authorized_Menu.Image")));
@@ -326,30 +445,65 @@
             // 
             // _authorizePO_sub
             // 
-            this._authorizePO_sub.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this._authorizePO_sub.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._authorizePO_sub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._authorizePO_sub.Image = ((System.Drawing.Image)(resources.GetObject("_authorizePO_sub.Image")));
             this._authorizePO_sub.Name = "_authorizePO_sub";
-            this._authorizePO_sub.Size = new System.Drawing.Size(179, 24);
+            this._authorizePO_sub.Size = new System.Drawing.Size(196, 28);
             this._authorizePO_sub.Text = "Authorize PO";
             this._authorizePO_sub.Click += new System.EventHandler(this._authorizePO_sub_Click);
             // 
             // _authorize_POS_sub
             // 
-            this._authorize_POS_sub.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this._authorize_POS_sub.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._authorize_POS_sub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._authorize_POS_sub.Image = ((System.Drawing.Image)(resources.GetObject("_authorize_POS_sub.Image")));
             this._authorize_POS_sub.Name = "_authorize_POS_sub";
-            this._authorize_POS_sub.Size = new System.Drawing.Size(179, 24);
+            this._authorize_POS_sub.Size = new System.Drawing.Size(196, 28);
             this._authorize_POS_sub.Text = "Authorize POS";
             this._authorize_POS_sub.Click += new System.EventHandler(this._authorize_POS_sub_Click);
             // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(193, 6);
+            // 
             // _auth_stock_transfer_sub
             // 
-            this._auth_stock_transfer_sub.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this._auth_stock_transfer_sub.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._auth_stock_transfer_sub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._auth_stock_transfer_sub.Image = ((System.Drawing.Image)(resources.GetObject("_auth_stock_transfer_sub.Image")));
             this._auth_stock_transfer_sub.Name = "_auth_stock_transfer_sub";
-            this._auth_stock_transfer_sub.Size = new System.Drawing.Size(179, 24);
+            this._auth_stock_transfer_sub.Size = new System.Drawing.Size(196, 28);
             this._auth_stock_transfer_sub.Text = "Stock transfer";
             this._auth_stock_transfer_sub.Click += new System.EventHandler(this._auth_stock_transfer_sub_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(193, 6);
+            // 
+            // _auth_paymentvoucher
+            // 
+            this._auth_paymentvoucher.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._auth_paymentvoucher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._auth_paymentvoucher.Image = ((System.Drawing.Image)(resources.GetObject("_auth_paymentvoucher.Image")));
+            this._auth_paymentvoucher.Name = "_auth_paymentvoucher";
+            this._auth_paymentvoucher.Size = new System.Drawing.Size(196, 28);
+            this._auth_paymentvoucher.Text = "PaymentVoucher";
+            this._auth_paymentvoucher.Click += new System.EventHandler(this._auth_paymentvoucher_Click);
+            // 
+            // _auth_account_payable
+            // 
+            this._auth_account_payable.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._auth_account_payable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._auth_account_payable.Image = ((System.Drawing.Image)(resources.GetObject("_auth_account_payable.Image")));
+            this._auth_account_payable.Name = "_auth_account_payable";
+            this._auth_account_payable.Size = new System.Drawing.Size(196, 28);
+            this._auth_account_payable.Text = "Account Payable";
+            this._auth_account_payable.Click += new System.EventHandler(this._auth_account_payable_Click);
             // 
             // _Setting_Menu
             // 
@@ -357,7 +511,12 @@
             this._user_Account_sub,
             this.toolStripSeparator3,
             this._NBC_Exchange_sub,
-            this._product_line_sub});
+            this.toolStripSeparator4,
+            this._product_line_sub,
+            this.toolStripSeparator6,
+            this._reprint_pos,
+            this.toolStripSeparator5,
+            this._backup_db_sub});
             this._Setting_Menu.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._Setting_Menu.ForeColor = System.Drawing.Color.Navy;
             this._Setting_Menu.Image = ((System.Drawing.Image)(resources.GetObject("_Setting_Menu.Image")));
@@ -388,14 +547,50 @@
             this._NBC_Exchange_sub.Text = "NBC ExchangeRate";
             this._NBC_Exchange_sub.Click += new System.EventHandler(this._NBC_Exchange_sub_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(211, 6);
+            // 
             // _product_line_sub
             // 
-            this._product_line_sub.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this._product_line_sub.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._product_line_sub.Image = ((System.Drawing.Image)(resources.GetObject("_product_line_sub.Image")));
             this._product_line_sub.Name = "_product_line_sub";
             this._product_line_sub.Size = new System.Drawing.Size(214, 24);
             this._product_line_sub.Text = "Product line";
             this._product_line_sub.Click += new System.EventHandler(this._product_line_sub_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(211, 6);
+            // 
+            // _reprint_pos
+            // 
+            this._reprint_pos.Checked = true;
+            this._reprint_pos.CheckState = System.Windows.Forms.CheckState.Checked;
+            this._reprint_pos.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._reprint_pos.Image = ((System.Drawing.Image)(resources.GetObject("_reprint_pos.Image")));
+            this._reprint_pos.Name = "_reprint_pos";
+            this._reprint_pos.Size = new System.Drawing.Size(214, 24);
+            this._reprint_pos.Text = "RePrint POS";
+            this._reprint_pos.Click += new System.EventHandler(this._reprint_pos_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(211, 6);
+            // 
+            // _backup_db_sub
+            // 
+            this._backup_db_sub.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._backup_db_sub.ForeColor = System.Drawing.Color.Red;
+            this._backup_db_sub.Image = ((System.Drawing.Image)(resources.GetObject("_backup_db_sub.Image")));
+            this._backup_db_sub.Name = "_backup_db_sub";
+            this._backup_db_sub.Size = new System.Drawing.Size(214, 24);
+            this._backup_db_sub.Text = "Backup data";
+            this._backup_db_sub.Click += new System.EventHandler(this._backup_db_sub_Click);
             // 
             // _About_Menu
             // 
@@ -444,7 +639,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1911, 970);
+            this.ClientSize = new System.Drawing.Size(1482, 906);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this._top_menu);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -525,20 +720,40 @@
         private System.Windows.Forms.ToolStripMenuItem _authorize_POS_sub;
         private System.Windows.Forms.ToolStripMenuItem _pos_ci_sub;
         private System.Windows.Forms.ToolStripMenuItem _NBC_Exchange_sub;
-        private System.Windows.Forms.ToolStripMenuItem _return_pos_sub;
         private System.Windows.Forms.ToolStripMenuItem _stock_transfer_sub;
-        private System.Windows.Forms.ToolStripSeparator st_03;
         private System.Windows.Forms.ToolStripMenuItem _report_list;
         private System.Windows.Forms.ToolStripSeparator st_01;
         private System.Windows.Forms.ToolStripMenuItem _logout_sub;
         private System.Windows.Forms.ToolStripSeparator st_02;
-        private System.Windows.Forms.ToolStripMenuItem _auth_stock_transfer_sub;
         private System.Windows.Forms.ToolStripMenuItem _register_supply;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette _styleform;
         private System.Windows.Forms.ToolStripMenuItem _product_line_sub;
         private System.Windows.Forms.ToolStripMenuItem _user_Account_sub;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem _about_me_sub;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem _Payment_Menu;
+        private System.Windows.Forms.ToolStripMenuItem _payment_voucher_sub;
+        private System.Windows.Forms.ToolStripMenuItem _reprint_pos;
+        private System.Windows.Forms.ToolStripMenuItem _backup_db_sub;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem _auth_paymentvoucher;
+        private System.Windows.Forms.ToolStripMenuItem _return_pos_sub;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem _accountsPayable_sub;
+        private System.Windows.Forms.ToolStripMenuItem _auth_account_payable;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem _auth_stock_transfer_sub;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem _payment_acc_ap;
+        private System.Windows.Forms.ToolStripMenuItem _booking_acc_ap;
+        private System.Windows.Forms.ToolStripMenuItem _auth_acc_ap;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
     }
 }
 

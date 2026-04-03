@@ -81,13 +81,11 @@ namespace HMS_TAX.HMS
 
 
                 //txtTypeCode
-                this.dgView.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
+                this.dgView.ColumnHeadersDefaultCellStyle.Font = new Font("Cooper Black", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
                 dgView.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
 
-                this.dgView.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 15F, FontStyle.Bold, GraphicsUnit.Pixel);
-                dgView.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
 
-                this.dgView.DefaultCellStyle.Font = new Font("Times New Roman", 15F, FontStyle.Italic, GraphicsUnit.Pixel);
+                this.dgView.DefaultCellStyle.Font = new Font("Cooper Black", 16F, FontStyle.Italic, GraphicsUnit.Pixel);
                 this.dgView.DefaultCellStyle.ForeColor = Color.Black;
             }
             catch { }

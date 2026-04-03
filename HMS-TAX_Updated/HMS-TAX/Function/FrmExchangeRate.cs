@@ -103,22 +103,7 @@ namespace HMS_TAX.Function
                     txtsmallamount2.Text = String.Format("{0:0.00}", dt.Rows[0]["smallest2"]).ToString();
                     txtexchange1.Text = String.Format("{0:0.00}", dt.Rows[0]["exchange1"]).ToString();
                     txtexchange2.Text = String.Format("{0:0.00}", dt.Rows[0]["exchange2"]).ToString();
-
-
-                    cbocurrency.Enabled=false;
-                    cbosecond.Enabled=false;
-                    txtcode1.Enabled=false;
-                    txtcode2.Enabled=false;
-                    txtsymbol1.Enabled=false;
-                    txtsymbol2.Enabled=false;
-                    txtsmallamount1.Enabled=false;
-                    txtsmallamount2.Enabled=false;
-                    txtcode1.Enabled=false;
-                    txtcode2.Enabled=false;
-                    txtsymbol1.Enabled=false;
-                    txtsymbol2.Enabled=false;
-                    txtsmallamount1.Enabled=false;
-                    txtexchange1.Enabled = false;
+ 
 
                 }
 

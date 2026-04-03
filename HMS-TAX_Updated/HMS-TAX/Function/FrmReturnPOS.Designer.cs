@@ -104,7 +104,7 @@
             this._gTop.Controls.Add(this.txtName);
             this._gTop.Controls.Add(this.kryptonWrapLabel1);
             this._gTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this._gTop.Location = new System.Drawing.Point(0, 0);
+            this._gTop.Location = new System.Drawing.Point(0, 24);
             this._gTop.Margin = new System.Windows.Forms.Padding(4);
             this._gTop.Name = "_gTop";
             this._gTop.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
@@ -166,11 +166,11 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX3.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX3.Location = new System.Drawing.Point(8, 57);
             this.labelX3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(92, 37);
+            this.labelX3.Size = new System.Drawing.Size(97, 37);
             this.labelX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
             this.labelX3.TabIndex = 104;
             this.labelX3.Text = "Re-Invoice :";
@@ -207,11 +207,11 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.Location = new System.Drawing.Point(2, 23);
+            this.labelX1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.Location = new System.Drawing.Point(8, 23);
             this.labelX1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(92, 37);
+            this.labelX1.Size = new System.Drawing.Size(97, 37);
             this.labelX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
             this.labelX1.TabIndex = 104;
             this.labelX1.Text = "Invoice :";
@@ -223,7 +223,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX4.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX4.Location = new System.Drawing.Point(459, 57);
             this.labelX4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX4.Name = "labelX4";
@@ -239,7 +239,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX2.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX2.Location = new System.Drawing.Point(459, 23);
             this.labelX2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelX2.Name = "labelX2";
@@ -257,13 +257,13 @@
             this.txtInfo.Border.Class = "TextBoxBorder";
             this.txtInfo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.txtInfo.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtInfo.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtInfo.Location = new System.Drawing.Point(557, 61);
+            this.txtInfo.Location = new System.Drawing.Point(557, 62);
             this.txtInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtInfo.Name = "txtInfo";
-            this.txtInfo.Size = new System.Drawing.Size(322, 29);
+            this.txtInfo.Size = new System.Drawing.Size(322, 26);
             this.txtInfo.TabIndex = 103;
             this.txtInfo.WatermarkColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txtInfo.WatermarkFont = new System.Drawing.Font("Khmer OS Battambang", 9.75F);
@@ -279,13 +279,13 @@
             this.txtName.Border.Class = "TextBoxBorder";
             this.txtName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.txtName.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtName.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtName.Location = new System.Drawing.Point(557, 27);
+            this.txtName.Location = new System.Drawing.Point(557, 28);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(322, 29);
+            this.txtName.Size = new System.Drawing.Size(322, 26);
             this.txtName.TabIndex = 103;
             this.txtName.WatermarkColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txtName.WatermarkFont = new System.Drawing.Font("Khmer OS Battambang", 9.75F);
@@ -300,7 +300,7 @@
             this.kryptonWrapLabel1.Image = ((System.Drawing.Image)(resources.GetObject("kryptonWrapLabel1.Image")));
             this.kryptonWrapLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.kryptonWrapLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.kryptonWrapLabel1.Location = new System.Drawing.Point(109, 7);
+            this.kryptonWrapLabel1.Location = new System.Drawing.Point(112, 7);
             this.kryptonWrapLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.kryptonWrapLabel1.Name = "kryptonWrapLabel1";
             this.kryptonWrapLabel1.Size = new System.Drawing.Size(342, 15);
@@ -376,6 +376,7 @@
             this._invoice.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this._invoice.Size = new System.Drawing.Size(183, 22);
             this._invoice.Text = "Invoice";
+            this._invoice.Click += new System.EventHandler(this._invoice_Click);
             // 
             // _POS
             // 
@@ -419,7 +420,7 @@
             this.dgPos.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.dgPos.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.dgPos.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.dgPos.Location = new System.Drawing.Point(0, 121);
+            this.dgPos.Location = new System.Drawing.Point(0, 145);
             this.dgPos.Margin = new System.Windows.Forms.Padding(4);
             this.dgPos.MultiSelect = false;
             this.dgPos.Name = "dgPos";
@@ -427,7 +428,7 @@
             this.dgPos.RowHeadersWidth = 51;
             this.dgPos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgPos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPos.Size = new System.Drawing.Size(984, 440);
+            this.dgPos.Size = new System.Drawing.Size(984, 416);
             this.dgPos.StateCommon.Background.Color1 = System.Drawing.Color.MistyRose;
             this.dgPos.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.dgPos.StateCommon.Background.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Control;

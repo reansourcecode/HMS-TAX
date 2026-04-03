@@ -275,6 +275,104 @@ namespace HMS_TAX.Function
             catch { }
         }
 
+        void rpt_account_payable()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                List<parasql> arr = new List<parasql>();
+                arr.Add(new parasql { paraname = "@vBranchCode", sqltype = SqlDbType.NVarChar, values = variables.PBranchCode });
+                arr.Add(new parasql { paraname = "@vsupply_id", sqltype = SqlDbType.NVarChar, values = cbosupply.SelectedValue.ToString() });
+                arr.Add(new parasql { paraname = "@vdate_from", sqltype = SqlDbType.NVarChar, values = dtFrom.Value.ToString("yyyy/MM/dd") });
+                arr.Add(new parasql { paraname = "@vdate_to", sqltype = SqlDbType.NVarChar, values = dtTo.Value.ToString("yyyy/MM/dd") });
+
+                dt = sql.Data_Execute("rpt_account_payable", arr);
+                if (dt.Rows.Count > 0)
+                {
+                    Excel.Application excelApplication = null;
+                    Excel.Workbook workbookTemplate = null;
+                    Excel.Workbook workbookReport = null;
+                    Microsoft.Office.Interop.Excel.Worksheet ws;
+                    try
+                    {
+                        excelApplication = new Excel.Application();
+                        excelApplication.SheetsInNewWorkbook = 1;
+                        excelApplication.DisplayAlerts = false;
+
+                        // Open the template
+                        workbookTemplate = excelApplication.Workbooks.Open(System.Windows.Forms.Application.StartupPath + @"\Reports\rpt_account_payable.xlsx");
+
+                        // Create working report
+                        workbookReport = excelApplication.Workbooks.Add(Type.Missing);
+                        workbookTemplate.Sheets[1].Copy(workbookReport.Worksheets[1]);
+                        ws = (Microsoft.Office.Interop.Excel.Worksheet)workbookReport.Worksheets[1];
+
+                        int Start = 8;
+                        ws.Cells[5, "A"] = "AP DETAIL FOR " + dtFrom.Value.ToString("dd/MM/yyyy") +" - "+ dtTo.Value.ToString("dd/MM/yyyy");
+                        progressbarsetup.Visible = true;
+                        progressbarsetup.Minimum = 0;
+                        progressbarsetup.Maximum = dt.Rows.Count + 1;
+
+                        string lastApId = "";
+                        int groupStartRow = Start;
+
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            string currentApId = dt.Rows[i]["ap_id"].ToString();
+                            int rowIndex = Start + i;
+
+                            // Only write A–E if new ap_id
+                            if (currentApId != lastApId)
+                            {
+
+                                ws.Cells[rowIndex, "A"] = currentApId;
+                                ws.Cells[rowIndex, "B"] = Convert.ToDateTime(dt.Rows[i]["ap_date"]).ToString("dd/MM/yyyy");
+                                ws.Cells[rowIndex, "C"] = dt.Rows[i]["invoice"].ToString();
+                                ws.Cells[rowIndex, "D"] = dt.Rows[i]["sup_name"].ToString();
+                                ws.Cells[rowIndex, "E"] = dt.Rows[i]["description"].ToString();
+                                ws.Cells[rowIndex, "F"] = dt.Rows[i]["TotalAmount"].ToString();
+
+                                ws.Cells[rowIndex, "I"] = dt.Rows[i]["balance"].ToString();
+
+                                // Start new group
+                                groupStartRow = rowIndex;
+                                lastApId = currentApId;
+                            }
+
+                            // Always write F, G, H
+                            ws.Cells[rowIndex, "G"] = DateTime.TryParse(dt.Rows[i]["paiddate"]?.ToString(), out var paidDate)
+                                ? paidDate.ToString("dd/MM/yyyy")
+                                : "";
+
+                            ws.Cells[rowIndex, "H"] = dt.Rows[i]["amount"].ToString();
+                            progressbarsetup.Value = i + 1;
+                        }
+
+
+                        progressbarsetup.Value = 0;
+                        progressbarsetup.Visible = false;
+                        workbookTemplate.Close();
+                        // Set the active sheet
+                        ((Excel.Worksheet)excelApplication.ActiveWorkbook.Sheets[1]).Select(Type.Missing);
+                        // Show the report
+                        excelApplication.Visible = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No data display .", variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    progressbarsetup.Visible = false;
+                }
+
+            }
+            catch { }
+        }
+
+
 
         void rpt_pos_details()
         {
@@ -732,6 +830,11 @@ namespace HMS_TAX.Function
                     else if (Code == "rpt_in_stock_inout")
                     {
                         rpt_in_stock_inout();
+                    }
+
+                    else if (Code == "rpt_account_payable")
+                    {
+                        rpt_account_payable();
                     }
 
                 }

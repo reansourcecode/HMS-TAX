@@ -41,15 +41,6 @@
             this.txtsupply = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtRemark = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.dgData = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.vID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vOtherCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vDis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vExpired = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtid = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.gb = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -59,6 +50,15 @@
             this.btnCommit = new DevComponents.DotNetBar.ButtonX();
             this.btnNew = new DevComponents.DotNetBar.ButtonX();
             this.btnReject = new DevComponents.DotNetBar.ButtonX();
+            this.vID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vOtherCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vDis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vExpired = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnimage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgData)).BeginInit();
@@ -322,62 +322,6 @@
             this.dgData.StateNormal.HeaderRow.Border.Rounding = 5;
             this.dgData.TabIndex = 111;
             // 
-            // vID
-            // 
-            this.vID.HeaderText = "Id";
-            this.vID.MinimumWidth = 6;
-            this.vID.Name = "vID";
-            this.vID.ReadOnly = true;
-            // 
-            // vName
-            // 
-            this.vName.HeaderText = "Items";
-            this.vName.MinimumWidth = 6;
-            this.vName.Name = "vName";
-            this.vName.ReadOnly = true;
-            // 
-            // vStock
-            // 
-            this.vStock.HeaderText = "Stock";
-            this.vStock.Name = "vStock";
-            this.vStock.ReadOnly = true;
-            // 
-            // vCost
-            // 
-            this.vCost.HeaderText = "Cost";
-            this.vCost.Name = "vCost";
-            this.vCost.ReadOnly = true;
-            // 
-            // vOtherCost
-            // 
-            this.vOtherCost.HeaderText = "Exp";
-            this.vOtherCost.Name = "vOtherCost";
-            this.vOtherCost.ReadOnly = true;
-            // 
-            // vQty
-            // 
-            this.vQty.HeaderText = "Qty";
-            this.vQty.Name = "vQty";
-            this.vQty.ReadOnly = true;
-            // 
-            // vDis
-            // 
-            this.vDis.HeaderText = "Discount";
-            this.vDis.Name = "vDis";
-            this.vDis.ReadOnly = true;
-            // 
-            // vAmount
-            // 
-            this.vAmount.HeaderText = "Amount";
-            this.vAmount.Name = "vAmount";
-            this.vAmount.ReadOnly = true;
-            // 
-            // vExpired
-            // 
-            this.vExpired.HeaderText = "Expired";
-            this.vExpired.Name = "vExpired";
-            this.vExpired.ReadOnly = true;
-            // 
             // txtid
             // 
             this.txtid.Location = new System.Drawing.Point(95, 8);
@@ -490,6 +434,7 @@
             this.groupPanel1.Controls.Add(this.btnCommit);
             this.groupPanel1.Controls.Add(this.btnNew);
             this.groupPanel1.Controls.Add(this.btnReject);
+            this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.IsShadowEnabled = true;
             this.groupPanel1.Location = new System.Drawing.Point(585, 6);
             this.groupPanel1.Name = "groupPanel1";
@@ -504,7 +449,6 @@
             this.groupPanel1.Style.BorderLeftWidth = 1;
             this.groupPanel1.Style.BorderRightWidth = 1;
             this.groupPanel1.Style.BorderTopWidth = 1;
-            this.groupPanel1.Style.Class = "";
             this.groupPanel1.Style.CornerDiameter = 4;
             this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
@@ -513,12 +457,10 @@
             // 
             // 
             // 
-            this.groupPanel1.StyleMouseDown.Class = "";
             this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 113;
             // 
@@ -573,6 +515,62 @@
             this.btnReject.TabIndex = 14;
             this.btnReject.Text = "Reject";
             this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
+            // 
+            // vID
+            // 
+            this.vID.HeaderText = "Id";
+            this.vID.MinimumWidth = 6;
+            this.vID.Name = "vID";
+            this.vID.ReadOnly = true;
+            // 
+            // vName
+            // 
+            this.vName.HeaderText = "Items";
+            this.vName.MinimumWidth = 6;
+            this.vName.Name = "vName";
+            this.vName.ReadOnly = true;
+            // 
+            // vStock
+            // 
+            this.vStock.HeaderText = "Stock";
+            this.vStock.Name = "vStock";
+            this.vStock.ReadOnly = true;
+            // 
+            // vCost
+            // 
+            this.vCost.HeaderText = "Cost";
+            this.vCost.Name = "vCost";
+            this.vCost.ReadOnly = true;
+            // 
+            // vOtherCost
+            // 
+            this.vOtherCost.HeaderText = "OtherCost";
+            this.vOtherCost.Name = "vOtherCost";
+            this.vOtherCost.ReadOnly = true;
+            // 
+            // vQty
+            // 
+            this.vQty.HeaderText = "Qty";
+            this.vQty.Name = "vQty";
+            this.vQty.ReadOnly = true;
+            // 
+            // vDis
+            // 
+            this.vDis.HeaderText = "Discount";
+            this.vDis.Name = "vDis";
+            this.vDis.ReadOnly = true;
+            // 
+            // vAmount
+            // 
+            this.vAmount.HeaderText = "Amount";
+            this.vAmount.Name = "vAmount";
+            this.vAmount.ReadOnly = true;
+            // 
+            // vExpired
+            // 
+            this.vExpired.HeaderText = "Expired";
+            this.vExpired.Name = "vExpired";
+            this.vExpired.ReadOnly = true;
             // 
             // FrmAuthPO
             // 
