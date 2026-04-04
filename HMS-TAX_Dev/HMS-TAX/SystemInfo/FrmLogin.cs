@@ -26,8 +26,8 @@ namespace HMS_TAX
             try
             {
                 this.Text = variables.vTittle;
-                //txtUserName.Text = "reanit";
-                //txtPassword.Text = "love";
+                txtUserName.Text = "reanit";
+                txtPassword.Text = "love";
 
                 //// convert to dynamic 
                 //variables.PConnectionString = "Data Source=JOINCODER-SV;Initial Catalog=HMS_TAX;User ID=sa;Password=love;";

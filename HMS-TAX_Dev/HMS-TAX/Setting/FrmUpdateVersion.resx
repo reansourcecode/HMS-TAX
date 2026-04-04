@@ -134,6 +134,99 @@
 </value>
   </data>
   <data name="textBox1.Text" xml:space="preserve">
+    <value>CREATE TABLE [dbo].[tbl_account_payable](
+	[ap_id] [nvarchar](20) NOT NULL,
+	[branchcode] [nvarchar](20) NOT NULL,
+	[supply_id] [nvarchar](20) NULL,
+	[ap_date] [date] NULL,
+	[invoice] [nvarchar](20) NULL,
+	[remark] [nvarchar](250) NULL,
+	[draft] [bit] NULL,
+	[amount] [money] NULL,
+	[inputter] [nvarchar](250) NULL,
+	[created_at] [datetime] NULL,
+	[authoriser] [nvarchar](250) NULL,
+	[authorize_at] [datetime] NULL,
+ CONSTRAINT [PK_tbl_account_payable] PRIMARY KEY CLUSTERED 
+(
+	[ap_id] ASC,
+	[branchcode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+</value>
+  </data>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>CREATE TABLE [dbo].[tbl_account_payable_paid](
+	[sysdoc] [nvarchar](50) NOT NULL,
+	[branchcode] [nvarchar](50) NOT NULL,
+	[ap_id] [nvarchar](50) NOT NULL,
+	[paiddate] [date] NULL,
+	[amount] [money] NULL,
+	[remark] [nvarchar](250) NULL,
+	[inputter] [nvarchar](250) NULL,
+	[created_at] [datetime] NULL
+) ON [PRIMARY]
+
+</value>
+  </data>
+  <data name="textBox3.Text" xml:space="preserve">
+    <value>CREATE TABLE [dbo].[tbl_account_payable_sub](
+	[sysdocnum] [nvarchar](50) NOT NULL,
+	[branchcode] [nvarchar](50) NOT NULL,
+	[ap_id] [nvarchar](50) NOT NULL,
+	[description] [nvarchar](250) NULL,
+	[amount] [money] NOT NULL,
+	[create_at] [datetime] NULL,
+ CONSTRAINT [PK_tbl_account_payable_sub] PRIMARY KEY CLUSTERED 
+(
+	[sysdocnum] ASC,
+	[branchcode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+</value>
+  </data>
+  <data name="textBox4.Text" xml:space="preserve">
+    <value>CREATE TABLE [dbo].[tbl_payment_response](
+	[rs_id] [nvarchar](50) NOT NULL,
+	[branchcode] [nvarchar](50) NOT NULL,
+	[title] [nvarchar](250) NULL,
+	[rs_default] [nvarchar](250) NULL,
+	[rs_default_position] [nvarchar](250) NULL,
+	[active] [bit] NULL,
+	[create_at] [datetime] NULL,
+ CONSTRAINT [PK_tbl_payment_response] PRIMARY KEY CLUSTERED 
+(
+	[rs_id] ASC,
+	[branchcode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+</value>
+  </data>
+  <data name="textBox5.Text" xml:space="preserve">
+    <value>CREATE TABLE [dbo].[tbl_payment_signature](
+	[sysdocnum] [nvarchar](25) NOT NULL,
+	[branchcode] [nvarchar](25) NOT NULL,
+	[pv_id] [nvarchar](25) NULL,
+	[rs_id] [nvarchar](25) NULL,
+	[responder] [nvarchar](250) NULL,
+	[position] [nvarchar](250) NULL,
+	[rs_date] [datetime] NULL,
+	[inputter] [nvarchar](250) NULL,
+	[created_at] [datetime] NOT NULL,
+ CONSTRAINT [PK_tbl_payment_signature] PRIMARY KEY CLUSTERED 
+(
+	[sysdocnum] ASC,
+	[branchcode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+ 
+
+ALTER TABLE [dbo].[tbl_payment_signature] ADD  CONSTRAINT [DF__tbl_payme__creat__37FA4C37]  DEFAULT (getdate()) FOR [created_at]</value>
+  </data>
+  <data name="textBox7.Text" xml:space="preserve">
     <value>CREATE TABLE [dbo].[tblpaymentlines](
 	[line_id] [nvarchar](50) NOT NULL,
 	[branchcode] [nvarchar](50) NOT NULL,
@@ -149,11 +242,3284 @@
 	[line_id] ASC,
 	[branchcode] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]</value>
+  </data>
+  <data name="textBox8.Text" xml:space="preserve">
+    <value>CREATE TABLE [dbo].[tblpaymentsub](
+	[sysdocnum] [nvarchar](50) NOT NULL,
+	[branchcode] [nvarchar](50) NOT NULL,
+	[pv_id] [nvarchar](50) NOT NULL,
+	[pay_no] [nvarchar](50) NULL,
+	[pay_des] [nvarchar](250) NULL,
+	[pay_amount] [money] NOT NULL,
+	[create_at] [datetime] NULL,
+ CONSTRAINT [PK_tblpaymentsub] PRIMARY KEY CLUSTERED 
+(
+	[sysdocnum] ASC,
+	[branchcode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
+
+</value>
+  </data>
+  <data name="textBox9.Text" xml:space="preserve">
+    <value>CREATE TABLE [dbo].[tblpaymentvoucher](
+	[pv_id] [nvarchar](50) NOT NULL,
+	[branchcode] [nvarchar](50) NOT NULL,
+	[pay_date] [date] NULL,
+	[pay_to] [nvarchar](50) NULL,
+	[pay_option] [nvarchar](50) NOT NULL,
+	[receipt] [nvarchar](50) NULL,
+	[invoice] [nvarchar](50) NULL,
+	[draft] [bit] NOT NULL,
+	[inputter] [nvarchar](50) NULL,
+	[created_at] [datetime] NOT NULL,
+	[authoriser] [nvarchar](250) NULL,
+	[authorize_at] [datetime] NULL,
+ CONSTRAINT [PK_tblpaymentvoucher] PRIMARY KEY CLUSTERED 
+(
+	[pv_id] ASC,
+	[branchcode] ASC,
+	[pay_option] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
 
 </value>
+  </data>
+  <data name="textBox11.Text" xml:space="preserve">
+    <value>
+CREATE TABLE [dbo].[tbluna_account_payable_sub](
+	[sysdocnum] [nvarchar](50) NOT NULL,
+	[branchcode] [nvarchar](50) NOT NULL,
+	[ap_id] [nvarchar](50) NOT NULL,
+	[description] [nvarchar](250) NULL,
+	[amount] [money] NOT NULL,
+	[create_at] [datetime] NULL,
+ CONSTRAINT [PK_tbluna_account_payable_sub] PRIMARY KEY CLUSTERED 
+(
+	[sysdocnum] ASC,
+	[branchcode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+</value>
+  </data>
+  <data name="textBox13.Text" xml:space="preserve">
+    <value>CREATE TABLE [dbo].[tbluna_account_payable](
+	[ap_id] [nvarchar](20) NOT NULL,
+	[branchcode] [nvarchar](20) NOT NULL,
+	[supply_id] [nvarchar](20) NULL,
+	[ap_date] [date] NULL,
+	[invoice] [nvarchar](20) NULL,
+	[remark] [nvarchar](250) NULL,
+	[draft] [bit] NULL,
+	[amount] [money] NULL,
+	[inputter] [nvarchar](250) NULL,
+	[created_at] [datetime] NULL,
+	[authoriser] [nvarchar](250) NULL,
+	[authorize_at] [datetime] NULL,
+ CONSTRAINT [PK_tbluna_account_payable] PRIMARY KEY CLUSTERED 
+(
+	[ap_id] ASC,
+	[branchcode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+</value>
+  </data>
+  <data name="textBox10.Text" xml:space="preserve">
+    <value>CREATE TABLE [dbo].[tbluna_payment_signature](
+	[sysdocnum] [nvarchar](25) NOT NULL,
+	[branchcode] [nvarchar](25) NOT NULL,
+	[pv_id] [nvarchar](25) NULL,
+	[rs_id] [nvarchar](25) NULL,
+	[responder] [nvarchar](250) NULL,
+	[position] [nvarchar](250) NULL,
+	[rs_date] [datetime] NULL,
+	[inputter] [nvarchar](250) NULL,
+	[created_at] [datetime] NOT NULL,
+ CONSTRAINT [PK_tbluna_payment_signature] PRIMARY KEY CLUSTERED 
+(
+	[sysdocnum] ASC,
+	[branchcode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+</value>
+  </data>
+  <data name="textBox12.Text" xml:space="preserve">
+    <value>ALTER procedure [dbo].[_create_new_branch]
+	@vbranchcode	nvarchar(50),
+	@vbranchname	nvarchar(50)
+as 
+begin
+	
+
+	update a set a.branchcode=@vbranchcode from sys_user_logins as a where a.user_id='1010-0001'
+	delete a from sys_user_logins as a where a.branchcode &lt;&gt;@vbranchcode
+
+
+	update a set a.branchcode=@vbranchcode from [tblcurrencies] as a  
+	update a set a.branchcode=@vbranchcode from [tblCustomers] as a  
+	update a set a.branchcode=@vbranchcode from [tblLines] as a  
+	update a set a.branchcode=@vbranchcode from [tblRecordID] as a  
+	update a set a.branchcode=@vbranchcode from [tblStockMenu] as a  
+	update a set a.branchcode=@vbranchcode from tblSupplies as a  
+	update a set a.branchcode=@vbranchcode from tblReports as a  
+
+	update a set a.branchcode=@vbranchcode,recordid=1 from [tblRecordID] as a  WHERE A.convalue IN ('CUSTOMER','SUPPLY')
+
+
+	DELETE A FROM [tblCustomers] AS A  WHERE A.cus_id&lt;&gt;'C0001'
+	DELETE A FROM [tblSupplies] AS A  WHERE A.sup_id&lt;&gt;'S0001'
+
+	DELETE A FROM [tblRecordID] AS A  WHERE A.convalue NOT IN ('TYPE_LINE','USER_ID','SUPPLY','CUSTOMER')
+
+
+	---Delete record 
+
+	delete from [His_tblunaInvoices]
+	delete from [His_tblunaPurchaseOrder]
+
+	delete from [His_tblunaPurchaseOrderDetail]
+	delete from [His_tblunaStockOuts]
+
+	delete from [tblcost]
+	delete from [tblInvoices]
+	delete from [tblexchangerates]
+	delete from [tblProducts]
+	delete from [tblPurchaseOrder]
+	delete from [tblPurchaseOrderDetails]
+	delete from [tblPurchaseOrderHistory]
+	delete from [tblStockOuts]
+	delete from [tblstocktransfers]
+	delete from [tblstocktransferdetails]
+	delete from [tblstocktransferdetails]
+	delete from [TblTransactions]
+	delete from [TblTransactions]
+	delete from [tblunaInvoices]
+	delete from [tblunaPurchaseOrder]
+	delete from [tblunaPurchaseOrderDetails]
+	delete from [tblunaStockOuts]
+	delete from [tblunastocktransfers]
+	delete from [tblunastocktransferdetails]
+
+
+
+	delete from tbl_account_payable
+	delete from tbl_account_payable_paid
+	delete from tbl_account_payable_sub
+	delete from tbl_payment_signature
+	delete from tblpaymentsub
+	delete from tblpaymentvoucher
+	delete from tbluna_account_payable
+	delete from tbluna_account_payable_sub
+	delete from tbluna_payment_signature
+	delete from tblunapaymentsub
+	delete from tblunapaymentvoucher
+	delete from tblunapaymentvoucher
+
+
+	DELETE A from [sysbranch] as a where a.branchcode=@vbranchcode
+	INSERT INTO [dbo].[sysbranch]
+           ([branchcode]
+           ,[subofbranch]
+           ,[is_branch]
+           ,[Disable]
+           ,[branchname]
+           ,[branchshort]
+           ,[inputter]
+           ,[create_at]) values (@vbranchcode,'9090','1','0',@vbranchname,left(NEWID(),2),'IT.SYSTEM',GETDATE());
+ 
+
+		 ---  EXEC _create_new_branch '0201','CLINIC'
+		 ---  EXEC _create_new_branch '0401','CLINIC-04'
+end</value>
+  </data>
+  <data name="textBox14.Text" xml:space="preserve">
+    <value>ALTER procedure [dbo].[pro_get_combo_by_branch]
+	@vstatus		nvarchar(50),
+	@vBranchcode	NVARCHAR(100),
+	@vCon1			NVARCHAR(100)=''
+AS
+BEGIN
+
+	IF (@vstatus='Active')BEGIN
+
+		SELECT DISTINCT 
+			   A.con_id AS code,
+			   A.con_display AS title
+		FROM sysconstants AS A
+		WHERE A.con_line='Active'
+		ORDER BY code DESC 
+
+	END ELSE IF (@vstatus='SupplyActive')BEGIN
+
+		SELECT DISTINCT 
+			     A.sup_id AS code,
+			     A.sup_name AS title
+		  FROM tblSupplies AS A
+		WHERE A.branchcode=@vBranchcode and A.active='1'
+	END ELSE IF (@vstatus='ProductActive')BEGIN
+		
+		SELECT DISTINCT
+			 A.pro_code AS CODE , 
+			 A.pro_name AS title
+		from tblProducts AS A 
+		WHERE A.branchcode=@vBranchcode and A.active='1' 
+		ORDER BY A.pro_code
+
+	END ELSE IF (@vstatus='PaymentOption')BEGIN
+		
+		SELECT A.line_id AS CODE,
+			   (A.title+ ' '+ ISNULL(RIGHT(a.account,4),'') ) as title
+		from [tblpaymentlines] as a 
+		WHERE A.branchcode=@vBranchcode and A.active='1' 
+		ORDER BY A.line_id
+	END ELSE IF (@vstatus='PaymentAccount')BEGIN
+		SELECT A.account  
+		from [tblpaymentlines] as a 
+		WHERE A.branchcode=@vBranchcode and A.active='1' and a.line_id=@vCon1
+		ORDER BY A.line_id
+	END;
+
+END </value>
+  </data>
+  <data name="textBox15.Text" xml:space="preserve">
+    <value>CREATE TABLE [dbo].[tblunapaymentvoucher](
+	[pv_id] [nvarchar](50) NOT NULL,
+	[branchcode] [nvarchar](50) NOT NULL,
+	[pay_date] [date] NULL,
+	[pay_to] [nvarchar](50) NULL,
+	[pay_option] [nvarchar](50) NOT NULL,
+	[receipt] [nvarchar](50) NULL,
+	[invoice] [nvarchar](50) NULL,
+	[draft] [bit] NULL,
+	[inputter] [nvarchar](50) NULL,
+	[created_at] [datetime] NULL,
+	[authoriser] [nvarchar](250) NULL,
+	[authorize_at] [datetime] NULL,
+ CONSTRAINT [PK_tblunapaymentvoucher_1] PRIMARY KEY CLUSTERED 
+(
+	[pv_id] ASC,
+	[branchcode] ASC,
+	[pay_option] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+</value>
+  </data>
+  <data name="textBox16.Text" xml:space="preserve">
+    <value>CREATE PROCEDURE [dbo].[proc_auth_paymentvoucher]
+	@vCMD			nvarchar(25),
+	@vBranchcode	nvarchar(25),
+	@vts_ID			nvarchar(25),
+	@vInputter		nvarchar(150)=''
+AS
+BEGIN
+	DECLARE @vbatch_id NVARCHAR(25)
+	DECLARE @vts_num  NVARCHAR(25)
+ 
+	IF(@vCMD='pv_Auth')BEGIN
+
+	    delete a from tblpaymentvoucher as a where a.branchcode=@vBranchcode and a.pv_id=@vts_ID
+	    delete a from tblpaymentsub as a where a.branchcode=@vBranchcode and a.pv_id=@vts_ID
+	    delete a from tbl_payment_signature as a where a.branchcode=@vBranchcode and a.pv_id=@vts_ID
+		
+	    INSERT INTO [dbo].[tblpaymentvoucher]
+           ([pv_id]
+           ,[branchcode]
+           ,[pay_date]
+           ,[pay_to]
+           ,[pay_option]
+           ,[receipt]
+           ,[invoice]
+           ,[draft]
+           ,[inputter]
+           ,[created_at]
+           ,[authoriser]
+           ,[authorize_at])
+		select distinct 
+			[pv_id]
+           ,[branchcode]
+           ,[pay_date]
+           ,[pay_to]
+           ,[pay_option]
+           ,[receipt]
+           ,[invoice]
+           ,[draft]
+           ,[inputter]
+           ,[created_at]
+           ,@vInputter
+           ,GETDATE()
+
+		from [tblunapaymentvoucher] as a where a.branchcode=@vBranchcode and a.[pv_id]=@vts_ID
+
+		INSERT INTO [dbo].[tblpaymentsub]
+           ([sysdocnum]
+           ,[branchcode]
+           ,[pv_id]
+           ,[pay_no]
+           ,[pay_des]
+           ,[pay_amount]
+           ,[create_at])
+		select distinct 
+			[sysdocnum]
+           ,[branchcode]
+           ,[pv_id]
+           ,[pay_no]
+           ,[pay_des]
+           ,[pay_amount]
+           ,[create_at]
+
+		from [tblunapaymentsub] as a where a.branchcode=@vBranchcode and a.[pv_id]=@vts_ID
+
+		INSERT INTO [dbo].[tbl_payment_signature]
+           ([sysdocnum]
+           ,[branchcode]
+           ,[pv_id]
+           ,[rs_id]
+           ,[responder]
+           ,[position]
+           ,[rs_date]
+           ,[inputter]
+           ,[created_at])
+
+		select distinct 
+			[sysdocnum]
+           ,[branchcode]
+           ,[pv_id]
+           ,[rs_id]
+           ,[responder]
+           ,[position]
+           ,[rs_date]
+           ,[inputter]
+           ,[created_at]
+		from tbluna_payment_signature as a where a.branchcode=@vBranchcode and a.[pv_id]=@vts_ID
+
+        EXEC proc_delete_trans  'r_paymentvoucher',@vBranchcode,@vts_ID,@vInputter
+
+ 	END ELSE IF(@vCMD='Auth_AccPay')BEGIN
+        delete a from [tbl_account_payable] as a where a.branchcode=@vBranchcode and a.[ap_id]=@vts_ID
+	    delete a from [tbl_account_payable_sub] as a where a.branchcode=@vBranchcode and a.[ap_id]=@vts_ID
+
+        INSERT INTO [dbo].[tbl_account_payable]
+           ([ap_id]
+           ,[branchcode]
+           ,[supply_id]
+           ,[ap_date]
+           ,[invoice]
+           ,[remark]
+           ,[draft]
+           ,[amount]
+           ,[inputter]
+           ,[created_at]
+           ,[authoriser]
+           ,[authorize_at])
+        SELECT DISTINCT
+            [ap_id]
+           ,[branchcode]
+           ,[supply_id]
+           ,[ap_date]
+           ,[invoice]
+           ,[remark]
+           ,[draft]
+           ,[amount]
+           ,[inputter]
+           ,[created_at]
+           ,@vInputter
+           ,GETDATE()
+        FROM [tbluna_account_payable] AS A where a.branchcode=@vBranchcode and a.[ap_id]=@vts_ID
+        
+        
+    INSERT INTO [dbo].[tbl_account_payable_sub]
+           ([sysdocnum]
+           ,[branchcode]
+           ,[ap_id]
+           ,[description]
+           ,[amount]
+           ,[create_at])
+         SELECT 
+            [sysdocnum]
+           ,[branchcode]
+           ,[ap_id]
+           ,[description]
+           ,[amount]
+           ,[create_at]
+        FROM [tbluna_account_payable_sub] AS A where a.branchcode=@vBranchcode and a.[ap_id]=@vts_ID
+
+
+
+        UPDATE a SET a.amount = b.total_amount
+        FROM tbl_account_payable AS a
+        INNER JOIN (
+            SELECT 
+                ap_id,
+                branchcode,
+                SUM(amount) AS total_amount
+            FROM tbl_account_payable_sub
+            WHERE branchcode = @vBranchcode
+              AND ap_id = @vts_ID
+            GROUP BY ap_id, branchcode
+        ) AS b 
+            ON a.ap_id = b.ap_id 
+           AND a.branchcode = b.branchcode
+
+        --- clear unauthorize 
+        EXEC proc_delete_trans  'r_AccountPayable',@vBranchcode,@vts_ID,@vInputter
+
+ 	END ELSE IF(@vCMD='r_paymentvoucher')BEGIN
+		EXEC proc_delete_trans  @vCMD,@vBranchcode,@vts_ID,@vInputter
+    END ELSE IF(@vCMD='r_AccountPayable')BEGIN
+		EXEC proc_delete_trans  @vCMD,@vBranchcode,@vts_ID,@vInputter
+    END ELSE IF(@vCMD='del_acc_paid')BEGIN
+		EXEC proc_delete_trans  @vCMD,@vBranchcode,@vts_ID,@vInputter
+	END 
+
+		select @vts_ID as TRANCODE
+	END 
+	</value>
+  </data>
+  <data name="textBox17.Text" xml:space="preserve">
+    <value>ALTER FUNCTION [dbo].[fun_amount](
+	@vstatus		NVARCHAR(20),
+	@vbranchcode	NVARCHAR(10),
+	@vtracode1		NVARCHAR(20)='',
+	@vtracode2		NVARCHAR(20)=''
+)
+RETURNS MONEY
+AS
+BEGIN
+	DECLARE @vAmount	MONEY
+	DECLARE @vTotalAmount	MONEY
+	DECLARE @vPaidAmount	MONEY
+	if(@vstatus='cost')begin
+		set @vAmount= isnull((SELECT A.cost FROM tblProducts AS A WHERE A.BranchCode=@vbranchcode AND A.pro_code=@vtracode1 AND A.active='1'),0)
+	end else if(@vstatus='price')begin
+		set @vAmount= isnull((SELECT A.unitprice FROM tblProducts AS A WHERE A.BranchCode=@vbranchcode AND A.pro_code=@vtracode1 AND A.active='1'),0)
+	end else if(@vstatus='discount')begin
+		set @vAmount= isnull((SELECT A.discount FROM tblProducts AS A WHERE A.BranchCode=@vbranchcode AND A.pro_code=@vtracode1 AND A.active='1'),0)
+	end else if(@vstatus='t_amount')begin
+		set @vAmount= isnull((SELECT SUM(A.AMOUNT) FROM tblunaStockOuts AS A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vtracode1),0)
+
+	end else if(@vstatus='pos_cost')begin
+		set @vAmount= isnull((SELECT A.cost FROM tblProducts AS A WHERE A.BranchCode=@vbranchcode AND A.pro_code=@vtracode1 AND A.active='1'),0)
+
+	end else if(@vstatus='acc_paid')begin
+		set @vTotalAmount= isnull((SELECT sum(isnull( A.amount,0)) FROM tbl_account_payable_sub AS A WHERE A.BranchCode=@vbranchcode AND A.ap_id=@vtracode1),0)
+		set @vPaidAmount= isnull((SELECT sum(isnull( A.amount,0)) FROM tbl_account_payable_paid AS A WHERE A.BranchCode=@vbranchcode AND A.ap_id=@vtracode1),0)
+
+		set @vAmount=@vTotalAmount-@vPaidAmount
+
+	end 
+
+	RETURN isnull(@vAmount,0) 
+END</value>
+  </data>
+  <data name="textBox18.Text" xml:space="preserve">
+    <value>
+CREATE TABLE [dbo].[tblunapaymentsub](
+	[sysdocnum] [nvarchar](50) NOT NULL,
+	[branchcode] [nvarchar](50) NOT NULL,
+	[pv_id] [nvarchar](50) NOT NULL,
+	[pay_no] [nvarchar](50) NULL,
+	[pay_des] [nvarchar](250) NULL,
+	[pay_amount] [money] NULL,
+	[create_at] [datetime] NULL,
+ CONSTRAINT [PK_tblunapaymentsub_1] PRIMARY KEY CLUSTERED 
+(
+	[sysdocnum] ASC,
+	[branchcode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+</value>
+  </data>
+  <data name="textBox19.Text" xml:space="preserve">
+    <value> create procedure [dbo].[proc_accounts_payable_sub]
+	@vsysdocnum		nvarchar(20),
+	@vbranchcode	nvarchar(20),
+	@vap_id			nvarchar(20),
+	@vdesc			nvarchar(250),
+	@vamount		money
+as
+begin
+
+	IF(NOT EXISTS( SELECT a.[ap_id] FROM [tbluna_account_payable_sub] as a where a.branchcode=@vBranchCode and a.sysdocnum=@vsysdocnum) AND EXISTS (SELECT A.[ap_id] FROM tbluna_account_payable AS a where a.branchcode=@vBranchCode and a.[ap_id]=@vap_id) )begin 
+		
+		IF(@vsysdocnum='')begin
+			exec proc_next_id @vbranchcode,'payable_SYSDOC','1',@vsysdocnum out ;
+		end
+
+		SELECT @vsysdocnum 
+
+		INSERT INTO [dbo].[tbluna_account_payable_sub]
+           ([sysdocnum]
+           ,[branchcode]
+           ,[ap_id]
+           ,[description]
+           ,[amount]
+           ,[create_at])
+		VALUES (@vsysdocnum,@vbranchcode,@vap_id,@vdesc,@vamount,getdate())
+
+	end else begin 
+		
+		update a set 
+			a.[ap_id]=@vap_id,
+			a.[description]=@vdesc,
+			a.[amount]=@vamount,
+			a.[create_at]=getdate()
+		from [tbluna_account_payable_sub] as a where a.branchcode=@vBranchCode and a.[sysdocnum]=@vsysdocnum
+	end ;
+
+	select @vap_id as trancode ;
+
+ --- proc_register_paymentsub N'',N'0101',N'DRA0031',N'',N'3',N'0'
+end</value>
+  </data>
+  <data name="textBox20.Text" xml:space="preserve">
+    <value>ALTER procedure [dbo].[_history_trans]
+	@vStatus		nvarchar(25),
+	@vBranchcode	nvarchar(25),
+	@vTran_ID		nvarchar(25),
+	@vInputter		nvarchar(150)=''
+AS
+BEGIN
+	IF (@vstatus='POS_Reject' or @vstatus='rcp_commit')BEGIN
+		
+		INSERT INTO [dbo].[His_tblunaInvoices]
+           ([rcp_num]
+           ,[branchcode]
+           ,[cus_id]
+           ,[rcp_date]
+           ,[currency]
+           ,[exchangrate]
+           ,[amount]
+           ,[draft]
+           ,[flag]
+           ,[referent]
+           ,[inputter]
+           ,[create_at]
+           ,[Editing]
+           ,[authoriser]
+           ,[authorize_at]
+		   ,[Tracker]
+           ,[Track_at]) 
+		   SELECT 
+		    [rcp_num]
+           ,[branchcode]
+           ,[cus_id]
+           ,[rcp_date]
+           ,[currency]
+           ,[exchangrate]
+           ,[amount]
+           ,[draft]
+           ,[flag]
+           ,@vStatus
+           ,[inputter]
+           ,[create_at]
+           ,[Editing]
+           ,[authoriser]
+           ,[authorize_at]
+		   , @vInputter
+		   ,GETDATE()
+		   FROM tblunaInvoices AS A WHERE A.[rcp_num]=@vTran_ID and a.branchcode=@vBranchcode
+
+		   INSERT INTO [dbo].[His_tblunaStockOuts]
+			   ([sysdocnum]
+			   ,[rcp_num]
+			   ,[branchcode]
+			   ,[sto_id]
+			   ,[pro_code]
+			   ,[barcode]
+			   ,[qty]
+			   ,[cost]
+			   ,[unitprice]
+			   ,[discount]
+			   ,[amount]
+			   ,[batch_id]
+			   ,[exp_date]
+			   ,[create_at])
+		   SELECT 
+				[sysdocnum]
+			   ,[rcp_num]
+			   ,[branchcode]
+			   ,[sto_id]
+			   ,[pro_code]
+			   ,[barcode]
+			   ,[qty]
+			   ,[cost]
+			   ,[unitprice]
+			   ,[discount]
+			   ,[amount]
+			   ,[batch_id]
+			   ,[exp_date]
+			   ,[create_at]
+		   FROM tblunaStockOuts AS A WHERE A.[rcp_num]=@vTran_ID and a.branchcode=@vBranchcode
+
+	END ELSE IF (@vstatus='PO_Reject') BEGIN
+	
+		INSERT INTO His_tblunaPurchaseOrder
+           ([po_id]
+           ,[branchcode]
+           ,[sup_id]
+           ,[exc_id]
+           ,[invoice]
+           ,[amount]
+           ,[po_date]
+           ,[remark]
+           ,[editing]
+           ,[inputter]
+           ,[create_at]
+           ,[authoriser]
+           ,[authorize_at]
+           ,[Tracker]
+           ,[Track_at])
+
+		SELECT [po_id]
+           ,[branchcode]
+           ,[sup_id]
+           ,[exc_id]
+           ,[invoice]
+           ,[amount]
+           ,[po_date]
+           ,[remark]
+           ,[editing]
+           ,[inputter]
+           ,[create_at]
+           ,[authoriser]
+           ,[authorize_at]
+           ,@vInputter
+           ,GETDATE()
+		FROM tblunaPurchaseOrder as a where a.po_id=@vTran_ID
+
+		INSERT INTO [His_tblunaPurchaseOrderDetail]
+           ([sysdocnum]
+           ,[po_id]
+           ,[branchcode]
+           ,[pro_code]
+           ,[barcode]
+           ,[sto_id]
+           ,[cost]
+           ,[oth_cost]
+           ,[qty]
+           ,[discount]
+           ,[exp_date]
+           ,[amount]
+           ,[oth_amount]
+           ,[batch_id]
+           ,[create_at]
+           ,[Tracker]
+           ,[Track_at])
+
+		SELECT [sysdocnum]
+           ,[po_id]
+           ,[branchcode]
+           ,[pro_code]
+           ,[barcode]
+           ,[sto_id]
+           ,[cost]
+           ,[oth_cost]
+           ,[qty]
+           ,[discount]
+           ,[exp_date]
+           ,[amount]
+           ,[oth_amount]
+           ,[batch_id]
+           ,[create_at]
+           ,@vInputter
+           ,GETDATE()
+		FROM tblunaPurchaseOrderDetails as a  where a.po_id=@vTran_ID
+
+	 END ;
+
+END</value>
+  </data>
+  <data name="textBox21.Text" xml:space="preserve">
+    <value>ALTER PROCEDURE [dbo].[proc_next_id]
+    @vbranchcode NVARCHAR(10),
+    @vcolumns    NVARCHAR(50),
+    @vlevels     NVARCHAR(50),
+    @vcode       NVARCHAR(100) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @vsequence INT
+    DECLARE @retval INT
+    DECLARE @vMinlength INT = 4
+    DECLARE @vMaxlength INT = 6
+
+    DECLARE @vYear  NVARCHAR(4)
+    DECLARE @vMonth NVARCHAR(2)
+    DECLARE @vDay   NVARCHAR(2)
+
+    SET @vcolumns = UPPER(ISNULL(@vcolumns,''))
+
+    SET @vYear  = CONVERT(NVARCHAR(4), DATEPART(YEAR, GETDATE()))
+    SET @vMonth = RIGHT('0' + CONVERT(NVARCHAR(2), DATEPART(MONTH, GETDATE())),2)
+    SET @vDay   = RIGHT('0' + CONVERT(NVARCHAR(2), DATEPART(DAY, GETDATE())),2)
+
+    --------------------------------------------------
+    -- Ensure record exists
+    --------------------------------------------------
+    IF NOT EXISTS (
+        SELECT 1 
+        FROM tblrecordid 
+        WHERE branchcode = @vbranchcode 
+        AND convalue = @vcolumns
+    )
+    BEGIN
+        INSERT INTO tblrecordid (branchcode,convalue,recordid,description)
+        VALUES (@vbranchcode,@vcolumns,0,@vcolumns)
+    END
+
+    --------------------------------------------------
+    -- Get sequence
+    --------------------------------------------------
+    SELECT @retval = ISNULL(MAX(recordid),0)
+    FROM tblrecordid
+    WHERE branchcode=@vbranchcode
+    AND convalue=@vcolumns
+
+    SET @vsequence = @retval + 1
+
+    --------------------------------------------------
+    -- Update sequence
+    --------------------------------------------------
+    UPDATE tblrecordid
+    SET recordid=@vsequence
+    WHERE branchcode=@vbranchcode
+    AND convalue=@vcolumns
+
+    --------------------------------------------------
+    -- Generate Code
+    --------------------------------------------------
+
+    IF (@vlevels='branchcode')
+        SET @vcode = REPLICATE('0',4-LEN(@vsequence)) + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='DraftInvoice')
+        SET @vcode = 'DR' + @vYear + @vMonth + '-' 
+        + REPLICATE('0',5-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='INVOICE')
+        SET @vcode = 'TIHVB' + @vYear + '-' 
+        + REPLICATE('0',5-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='COMMERCIAL')
+        SET @vcode = 'CIHVB' + @vYear + '-' 
+        + REPLICATE('0',5-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='INVOICE_RE')
+        SET @vcode = 'RTIHVB' + @vYear + '-' 
+        + REPLICATE('0',5-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='COMMERCIAL_RE')
+        SET @vcode = 'RCIHVB' + @vYear + '-' 
+        + REPLICATE('0',5-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='RETURN_IN')
+        SET @vcode = 'CNHVB' + @vYear + '-' 
+        + REPLICATE('0',5-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='paymentvoucher')
+        SET @vcode = @vcolumns + '-'+ @vYear + '-'
+        + REPLICATE('0',5-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='0')
+        SET @vcode = ISNULL(@vcolumns,'NONE') + @vYear + @vMonth + '-' 
+        + REPLICATE('0',@vMinlength-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='1')
+        SET @vcode = @vbranchcode + '-' 
+        + REPLICATE('0',@vMinlength-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='2')
+        SET @vcode = ISNULL(LEFT(@vcolumns,3),'N') 
+        + REPLICATE('0',@vMinlength-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='3')
+        SET @vcode = ISNULL(LEFT(@vcolumns,1),'N') 
+        + REPLICATE('0',@vMinlength-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='9')
+        SET @vcode = @vYear + @vMonth + @vDay + '-' 
+        + REPLICATE('0',@vMaxlength-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+    ELSE IF (@vlevels='BTC')
+        SET @vcode = ISNULL(@vcolumns,'NONE') + @vYear + @vMonth + '-' 
+        + REPLICATE('0',@vMinlength-LEN(@vsequence)) 
+        + CAST(@vsequence AS NVARCHAR)
+
+END</value>
+  </data>
+  <data name="textBox22.Text" xml:space="preserve">
+    <value>ALTER FUNCTION [dbo].[fun_product_line](
+	@vstatus		NVARCHAR(20),
+	@vbranchcode	NVARCHAR(10),
+	@vpro_code		NVARCHAR(25)
+)
+RETURNS nvarchar(50)
+AS
+BEGIN
+	DECLARE @vReturn	nvarchar(50)
+	if(@vstatus='pack')begin
+		set @vReturn= isnull((select top 1 b.line_name from tblProducts as a inner join tblLines as b on a.branchcode=b.branchcode and a.pack_id=b.line_id WHERE A.BranchCode=@vbranchcode  AND a.pro_code=@vpro_code),'None')
+	end else if(@vstatus='payment')begin 
+		set @vReturn= isnull((select top 1 case when b.account is null then b.title else (b.title + ' : '  + b.account) end as title from tblunapaymentvoucher as a inner join tblpaymentlines as b on a.branchcode=b.branchcode and a.pay_option=b.line_id WHERE A.BranchCode=@vbranchcode  AND a.pv_id=@vpro_code),'None')
+	end 
+
+	RETURN isnull(@vReturn,'None') 
+END</value>
+  </data>
+  <data name="textBox23.Text" xml:space="preserve">
+    <value>ALTER PROCEDURE [dbo].[proc_auth_pos]
+	@vCMD			nvarchar(25),
+	@vBranchcode	nvarchar(25),
+	@vPOS_ID		nvarchar(25),
+	@vInputter		nvarchar(150)='',
+	@vCus_ID		nvarchar(150)=''
+
+AS
+BEGIN
+	DECLARE @vbatch_id NVARCHAR(25)
+	DECLARE @vrcp_num  NVARCHAR(25)
+ 
+	IF(@vCMD='POS_Auth')BEGIN
+
+		delete a from [tblInvoices] as a where a.branchcode=@vBranchcode and a.rcp_num=@vPOS_ID
+		delete a from [tblStockOuts] as a where a.branchcode=@vBranchcode and a.rcp_num=@vPOS_ID
+		
+		INSERT INTO [tblInvoices]
+           ([rcp_num]
+           ,[branchcode]
+           ,[cus_id]
+           ,[rcp_date]
+           ,[currency]
+           ,[exchangrate]
+           ,[amount]
+           ,[draft]
+           ,[flag]
+           ,[referent]
+           ,[inputter]
+           ,[create_at]
+           ,[Editing]
+           ,[authoriser]
+           ,[authorize_at])
+		select [rcp_num]
+           ,[branchcode]
+           ,[cus_id]
+           ,[rcp_date]
+           ,[currency]
+           ,[exchangrate]
+           ,[amount]
+           ,[draft]
+           ,[flag]
+           ,[referent]
+           ,[inputter]
+           ,[create_at]
+           ,[Editing]
+           ,@vInputter
+           ,GETDATE()
+		from tblunaInvoices as a 
+		where a.branchcode=@vBranchcode and a.rcp_num=@vPOS_ID
+		
+		INSERT INTO [tblStockOuts] ([sysdocnum]
+		  ,[rcp_num]
+		  ,[branchcode]
+		  ,[sto_id]
+		  ,[pro_code]
+		  ,[barcode]
+		  ,[qty]
+		  ,[cost]
+		  ,[unitprice]
+		  ,[discount]
+		  ,[amount]
+		  ,[batch_id]
+		  ,[exp_date]
+		  ,[create_at] )
+
+		SELECT [sysdocnum]
+		  ,[rcp_num]
+		  ,[branchcode]
+		  ,[sto_id]
+		  ,[pro_code]
+		  ,[barcode]
+		  ,[qty]
+		  ,[cost]
+		  ,[unitprice]
+		  ,[discount]
+		  ,[amount]
+		  ,[batch_id]
+		  ,[exp_date]
+		  ,[create_at]
+		FROM [dbo].[tblunaStockOuts] as a
+		where a.branchcode=@vBranchcode and a.rcp_num=@vPOS_ID
+
+
+		IF EXISTS( SELECT  A.rcp_num FROM tblInvoices AS A WHERE a.branchcode=@vBranchcode and a.rcp_num=@vPOS_ID AND flag IN ('0','1'))BEGIN
+			exec proc_submit_transaction 'pos',@vBranchcode,@vPOS_ID,@vInputter
+		
+		END ELSE IF EXISTS( SELECT A.rcp_num FROM tblInvoices AS A WHERE a.branchcode=@vBranchcode and a.rcp_num=@vPOS_ID AND flag IN ('2','3'))BEGIN
+			exec proc_submit_transaction 're-pos',@vBranchcode,@vPOS_ID,@vInputter
+
+		END
+
+		delete a from [tblunaInvoices] as a where a.branchcode=@vBranchcode and a.rcp_num=@vPOS_ID
+		delete a from [tblunaStockOuts] as a where a.branchcode=@vBranchcode and a.rcp_num=@vPOS_ID
+		
+	END ELSE IF(@vCMD='POS_Reject')BEGIN
+		EXEC proc_delete_trans  @vCMD,@vBranchcode,@vPOS_ID,@vInputter
+
+	END ELSE IF(@vCMD='del_draf_pos') AND EXISTS ( SELECT A.rcp_num FROM tblunaInvoices AS A WHERE a.branchcode=@vBranchcode and a.rcp_num=@vPOS_ID)BEGIN
+		EXEC proc_delete_trans  @vCMD,@vBranchcode,@vPOS_ID,@vInputter
+	END IF (@vCMD='rcp_commit')begin
+
+		EXEC proc_delete_trans  @vCMD,@vBranchcode,@vPOS_ID,@vInputter
+		
+		IF EXISTS (SELECT A.rcp_num FROM tblunaInvoices AS A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID AND A.draft='1')BEGIN
+
+			IF EXISTS (SELECT A.rcp_num FROM tblunaInvoices AS A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID AND A.draft='1' AND A.flag='0')BEGIN
+				EXEC proc_next_id @vbranchcode,'INVOICE','INVOICE',@vrcp_num OUTPUT ;
+			END
+
+			IF EXISTS (SELECT A.rcp_num FROM tblunaInvoices AS A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID AND A.draft='1' AND A.flag='1')BEGIN
+				EXEC proc_next_id @vbranchcode,'COMMERCIAL','COMMERCIAL',@vrcp_num OUTPUT ;
+			END
+
+			update A SET A.draft=0 from tblunaInvoices as A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID
+			update A SET A.rcp_num=@vrcp_num, Editing=GETDATE(),a.cus_id=@vCus_ID from tblunaInvoices as A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID
+			update A SET A.rcp_num=@vrcp_num from tblunaStockOuts as A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID
+			
+			SET @vPOS_ID =@vrcp_num
+		END ELSE BEGIN
+			update A SET  Editing=GETDATE(),a.cus_id=@vCus_ID from tblunaInvoices as A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID
+		END   
+	END IF (@vCMD='rcp_commit_re')begin
+		
+		IF EXISTS (SELECT A.rcp_num FROM tblunaInvoices AS A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID AND A.draft='1' )BEGIN
+			
+			IF EXISTS (SELECT A.rcp_num FROM tblunaInvoices AS A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID AND A.draft='1' AND A.flag='2')BEGIN
+				EXEC proc_next_id @vbranchcode,'RETURN_IN','RETURN_IN',@vrcp_num OUTPUT ;
+			END
+
+			IF EXISTS (SELECT A.rcp_num FROM tblunaInvoices AS A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID AND A.draft='1' AND A.flag='3')BEGIN
+				EXEC proc_next_id @vbranchcode,'RETURN_IN','RETURN_IN',@vrcp_num OUTPUT ;
+			END
+
+
+			update A SET A.draft=0 ,A.rcp_num=@vrcp_num, Editing=GETDATE() , a.inputter=@vInputter from tblunaInvoices as A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID
+			update A SET A.rcp_num=@vrcp_num from tblunaStockOuts as A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID
+			
+			SET @vPOS_ID =@vrcp_num
+
+		END ELSE BEGIN
+			update A SET  Editing=GETDATE(), a.inputter=@vInputter from tblunaInvoices as A WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vPOS_ID
+		END
+
+	END 
+
+
+	select @vPOS_ID as TRANCODE
+
+	-- proc_auth_pos N'rcp_commit',N'0101',N'0101-0015',N'reanit',N'C0002' 
+
+END </value>
+  </data>
+  <data name="textBox24.Text" xml:space="preserve">
+    <value>ALTER procedure [dbo].[proc_get_sql]
+	@vstatus		nvarchar(50),
+	@vbranchcode	nvarchar(10),
+	@vcode1			nvarchar(50)='',
+	@vcode2			nvarchar(50)=''
+as
+begin
+	
+	if(@vcode1='0000')begin
+		 set @vcode1='%'
+	end 
+
+	if (@vstatus='show_customer') begin
+
+		select  distinct 
+			   a.cus_id ,
+			   a.cus_name,
+			   a.phone,
+			   a.remark,
+			   a.address,
+			   a.gender,
+			   isnull(a.address,'') as address,
+			   convert(nvarchar(50),a.active) as active
+		from tblCustomers as a
+		inner join sysconstants as b on a.active=b.con_id and b.con_line='active'
+		where a.branchcode=@vbranchcode and a.cus_id=@vcode1
+		order by a.cus_id
+
+	end else if (@vstatus='rePrint_POS') begin
+
+		select a.rcp_num,
+			   b.cus_name,
+			   a.flag,
+			   a.inputter,
+			   convert(nvarchar(250),('Invoice : '+a.rcp_num+' , Customer : '+ b.cus_name)) as info 
+		from tblInvoices as a 
+		inner join tblCustomers as b on a.branchcode=b.BranchCode and a.cus_id=b.cus_id
+		where a.branchcode=@vbranchcode and a.rcp_num=@vcode1
+	end else if (@vstatus='check_user_exists') begin
+
+			select * from sys_user_logins as a where a.user_login=@vcode1
+
+	end  if (@vstatus='show_product') begin
+		
+			select a.pro_code,
+				   a.barcode,
+				   a.line_id,
+				   a.mol_id,
+				   a.pack_id,
+				   a.pro_name,
+				   convert(nvarchar(50),a.active) as active,
+				   a.cost,
+				   a.cost_tax,
+				   a.unitprice,
+				   a.discount,
+				   a.remark,
+				   a.inputter,
+				   a.create_at
+			from tblProducts as a 
+			where a.BranchCode=@vbranchcode and a.pro_code=@vcode1
+
+	end  if (@vstatus='show_po_history') begin
+		select distinct 
+			   a.po_id,
+			   a.sup_id,
+			   b.sup_name,
+			   b.phone,
+			   c.sysdocnum,
+			   (ISNULL(a.po_id,'')+ ': '+ b.sup_name +' :'+ isnull(b.phone,'') ) as info
+		from tblunaPurchaseOrder as a 
+		inner join tblSupplies as b on a.branchcode=b.branchcode and a.sup_id=b.sup_id
+		left join tblunaPurchaseOrderDetails as c on a.branchcode = c.branchcode and a.po_id=c.po_id
+		where a.branchcode=@vbranchcode and a.po_id=@vcode1
+
+	end else if (@vstatus='load_profile') begin
+		select a.pro_id as id,
+			   a.pro_name as name 
+		from tbl_user_profile as a
+		where a.Active='1' order by a.pro_id
+
+	end  if (@vstatus='show_po_una_list') begin
+		
+		select distinct 
+			   a.po_id,
+			   a.branchcode,
+			   a.inputter,
+			   b.sysdocnum,
+			   b.pro_code,
+			   p.pro_name,
+			   p.barcode,
+			   isnull(b.qty,0) as qty,
+			   isnull(b.cost,0) as cost,
+			   isnull(b.oth_cost,0) as oth_cost,
+			   isnull(b.discount,0) as discount,
+			   b.amount,
+			   b.oth_amount,
+			   b.sto_id,
+			   convert(nvarchar(50),b.exp_date,103) as exp_date
+		from tblunaPurchaseOrder as a 
+		inner join tblunaPurchaseOrderDetails as b on a.po_id=b.po_id and a.branchcode=b.branchcode
+		inner join tblProducts as p on b.pro_code=p.pro_code and b.branchcode=p.branchcode
+		where a.branchcode=@vbranchcode and a.po_id=@vcode1
+		order by a.po_id,b.sysdocnum
+		 
+	end  if (@vstatus='UNA_PO_Edit_Expired') begin
+		select top 1 a.exp_date from tblunaPurchaseOrderDetails as a where a.branchcode= @vbranchcode and a.sysdocnum=@vcode1
+
+	end  if (@vstatus='UNA_PO_Sub') begin
+		select distinct 
+			   a.po_id,
+			   s.sup_name,
+			   a.remark,
+			   a.inputter, 
+			   b.sysdocnum,
+			   p.pro_name,
+			   isnull(b.qty,0) as qty,
+			   isnull(b.cost,0) as cost,
+			   isnull(b.oth_cost,0) as oth_cost,
+			   isnull(b.discount,0) as discount,
+			   b.amount,
+			   dbo.fun_stock('stock_name',a.branchcode,b.sto_id) as stock_name,
+			   convert(nvarchar(50),b.exp_date,103) as exp_date
+		from tblunaPurchaseOrder as a 
+		inner join tblunaPurchaseOrderDetails as b on a.po_id=b.po_id and a.branchcode=b.branchcode
+		inner join tblProducts as p on b.pro_code=p.pro_code and b.branchcode=p.branchcode
+		inner join tblSupplies as s on a.branchcode=s.branchcode and a.sup_id=s.sup_id
+		where a.branchcode=@vbranchcode and a.po_id=@vcode1
+		order by a.po_id,b.sysdocnum
+		
+	end else if (@vstatus='show_supply') begin	
+		
+		select  distinct 
+			   a.sup_id ,
+			   a.sup_name,
+			   a.phone,
+			   isnull(a.remark,'') as remark,
+			   isnull(a.address,'') as address,
+			   convert(nvarchar(50),a.active) as active
+		from tblSupplies as a
+		inner join sysconstants as b on a.active=b.con_id and b.con_line='active'
+		where a.branchcode=@vbranchcode and a.sup_id=@vcode1
+		order by a.sup_id
+
+	end else if (@vstatus='show_type_line') begin	
+		
+		select a.line_id,
+			   a.line_name,
+			   a.line,
+			   convert(nvarchar(50),a.active) as active
+		from tblLines as a 
+		where a.branchcode=@vbranchcode and a.line_id=@vcode1
+
+	end else if (@vstatus='load_user_by_profile') begin	
+
+		select a.user_id,
+			   a.profile_id,
+			   a.user_login,
+			   a.inputter,
+			   b.pro_name,
+			   case when a.active=1 then 'Yes' else 'No' end status 
+		from sys_user_logins as a 
+		inner join tbl_user_profile as b on a.profile_id=b.pro_id
+		where a.branchcode=@vbranchcode and a.profile_id like @vcode1
+
+	end else if (@vstatus='get_batch_id') begin	
+		
+		SELECT  
+			   A.rcp_num,
+			   A.branchcode,
+			   B.pro_code,
+			   P.pro_name,
+			   B.sysdocnum,
+			   b.qty
+		INTO #tmpStockouts
+		FROM tblunaInvoices AS A
+		INNER JOIN tblunaStockOuts AS B ON A.BranchCode=B.BranchCode AND A.rcp_num=B.rcp_num
+		INNER JOIN tblProducts AS P ON B.BranchCode=P.BranchCode AND B.pro_code=P.pro_code
+		WHERE A.BranchCode=@vbranchcode AND b.sysdocnum=@vcode1
+
+		select a.pro_code,
+			   a.pro_name,
+			   b.stock_code,
+			   b.batch_id,
+			   sum(b.qty) as qty 
+		INTO #tmpStockIN
+		from #tmpStockouts as a inner join TblTransactions as b on a.branchcode=b.BranchCode and a.pro_code=b.pro_code
+		where b.BranchCode=@vbranchcode and b.stock_code=@vcode2
+		group by a.pro_code,
+			   a.pro_name,
+			   b.stock_code,
+			   b.batch_id
+
+
+		SELECT DISTINCT 
+			     A.batch_id AS code,
+			     A.batch_id AS title
+		  FROM #tmpStockIN AS A where a.qty&gt;0
+	
+	end
+
+
+	
+
+end</value>
+  </data>
+  <data name="textBox25.Text" xml:space="preserve">
+    <value>ALTER PROCEDURE [dbo].[proc_get_sql_search]
+    @vstatus      NVARCHAR(50),
+    @vbranchcode  NVARCHAR(10),
+    @vcode1       NVARCHAR(50) = N'',
+    @vcode2       NVARCHAR(50) = N''
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @contains NVARCHAR(52) = N'%' + @vcode1 + N'%';
+    DECLARE @prefix   NVARCHAR(51) = @vcode1 + N'%';
+
+    IF (@vcode1 = N'0000')
+    BEGIN
+        SET @contains = N'%';
+        SET @prefix   = N'%';
+    END;
+
+    IF (@vstatus = N'search_customer')
+    BEGIN
+        SELECT DISTINCT TOP (100)
+               a.cus_id,
+               a.cus_name,
+               a.phone,
+               CASE WHEN a.active = '1' THEN 'Yes' ELSE 'No' END AS Active
+        FROM tblCustomers AS a
+        INNER JOIN sysconstants AS b
+            ON a.active = b.con_id AND b.con_line = 'active'
+        WHERE a.branchcode = @vbranchcode
+          AND (a.cus_id   LIKE @contains
+               OR a.cus_name LIKE @prefix
+               OR a.cus_name LIKE @contains
+               OR a.phone    LIKE @contains)
+        ORDER BY a.cus_id;
+    END
+    ELSE IF (@vstatus = N'search_supply')
+    BEGIN
+        SELECT DISTINCT
+               a.sup_id,
+               a.sup_name,
+               a.phone,
+               CASE WHEN a.active = '1' THEN 'Yes' ELSE 'No' END AS Active,
+               a.remark
+        FROM tblSupplies AS a
+        INNER JOIN sysconstants AS b
+            ON a.active = b.con_id AND b.con_line = 'active'
+        WHERE a.branchcode = @vbranchcode
+          AND (a.sup_id    LIKE @contains
+               OR a.sup_name LIKE @prefix
+               OR a.sup_name LIKE @contains
+               OR a.phone    LIKE @contains)
+        ORDER BY a.sup_id;
+    END
+    ELSE IF (@vstatus = N'search_pos_rcp')
+    BEGIN
+        IF OBJECT_ID('tempdb..#tmpUnaInvoice') IS NOT NULL DROP TABLE #tmpUnaInvoice;
+
+        SELECT a.rcp_num,
+               a.branchcode,
+               a.cus_id,
+               a.inputter,
+               a.create_at,
+               b.cus_name,
+               b.phone,
+               CASE WHEN a.Editing IS NOT NULL THEN 'POS'
+                    WHEN a.draft = '0' THEN 'editting' ELSE 'In Draft' END AS status
+        INTO #tmpUnaInvoice
+        FROM tblunaInvoices AS a
+        INNER JOIN tblCustomers AS b
+            ON a.branchcode = b.BranchCode AND a.cus_id = b.cus_id
+        WHERE a.branchcode = @vbranchcode
+          AND (a.rcp_num LIKE @contains OR a.cus_id LIKE @prefix OR b.cus_name LIKE @contains)
+          AND a.flag = @vcode2;
+
+        SELECT a.rcp_num,
+               a.branchcode,
+               a.cus_id,
+               a.inputter,
+               a.cus_name,
+               a.phone,
+               a.create_at,
+               a.status
+        FROM #tmpUnaInvoice AS a
+        ORDER BY a.status, a.create_at DESC;
+    END
+    ELSE IF (@vstatus = N'search_pos_rcp_re')
+    BEGIN
+        IF OBJECT_ID('tempdb..#tmpReturnInvoice') IS NOT NULL DROP TABLE #tmpReturnInvoice;
+
+        SELECT a.rcp_num,
+               a.branchcode,
+               a.cus_id,
+               a.inputter,
+               a.create_at,
+               b.cus_name,
+               b.phone,
+               CASE WHEN a.Editing IS NOT NULL THEN 'POS'
+                    WHEN a.draft = '0' THEN 'editting' ELSE 'In Draft' END AS status
+        INTO #tmpReturnInvoice
+        FROM tblunaInvoices AS a
+        INNER JOIN tblCustomers AS b
+            ON a.branchcode = b.BranchCode AND a.cus_id = b.cus_id
+        WHERE a.branchcode = @vbranchcode
+          AND (a.rcp_num LIKE @contains OR a.cus_id LIKE @prefix OR b.cus_name LIKE @contains)
+          AND a.flag IN ('2','3');
+
+        SELECT a.rcp_num,
+               a.branchcode,
+               a.cus_id,
+               a.inputter,
+               a.cus_name,
+               a.phone,
+               a.create_at,
+               a.status
+        FROM #tmpReturnInvoice AS a
+        ORDER BY a.status, a.create_at DESC;
+    END
+    ELSE IF (@vstatus = N'search_product')
+    BEGIN
+        SELECT a.pro_code,
+               a.branchcode,
+               a.cost,
+               a.barcode,
+               a.pro_name,
+               ISNULL(b.line_name,'None') AS line_name,
+               ISNULL(c.line_name,'None') AS Molecule,
+               ISNULL(d.line_name,'None') AS Packing,
+               CASE WHEN a.active = '1' THEN 'Yes' ELSE 'No' END AS Active
+        FROM tblProducts AS a
+        LEFT JOIN tblLines AS b ON a.branchcode = b.branchcode AND a.line_id = b.line_id
+        LEFT JOIN tblLines AS c ON a.branchcode = c.branchcode AND a.mol_id = c.line_id
+        LEFT JOIN tblLines AS d ON a.branchcode = d.branchcode AND a.pack_id = d.line_id
+        WHERE a.branchcode = @vbranchcode
+          AND (a.pro_name  LIKE @contains
+               OR b.line_name LIKE @contains
+               OR c.line_name LIKE @contains
+               OR d.line_name LIKE @contains);
+    END
+    ELSE IF (@vstatus = N'search_po_history')
+    BEGIN
+        SELECT DISTINCT
+               a.po_id,
+               a.branchcode,
+               CONVERT(NVARCHAR(25), a.po_date, 103) AS po_date,
+               a.sup_id,
+               b.sup_name,
+               b.phone,
+               a.create_at,
+               a.remark,
+               CASE WHEN c.po_id IS NULL THEN 'New'
+                    WHEN a.editing IS NOT NULL THEN 'Waiting Authorize'
+                    ELSE 'In progress' END AS status
+        FROM tblunaPurchaseOrder AS a
+        INNER JOIN tblSupplies AS b ON a.branchcode = b.branchcode AND a.sup_id = b.sup_id
+        LEFT JOIN tblunaPurchaseOrderDetails AS c ON a.branchcode = c.branchcode AND a.po_id = c.po_id
+        WHERE a.branchcode = @vbranchcode
+        ORDER BY a.create_at DESC;
+    END
+    ELSE IF (@vstatus = N'view_po_una')
+    BEGIN
+        SELECT DISTINCT
+               a.po_id,
+               a.sup_id,
+               b.sup_name,
+               a.remark,
+               a.create_at
+        FROM tblunaPurchaseOrder AS a
+        INNER JOIN tblSupplies AS b ON a.branchcode = b.branchcode AND a.sup_id = b.sup_id
+        WHERE a.branchcode = @vbranchcode
+          AND a.Editing IS NOT NULL
+          AND (a.po_id LIKE @contains OR b.sup_name LIKE @prefix)
+        ORDER BY a.create_at DESC;
+    END
+    ELSE IF (@vstatus = N'search_type_line')
+    BEGIN
+        SELECT a.line_id,
+               a.branchcode,
+               a.line_name,
+               a.active,
+               CASE WHEN a.active = '1' THEN 'Yes' ELSE 'No' END AS Active,
+               CASE WHEN a.line = 'line' THEN 'Line'
+                    WHEN a.line = 'Mol'  THEN 'Molecule'
+                    WHEN a.line = 'Pack' THEN 'PACKING' END AS type_line
+        FROM tblLines AS a
+        WHERE a.branchcode = @vbranchcode
+          AND a.line IN ('line','Mol','Pack')
+          AND a.line LIKE @prefix
+        ORDER BY a.line_id;
+    END
+
+    --------------------------------------------------
+    -- PAYMENT SUB
+    --------------------------------------------------
+    ELSE IF (@vstatus = N'payment_sub')
+    BEGIN
+        SELECT
+            a.pv_id,
+            a.branchcode,
+            b.sysdocnum,
+            b.pay_des,
+            b.pay_no,
+            b.pay_amount,
+            b.create_at
+        FROM tblunapaymentvoucher AS a
+        INNER JOIN tblunapaymentsub AS b
+            ON a.branchcode = b.branchcode AND a.pv_id = b.pv_id
+        WHERE a.branchcode = @vbranchcode
+          AND a.pv_id = @vcode1
+        ORDER BY b.create_at;
+    END
+
+    --------------------------------------------------
+    -- PAYMENT RESPONSE
+    --------------------------------------------------
+    ELSE IF (@vstatus = N'pv_response')
+    BEGIN
+        SELECT
+            a.rs_id,
+            a.branchcode,
+            a.title,
+            ISNULL(b.sysdocnum,'') AS sysdocnum,
+            ISNULL(b.responder, a.rs_default) AS responder,
+            ISNULL(b.position, a.rs_default_position) AS position,
+            CONVERT(NVARCHAR(50), ISNULL(b.rs_date, GETDATE()), 103) AS rs_date
+        FROM tbl_payment_response AS a
+        LEFT JOIN tbluna_payment_signature AS b
+            ON a.branchcode = b.branchcode
+           AND a.rs_id     = b.rs_id
+           AND b.pv_id     = @vcode1
+        WHERE a.branchcode = @vbranchcode
+          AND a.active = '1'
+        ORDER BY a.rs_id;
+    END
+
+    --------------------------------------------------
+    -- CHECK PAYMENT OPTION
+    --------------------------------------------------
+    ELSE IF (@vstatus = N'check_payment_option')
+    BEGIN
+        DECLARE @vcurrent_option NVARCHAR(50);
+        DECLARE @vnew_option     NVARCHAR(50);
+        DECLARE @vaccount        NVARCHAR(50);
+        DECLARE @vmsg            NVARCHAR(250) = N'';
+        DECLARE @vid_option      NVARCHAR(50);
+
+        SELECT TOP 1
+            @vcurrent_option = B.group_line,
+            @vid_option      = B.line_id,
+            @vaccount        = B.account
+        FROM tblunapaymentvoucher AS A
+        INNER JOIN tblpaymentlines AS B
+            ON A.branchcode = B.branchcode
+           AND A.pay_option = B.line_id
+        WHERE A.branchcode = @vbranchcode
+          AND A.pv_id      = @vcode1;
+
+        SELECT TOP 1
+            @vnew_option = group_line
+        FROM tblpaymentlines
+        WHERE branchcode = @vbranchcode
+          AND line_id    = @vcode2;
+
+        IF (@vcurrent_option = @vnew_option)
+        BEGIN
+            SELECT TOP 1
+                @vaccount   = account,
+                @vid_option = line_id
+            FROM tblpaymentlines
+            WHERE branchcode = @vbranchcode
+              AND line_id    = @vcode2;
+        END
+        ELSE
+        BEGIN
+            SET @vmsg = N'The payment option cannot be changed for different lines.';
+        END
+
+        SELECT
+            @vmsg AS msg,
+            ISNULL(@vaccount, N'') AS account,
+            ISNULL(@vid_option, N'') AS id_option;
+    END
+
+
+	ELSE IF (@vstatus = N'search_payment')
+    BEGIN
+		
+		SELECT A.pv_id,
+			   A.branchcode,
+			   A.pay_date,
+			   A.pay_to ,
+			   A.pay_option,
+			   A.receipt,
+			   A.invoice,
+			   A.inputter,
+			   A.created_at,
+			   B.title AS option_title
+		FROM tblunapaymentvoucher AS A 
+		LEFT JOIN tblpaymentlines AS B ON A.branchcode=B.branchcode AND A.pay_option=B.line_id
+		WHERE A.branchcode=@vbranchcode AND A.draft='1' AND
+			  ( A.pv_id LIKE @contains OR 
+			    A.receipt LIKE @contains OR
+			    A.receipt LIKE @prefix OR
+			    B.title LIKE @contains OR
+			    A.pay_to LIKE @contains 
+			   )
+			   ORDER BY A.pv_id
+    END
+     --------------------------------------------------
+    -- PAYMENT SUB
+    --------------------------------------------------
+    ELSE IF (@vstatus = N'accounts_payable_sub')
+    BEGIN
+        SELECT
+            a.ap_id,
+            a.branchcode,
+            a.ap_date,
+            b.sysdocnum,
+            b.description,
+            b.amount,
+            b.create_at
+        FROM tbluna_account_payable AS a
+        INNER JOIN tbluna_account_payable_sub AS b
+            ON a.branchcode = b.branchcode AND a.ap_id = b.ap_id
+        WHERE a.branchcode = @vbranchcode
+          AND a.ap_id = @vcode1
+        ORDER BY b.create_at;
+    END
+
+    
+    ELSE IF @vstatus = 'accounts_payable_search'
+    BEGIN
+         
+		 select distinct
+                a.ap_id,
+			    a.branchcode,
+				a.inputter,
+				a.ap_date,
+				a.supply_id,
+				a.invoice,
+                c.sup_name,
+                a.created_at
+		 from tbluna_account_payable as a 
+         inner join tbluna_account_payable_sub as b on a.branchcode=b.branchcode and a.ap_id=b.ap_id
+         left join tblSupplies as c on a.branchcode=c.branchcode and a.supply_id=c.sup_id
+		 where a.branchcode=@vbranchcode and a.draft=1 and ( a.ap_id like '%'+ @vcode1+'%' or a.invoice like '%'+ @vcode1+'%' or c.sup_name like '%'+ @vcode1+'%')
+		 order by a.created_at
+
+        RETURN
+    END
+    ELSE IF @vstatus = 'accounts_payable_paid'
+    BEGIN
+		 select a.ap_id,
+			    a.branchcode,
+				a.ap_date,
+				a.invoice,
+                c.sup_name ,
+				dbo.fun_amount('acc_paid',a.branchcode,a.ap_id,'') as Balance
+		 from tbl_account_payable as a
+         left join tblSupplies as c on a.branchcode=c.branchcode and a.supply_id=c.sup_id
+		 where a.branchcode=@vbranchcode and ( a.ap_id like '%'+ @vcode1+'%' or a.invoice like '%'+ @vcode1+'%' or c.sup_name like '%'+ @vcode1+'%') and dbo.fun_amount('acc_paid',a.branchcode,a.ap_id,'')&lt;&gt;0
+		 order by a.ap_date
+
+        RETURN
+
+        END
+
+
+END;</value>
+  </data>
+  <data name="textBox26.Text" xml:space="preserve">
+    <value>CREATE procedure [dbo].[proc_generate_return_value]
+	@vstatus        NVARCHAR(50),
+	@vbranchcode    NVARCHAR(10),
+	@vrpv_id        NVARCHAR(50),
+	@vInputter      NVARCHAR(50) = 'IT.SYSTEM'
+as
+begin
+	SET NOCOUNT ON;
+	DECLARE @vDraftId NVARCHAR(20);
+
+	IF (@vstatus = 'VoucherID')
+	BEGIN
+		 EXEC proc_next_id @vbranchcode,'DraftPVoucher','2',@vDraftId out ;
+		 SELECT @vDraftId AS trancode;
+	END ELSE IF (@vstatus='AccountPayable')BEGIN
+		EXEC proc_next_id @vbranchcode,'DraftAccountPayable','2',@vDraftId out ;
+		 SELECT @vDraftId AS trancode;
+	END ELSE IF (@vstatus='PV_SYSDOC')BEGIN
+		 EXEC proc_next_id @vbranchcode,'PV_SYSDOC','1',@vDraftId out ;
+		 SELECT @vDraftId AS trancode;
+	END ELSE IF (@vstatus='Payable_SYSDOC')BEGIN
+		 EXEC proc_next_id @vbranchcode,'Payable_SYSDOC','1',@vDraftId out ;
+		 SELECT @vDraftId AS trancode;
+	END ELSE IF (@vstatus='PaymentAccount')BEGIN
+		SELECT A.account  
+		from [tblpaymentlines] as a 
+		WHERE A.branchcode=@vBranchcode and A.active='1' and a.line_id=@vrpv_id
+		ORDER BY A.line_id
+	END ELSE IF (@vstatus='unaExInvoice')BEGIN
+		SELECT A.invoice  
+		from tbluna_account_payable as a 
+		WHERE A.branchcode=@vBranchcode and A.draft='1' and a.invoice=@vrpv_id and a.ap_id&lt;&gt;@vInputter
+		ORDER BY A.invoice
+	END ELSE IF (@vstatus='ExInvoice')BEGIN
+		SELECT A.invoice  
+		from tbl_account_payable as a 
+		WHERE A.branchcode=@vBranchcode and A.draft='1' and a.invoice=@vrpv_id and a.ap_id&lt;&gt;@vInputter
+		ORDER BY A.invoice
+	END ELSE IF (@vstatus='getInvoice')BEGIN
+		
+		IF EXISTS ( SELECT A.invoice  from tbluna_account_payable as a WHERE A.branchcode=@vBranchcode and A.draft='1' and a.ap_id=@vrpv_id ) BEGIN
+			SELECT TOP 1 A.invoice  from tbluna_account_payable as a WHERE A.branchcode=@vBranchcode and A.draft='1' and a.ap_id=@vrpv_id 
+		END 
+
+		IF EXISTS ( SELECT A.invoice  from tbl_account_payable as a WHERE A.branchcode=@vBranchcode and A.draft='1' and a.ap_id=@vrpv_id ) BEGIN
+			SELECT TOP 1 A.invoice  from tbl_account_payable as a WHERE A.branchcode=@vBranchcode and A.draft='1' and a.ap_id=@vrpv_id 
+		END 
+
+	END
+
+END </value>
+  </data>
+  <data name="textBox27.Text" xml:space="preserve">
+    <value>ALTER PROCEDURE [dbo].[proc_get_sql_pos]
+    @vstatus      NVARCHAR(50),
+    @vbranchcode  NVARCHAR(10),
+    @vcode1       NVARCHAR(50),
+    @vflag        NVARCHAR(50) = ''
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -----------------------------
+    -- POS PRODUCT
+    -----------------------------
+    IF @vstatus = 'pos_product'
+    BEGIN
+        SELECT '' AS code, 'choose option' AS name
+        UNION ALL
+        SELECT pro_code, pro_name
+        FROM tblProducts
+        WHERE BranchCode = @vbranchcode
+          AND active = '1'
+          AND CONVERT(date, ISNULL(update_at, GETDATE())) &gt;= dbo.fun_use_date()
+        ORDER BY code;
+        RETURN
+    END
+
+    -----------------------------
+    -- VIEW PURCHASE ORDER
+    -----------------------------
+    ELSE IF @vstatus = 'view_po'
+    BEGIN
+        SELECT po_id, branchcode, sup_id, exc_id, po_date, remark, inputter, create_at
+        FROM tblunaPurchaseOrder
+        WHERE branchcode = @vbranchcode AND po_id = @vcode1;
+        RETURN
+    END
+
+    -----------------------------
+    -- POS CUSTOMER
+    -----------------------------
+    ELSE IF @vstatus = 'pos_customer'
+    BEGIN
+        SELECT DISTINCT cus_id AS code, cus_name AS name
+        FROM tblCustomers
+        WHERE BranchCode = @vbranchcode AND active = '1'
+        ORDER BY cus_id;
+        RETURN
+    END
+
+    -----------------------------
+    -- STOCK MENU
+    -----------------------------
+    ELSE IF @vstatus = 'stock_menu'
+    BEGIN
+        SELECT '' AS code, '' AS name
+        UNION ALL
+        SELECT sto_id, sto_name
+        FROM tblStockMenu
+        WHERE branchcode = @vbranchcode AND active = '1';
+        RETURN
+    END
+
+    -----------------------------
+    -- POS UNA LIST
+    -----------------------------
+    ELSE IF @vstatus = 'pos_una_list'
+    BEGIN
+        SELECT i.rcp_num, i.cus_id, i.rcp_date,
+               ISNULL(s.pro_code,'') AS pro_code,
+               ISNULL(s.barcode,'') AS barcode,
+               ISNULL(p.pro_name,'') AS pro_name,
+               i.exchangrate,
+               ISNULL(s.sysdocnum,'') AS sysdocnum,
+               ISNULL(s.sto_id,'') AS sto_id,
+               ISNULL(s.cost,0) AS cost,
+               ISNULL(s.unitprice,0) AS unitprice,
+               ISNULL(s.discount,0) AS discount,
+               ISNULL(s.qty,0) AS qty,
+               ISNULL(s.amount,0) AS amount,
+               i.inputter,
+               ISNULL(s.batch_id,'') AS batch_id
+        FROM tblunaInvoices i
+        LEFT JOIN tblunaStockOuts s ON i.BranchCode = s.BranchCode AND i.rcp_num = s.rcp_num
+        LEFT JOIN tblProducts p ON s.BranchCode = p.BranchCode AND s.pro_code = p.pro_code
+        WHERE i.BranchCode = @vbranchcode AND i.rcp_num = @vcode1
+        ORDER BY s.create_at;
+        RETURN
+    END
+
+    -----------------------------
+    -- POS BATCH ID
+    -----------------------------
+    ELSE IF @vstatus = 'pos_batchID'
+    BEGIN
+        SELECT TOP 1 i.rcp_num, i.cus_id, i.rcp_date,
+               s.pro_code, s.barcode, p.pro_name,
+               i.exchangrate, s.sysdocnum, s.sto_id,
+               s.cost, s.unitprice, s.discount, s.qty, s.amount,
+               i.inputter,
+               ISNULL(s.batch_id,'') AS batch_id
+        FROM tblunaInvoices i
+        INNER JOIN tblunaStockOuts s ON i.BranchCode = s.BranchCode AND i.rcp_num = s.rcp_num
+        INNER JOIN tblProducts p ON s.BranchCode = p.BranchCode AND s.pro_code = p.pro_code
+        WHERE i.BranchCode = @vbranchcode AND s.sysdocnum = @vcode1;
+        RETURN
+    END
+
+    -----------------------------
+    -- LOAD BATCH ID
+    -----------------------------
+    ELSE IF @vstatus = 'load_batch_id'
+    BEGIN
+        SELECT i.rcp_num, i.branchcode, s.pro_code, p.pro_name,
+               s.sysdocnum, s.sto_id, s.qty
+        INTO #tmpStockouts
+        FROM tblunaInvoices i
+        INNER JOIN tblunaStockOuts s ON i.BranchCode = s.BranchCode AND i.rcp_num = s.rcp_num
+        INNER JOIN tblProducts p ON s.BranchCode = p.BranchCode AND s.pro_code = p.pro_code
+        WHERE i.BranchCode = @vbranchcode AND s.sysdocnum = @vcode1;
+
+        SELECT so.pro_code, so.pro_name, so.sto_id, t.batch_id,
+               SUM(t.qty_balance) AS qty
+        INTO #tmpStockIN
+        FROM #tmpStockouts so
+        INNER JOIN TblTransactions t
+            ON so.branchcode = t.BranchCode
+           AND so.sto_id = t.stock_code
+           AND so.pro_code = t.pro_code
+        GROUP BY so.pro_code, so.pro_name, so.sto_id, t.batch_id;
+
+        SELECT DISTINCT batch_id AS code, batch_id AS title
+        FROM #tmpStockIN;
+        RETURN
+    END
+
+    -----------------------------
+    -- RCP UNA LIST
+    -----------------------------
+    ELSE IF @vstatus = 'rcp_una_list'
+    BEGIN
+        SELECT i.rcp_num, i.inputter, i.cus_id, c.cus_name,
+               i.create_at,
+               CASE WHEN i.flag IN ('0','1') THEN 'POS' ELSE 'Return' END AS status
+        FROM tblunaInvoices i
+        INNER JOIN tblCustomers c ON i.branchcode = c.BranchCode AND i.cus_id = c.cus_id
+        WHERE i.branchcode = @vbranchcode
+          AND (i.rcp_num LIKE '%' + @vcode1 + '%'
+               OR c.cus_name LIKE '%' + @vcode1 + '%'
+               OR dbo.ConvertUnicode(c.cus_name) LIKE '%' + dbo.ConvertUnicode(@vcode1) + '%')
+          AND i.Editing IS NOT NULL
+        ORDER BY i.create_at DESC;
+        RETURN
+    END
+
+
+	 -----------------------------
+    -- pv_una_info
+    -----------------------------
+    ELSE IF @vstatus = 'pv_una_info'
+    BEGIN
+         
+		 select a.pv_id,
+			    a.branchcode,
+				a.inputter,
+				a.pay_date,
+				a.pay_to,
+				a.pay_option,
+				a.receipt,
+				a.invoice,
+				a.created_at
+		 from tblunapaymentvoucher as a 
+		 where a.branchcode=@vbranchcode and a.pv_id=@vcode1
+		 order by a.created_at
+
+        RETURN
+    END
+
+    ELSE IF @vstatus = 'pv_una_payment'
+    BEGIN
+         
+		 select a.pv_id,
+			    a.branchcode,
+				a.inputter,
+				a.pay_date,
+				a.pay_to,
+                b.title as pay_option,
+				a.receipt,
+				a.invoice,
+				a.created_at
+		 from tblunapaymentvoucher as a 
+         inner join tblpaymentlines as b on a.branchcode=b.branchcode and a.pay_option=b.line_id
+		 where a.branchcode=@vbranchcode and a.draft=1 and ( a.pv_id like '%'+ @vcode1+'%' or a.pay_to like '%'+ @vcode1+'%' or a.receipt like '%'+ @vcode1+'%')
+		 order by a.created_at
+
+        RETURN
+    END
+      
+    ELSE IF @vstatus = 'accounts_payable'
+    BEGIN
+         
+		 select a.ap_id,
+			    a.branchcode,
+				a.inputter,
+				a.ap_date,
+				a.supply_id,
+				a.invoice,
+                a.remark,
+				a.created_at,
+                c.sup_name
+		 from tbluna_account_payable as a 
+         inner join tbluna_account_payable_sub as b on a.branchcode=b.branchcode and a.ap_id=b.ap_id
+         left join tblSupplies as c on a.branchcode=c.branchcode and a.supply_id=c.sup_id
+		 where a.branchcode=@vbranchcode and a.ap_id=@vcode1
+		 order by a.created_at
+
+        RETURN
+    END
+    ELSE IF @vstatus = 'get_accounts_payable'
+    BEGIN
+		 select a.ap_id,
+			    a.branchcode,
+				a.ap_date,
+				a.invoice,
+                (c.sup_name + ' , invoice : '+ a.invoice )  AS info,
+				dbo.fun_amount('acc_paid',a.branchcode,a.ap_id,'') as Balance,
+                isnull(b.amount,0) as amount,
+                isnull(b.remark,'') as remark,
+                isnull(b.paiddate,GETDATE()) as paiddate,
+				b.sysdoc
+		 from tbl_account_payable as a
+         left join tbl_account_payable_paid as b on a.branchcode=b.branchcode and a.ap_id=b.ap_id
+         left join tblSupplies as c on a.branchcode=c.branchcode and a.supply_id=c.sup_id
+		 where a.branchcode=@vbranchcode and a.ap_id=@vcode1
+		 order by b.sysdoc
+
+        RETURN
+
+        END  if (@vstatus='rcp_una_list_details') begin
+
+		SELECT distinct
+			   A.rcp_num,
+			   B.pro_code,
+			   P.pro_name,
+			   B.sysdocnum,
+			   B.sto_id,
+			   dbo.fun_stock('stock_name',b.branchcode,b.sto_id) as sto_name,
+			   B.cost,
+			   B.unitprice,
+			   B.discount,
+			   B.qty,
+			   B.amount,
+			   A.inputter,
+			   case when b.batch_id is null then '' else b.batch_id end as batch_id ,
+			   b.create_at
+		FROM tblunaInvoices AS A
+		INNER JOIN tblunaStockOuts AS B ON A.BranchCode=B.BranchCode AND A.rcp_num=B.rcp_num
+		INNER JOIN tblProducts AS P ON B.BranchCode=P.BranchCode AND B.pro_code=P.pro_code
+		WHERE A.BranchCode=@vbranchcode AND a.rcp_num=@vcode1 order by b.create_at
+    END
+    ELSE IF @vstatus = 'accounts_payable_history'
+    BEGIN
+		 select a.ap_id,
+			    a.branchcode,
+				a.ap_date,
+				a.invoice,
+                (c.sup_name + ' , invoice : '+ a.invoice )  AS info,
+				dbo.fun_amount('acc_paid',a.branchcode,a.ap_id,'') as Balance,
+                isnull(b.amount,0) as amount,
+                isnull(b.remark,'') as remark,
+                isnull(b.paiddate,GETDATE()) as paiddate,
+				b.sysdoc
+		 from tbl_account_payable as a
+         inner join tbl_account_payable_paid as b on a.branchcode=b.branchcode and a.ap_id=b.ap_id
+         left join tblSupplies as c on a.branchcode=c.branchcode and a.supply_id=c.sup_id
+		 where a.branchcode=@vbranchcode and a.ap_id=@vcode1
+		 order by b.sysdoc
+
+        RETURN
+
+    END
+     
+END</value>
+  </data>
+  <data name="textBox28.Text" xml:space="preserve">
+    <value>ALTER procedure [dbo].[proc_delete_trans]
+	@vStatus		nvarchar(25),
+	@vBranchcode	nvarchar(25),
+	@vTran_ID		nvarchar(25),
+	@vInputter		nvarchar(150)=''
+AS
+BEGIN
+
+	IF (@vstatus='PO_D')BEGIN
+		DELETE a 
+		from tblunaPurchaseOrderDetails as a where a.branchcode= @vbranchcode and a.sysdocnum=@vTran_ID
+	END ELSE IF (@vstatus='PO_History_D')BEGIN
+
+		DELETE a from tblunaPurchaseOrder as a where a.branchcode= @vbranchcode and a.po_id=@vTran_ID
+		DELETE a from tblunaPurchaseOrderDetails as a where a.branchcode= @vbranchcode and a.po_id=@vTran_ID
+	END ELSE IF (@vstatus='payment_sub_d')BEGIN
+		
+		DELETE a from tblunapaymentsub as a where a.branchcode= @vbranchcode and a.sysdocnum=@vTran_ID
+
+
+	END ELSE IF (@vstatus='PO_Reject')BEGIN
+		-- Keep history
+		EXEC _history_trans @vstatus,@vBranchcode,@vTran_ID,@vInputter
+
+		DELETE a from tblunaPurchaseOrder as a where a.branchcode= @vbranchcode and a.po_id=@vTran_ID
+		DELETE a from tblunaPurchaseOrderDetails as a where a.branchcode= @vbranchcode and a.po_id=@vTran_ID
+
+		return ;
+	END ELSE IF (@vstatus='rcp_commit')BEGIN
+		EXEC _history_trans @vstatus,@vBranchcode,@vTran_ID,@vInputter
+		return ;
+
+	END ELSE IF (@vstatus='POS_Reject' OR @vstatus='del_draf_pos')BEGIN
+
+		EXEC _history_trans @vstatus,@vBranchcode,@vTran_ID,@vInputter
+		DELETE a from tblunaInvoices as a where a.branchcode= @vbranchcode and a.rcp_num=@vTran_ID
+		DELETE a from tblunaStockOuts as a where a.branchcode= @vbranchcode and a.rcp_num=@vTran_ID
+
+	END ELSE IF (@vstatus='reject_stock_transfer')BEGIN
+
+		DELETE a from tblunastocktransfers as a where a.branchcode= @vbranchcode and a.ts_id=@vTran_ID
+		DELETE a from tblunastocktransferdetails as a where a.branchcode= @vbranchcode and a.ts_id=@vTran_ID
+
+	END ELSE IF (@vstatus='r_paymentvoucher')BEGIN
+		delete a from tblunapaymentvoucher as a where a.branchcode=@vBranchcode and a.pv_id=@vTran_ID
+		delete a from tblunapaymentsub as a where a.branchcode=@vBranchcode and a.pv_id=@vTran_ID
+		delete a from tbluna_payment_signature as a where a.branchcode=@vBranchcode and a.pv_id=@vTran_ID
+	END ELSE IF (@vstatus='r_AccountPayable')BEGIN
+		DELETE a from tbluna_account_payable as a where a.branchcode= @vbranchcode and a.ap_id=@vTran_ID
+		DELETE a from tbluna_account_payable_sub as a where a.branchcode= @vbranchcode and a.ap_id=@vTran_ID
+	END ELSE IF (@vstatus='account_payable_d')BEGIN
+		DELETE a from tbluna_account_payable_sub as a where a.branchcode= @vbranchcode and a.sysdocnum=@vTran_ID
+	END ELSE IF (@vstatus='del_account_payable')BEGIN
+		delete a from tbluna_account_payable as a where a.branchcode=@vBranchcode and a.ap_id=@vTran_ID
+		delete a from tbluna_account_payable_sub as a where a.branchcode=@vBranchcode and a.ap_id=@vTran_ID
+
+	END ELSE IF (@vstatus='del_acc_paid')BEGIN
+		DELETE a from tbl_account_payable_paid as a where a.branchcode= @vbranchcode and a.sysdoc=@vTran_ID
+		
+	END ELSE IF (@vstatus='POS_D')BEGIN
+		DELETE a 
+		from tblunaStockOuts as a where a.branchcode= @vbranchcode and a.sysdocnum=@vTran_ID
+
+	END ELSE IF (@vstatus='ST_D')BEGIN
+		DELETE a 
+		from tblunastocktransferdetails as a where a.branchcode= @vbranchcode and a.sysdocnum=@vTran_ID
+		
+	 END ;
+	 select @vTran_ID as trancode
+
+END</value>
+  </data>
+  <data name="textBox29.Text" xml:space="preserve">
+    <value>CREATE procedure [dbo].[proc_generate_voucher]
+	@vstatus        NVARCHAR(50),
+	@vbranchcode    NVARCHAR(10),
+	@vrpv_id        NVARCHAR(50),
+	@vInputter      NVARCHAR(50) = 'IT.SYSTEM'
+as
+begin
+	SET NOCOUNT ON;
+	DECLARE @vDraftId NVARCHAR(20);
+
+	IF (@vstatus = 'VoucherID')
+	BEGIN
+		 EXEC proc_next_id @vbranchcode,'DraftPVoucher','2',@vDraftId out ;
+
+		SELECT @vDraftId AS trancode;
+	END
+
+END </value>
+  </data>
+  <data name="textBox30.Text" xml:space="preserve">
+    <value>ALTER procedure [dbo].[proc_print_invoices]
+	@vstatus		nvarchar(50),
+	@vbranchcode	nvarchar(10),
+	@vrcp			nvarchar(100)
+AS 
+BEGIN
+	
+	declare @vbestcurrency		nvarchar(20)
+	declare @vsecondcurrency	nvarchar(20)
+	declare @vbestsymbol		nvarchar(20)
+	declare @vsecondsymbol		nvarchar(20)
+	declare @vexchange			money
+
+	set @vbestcurrency= dbo.fun_currency('bestcurrency',@vbranchcode,'')
+	set @vsecondcurrency= dbo.fun_currency('secondcurrency',@vbranchcode,'')
+	set @vbestsymbol= dbo.fun_currency('symbol',@vbranchcode,@vbestcurrency)
+	set @vsecondsymbol= dbo.fun_currency('symbol',@vbranchcode,@vsecondcurrency)
+	
+	IF(@vstatus='una_print')BEGIN
+		
+		SELECT A.rcp_num,
+			   A.BranchCode,
+			   A.rcp_date,
+			   ISNULL(A.flag,'0') AS flag,
+			   A.cus_id,
+			   B.cus_name,
+			   B.phone,
+			   b.address,
+			   A.currency,
+			   A.amount,
+			   A.exchangrate,
+			   A.create_at,
+			   A.inputter,
+			   '$' AS symbol,
+			   CONVERT(NVARCHAR(50),A.rcp_date,103) AS printdate,
+			   dbo.fun_exchangerate('total_una',a.branchcode,A.rcp_num,GETDATE()) as t_amount,
+			   dbo.fun_value_exchange('value_exchange',@vbranchcode) as exchange
+		INTO #tmpInvoice
+		FROM tblunaInvoices AS A 
+		INNER JOIN tblCustomers AS B ON A.BranchCode=B.BranchCode AND A.cus_id=B.cus_id
+		WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vrcp
+		
+		
+		SELECT A.rcp_num,
+			   B.sysdocnum,
+			   A.rcp_date,
+			   A.cus_id,
+			   A.cus_name,
+			   A.address,
+			   A.phone,
+			   A.amount,
+			   A.exchangrate,
+			   A.create_at,
+			   A.inputter,
+			   A.printdate,
+			   B.qty,
+			   B.cost,
+			   B.unitprice,
+			   B.discount,
+			   B.amount as sub_amount,
+			   C.pro_name,
+			   C.barcode,
+			   A.t_amount,
+			   CONVERT(varchar(25), dbo.fun_batch_id_by_product('expired',b.branchcode,b.pro_code,b.batch_id),111)  as expired,
+			   dbo.fun_product_line('pack',b.branchcode,b.pro_code) as packing
+		FROM #tmpInvoice AS A 
+		INNER JOIN tblunaStockOuts AS B ON A.BranchCode=B.BranchCode AND A.rcp_num=B.rcp_num
+		INNER JOIN tblProducts AS C ON B.BranchCode=C.BranchCode AND B.pro_code=C.pro_code
+		ORDER BY B.sysdocnum
+	END ELSE IF(@vstatus='pos_re_print')BEGIN
+	
+		
+		SELECT A.rcp_num,
+			   A.BranchCode,
+			   A.rcp_date,
+			   ISNULL(A.flag,'0') AS flag,
+			   A.cus_id,
+			   B.cus_name,
+			   B.phone,
+			   b.address,
+			   A.currency,
+			   A.amount,
+			   A.exchangrate,
+			   A.create_at,
+			   A.inputter,
+			   '$' AS symbol,
+			   CONVERT(NVARCHAR(50),A.rcp_date,103) AS printdate,
+			   dbo.fun_exchangerate('total_una',a.branchcode,A.rcp_num,GETDATE()) as t_amount,
+			   dbo.fun_value_exchange('value_exchange',@vbranchcode) as exchange
+		INTO #tmpPosInvoice
+		FROM tblInvoices AS A 
+		INNER JOIN tblCustomers AS B ON A.BranchCode=B.BranchCode AND A.cus_id=B.cus_id
+		WHERE A.BranchCode=@vbranchcode AND A.rcp_num=@vrcp
+		
+		
+		SELECT A.rcp_num,
+			   B.sysdocnum,
+			   A.rcp_date,
+			   A.flag,
+			   A.cus_id,
+			   A.cus_name,
+			   A.address,
+			   A.phone,
+			   A.amount,
+			   A.exchangrate,
+			   A.create_at,
+			   A.inputter,
+			   A.printdate,
+			   B.qty,
+			   B.cost,
+			   B.unitprice,
+			   B.discount,
+			   B.amount as sub_amount,
+			   C.pro_name,
+			   C.barcode,
+			   A.t_amount,
+			   CONVERT(varchar(25), dbo.fun_batch_id_by_product('expired',b.branchcode,b.pro_code,b.batch_id),111)  as expired,
+			   dbo.fun_product_line('pack',b.branchcode,b.pro_code) as packing
+		FROM #tmpPosInvoice AS A 
+		INNER JOIN tblStockOuts AS B ON A.BranchCode=B.BranchCode AND A.rcp_num=B.rcp_num
+		INNER JOIN tblProducts AS C ON B.BranchCode=C.BranchCode AND B.pro_code=C.pro_code
+		ORDER BY B.sysdocnum
+
+	END
+	
+
+	--- proc_print_invoices 'una_print','0101','TI202512-00070'
+	--- proc_print_invoices 'una_print','0101','TI202512-00071'
+
+
+
+end</value>
+  </data>
+  <data name="textBox31.Text" xml:space="preserve">
+    <value>CREATE PROCEDURE [dbo].[proc_register_account_payable]
+	@vCMD			nvarchar(20),
+	@vap_id			nvarchar(20),
+	@vbranchcode	nvarchar(20),
+	@vap_date		date,
+	@vsupply		nvarchar(250),
+	@vinvoice		nvarchar(250),
+	@vremark		nvarchar(250),
+	@vinputter		nvarchar(250)
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+	DECLARE @vap_id_next	nvarchar(50)
+
+	-------------------------------------------------
+	-- INSERT NEW DRAFT
+	-------------------------------------------------
+	IF (@vCMD = 'I'
+		AND NOT EXISTS (
+			SELECT 1 
+			FROM tbluna_account_payable
+			WHERE branchcode = @vBranchCode
+			AND ap_id = @vap_id
+		))
+	BEGIN
+	INSERT INTO [dbo].[tbluna_account_payable]
+           ([ap_id]
+           ,[branchcode]
+           ,[ap_date]
+           ,[remark]
+           ,[supply_id]
+           ,[invoice]
+           ,[inputter]
+           ,[draft]
+           ,[created_at])
+		VALUES
+		(
+			@vap_id,
+			@vbranchcode,
+			@vap_date,
+			@vremark,
+			@vsupply,
+			@vinvoice,
+			@vinputter,
+			'0',
+			GETDATE()
+		)
+
+	END
+
+	-------------------------------------------------
+	-- COMMIT DRAFT TO REAL PV NUMBER supply
+	-------------------------------------------------
+	ELSE IF (
+		@vCMD = 'commit'
+		AND EXISTS (
+			SELECT 1
+			FROM [tbluna_account_payable]
+			WHERE branchcode = @vBranchCode
+			AND [ap_id] = @vap_id
+			AND ISNULL(draft,'0') = '0'
+			AND LEFT([ap_id],2) = 'DR'
+		)
+	)
+	BEGIN
+
+		EXEC proc_next_id
+			@vBranchCode,
+			'AccountPayable',
+			'9',
+			@vap_id_next OUTPUT
+			
+		-------------------------------------------------
+		-- UPDATE MAIN TABLE
+		-------------------------------------------------
+		UPDATE [tbluna_account_payable]
+		SET
+			ap_id		= @vap_id_next,
+			ap_date	=	@vap_date,
+			[supply_id]	= @vsupply,
+			[remark]	= @vremark,
+			invoice		= @vinvoice,
+			inputter	= @vinputter,
+			draft		= '1',
+			created_at	= GETDATE()
+		WHERE branchcode = @vBranchCode
+		AND [ap_id] = @vap_id
+
+		-------------------------------------------------
+		-- UPDATE SUB TABLE
+		-------------------------------------------------
+		UPDATE tbluna_account_payable_sub
+		SET ap_id = @vap_id_next
+		WHERE branchcode = @vBranchCode
+		AND ap_id = @vap_id
+
+		SET @vap_id = @vap_id_next
+
+	END
+
+	-------------------------------------------------
+	-- NORMAL UPDATE
+	-------------------------------------------------
+	ELSE
+	BEGIN
+
+		UPDATE [tbluna_account_payable]
+		SET
+			ap_date	=	@vap_date,
+			[supply_id]	= @vsupply,
+			[remark]	= @vremark,
+			invoice		= @vinvoice,
+			inputter	= @vinputter,
+			created_at	= GETDATE()
+		WHERE branchcode = @vBranchCode
+		AND [ap_id] = @vap_id
+
+
+	END
+
+	-------------------------------------------------
+	-- RETURN RESULT
+	-------------------------------------------------
+	SELECT @vap_id AS trancode
+
+END</value>
+  </data>
+  <data name="textBox32.Text" xml:space="preserve">
+    <value>create  procedure [dbo].[proc_refresh_cost] 
+	@vbranchcode	nvarchar(20),
+	@vpo_id	nvarchar(20)
+AS 
+BEGIN
+	
+
+	------------------------------------------------------
+	DECLARE @vsto_ID	nvarchar(20)
+	DECLARE @vPRO_ID	nvarchar(20)
+	DECLARE @vPOR_ID	nvarchar(20)
+	DECLARE @vBatch_ID	nvarchar(20)
+	DECLARE @vSysDoc	nvarchar(20)
+
+	if exists (select a.po_id from tblPurchaseOrderDetails as a where a.branchcode=@vbranchcode and a.po_id=@vpo_id) begin
+		
+		select  a.po_id,
+			    a.branchcode,
+				a.pro_code,
+				a.sto_id,
+				a.batch_id
+		into #tmpPurchaseOrder
+		from tblPurchaseOrderDetails as a where a.branchcode=@vbranchcode and a.po_id=@vpo_id
+
+		DECLARE r_cur CURSOR
+		FOR
+		select  a.po_id,
+				a.branchcode,
+				a.pro_code,
+				a.sto_id,
+				a.batch_id
+			FROM #tmpPurchaseOrder as a
+		OPEN r_cur
+
+		FETCH NEXT FROM r_cur INTO @vPOR_ID,@vbranchcode,@vPRO_ID,@vsto_ID,@vBatch_ID
+		WHILE @@FETCH_STATUS = 0 BEGIN
+
+			exec proc_register_cost 'generate',@vbranchcode,@vPRO_ID,@vsto_ID,@vBatch_ID,0,'IT.SYSTEM'
+
+		FETCH NEXT FROM r_cur INTO  @vPOR_ID,@vbranchcode,@vPRO_ID,@vsto_ID,@vBatch_ID
+		END
+		CLOSE r_cur
+		DEALLOCATE r_cur
+	end
+	
+END</value>
+  </data>
+  <data name="textBox33.Text" xml:space="preserve">
+    <value>CREATE PROCEDURE [dbo].[proc_register_account_payable_paid]
+	@vCMD			nvarchar(20),
+	@vsysdoc		nvarchar(20),
+	@vbranchcode	nvarchar(20),
+	@vap_id			nvarchar(20),
+	@vpaid_date		date,
+	@vamount		MONEY,
+	@vremark		nvarchar(250),
+	@vinputter		nvarchar(250)
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+	-------------------------------------------------
+	-- INSERT NEW commit
+	-------------------------------------------------
+	  IF (
+		@vCMD = 'commit'
+		AND EXISTS (
+			SELECT 1
+			FROM [tbl_account_payable]
+			WHERE branchcode = @vBranchCode
+			AND [ap_id] = @vap_id
+		)
+	)
+	BEGIN
+
+		EXEC proc_next_id
+			@vBranchCode,
+			'AccountPayablePaid',
+			'9',
+			@vsysdoc OUTPUT
+
+
+		INSERT INTO [dbo].[tbl_account_payable_paid]
+           ([sysdoc]
+           ,[branchcode]
+           ,[ap_id]
+           ,[paiddate]
+           ,[remark]
+           ,[amount]
+           ,[inputter]
+           ,[created_at])
+		   VALUES (@vsysdoc,@vbranchcode,@vap_id,@vpaid_date,@vremark,@vamount,@vinputter,GETDATE())
+
+		   SET @vap_id =@vsysdoc 
+	END
+ 
+	SELECT @vap_id AS trancode
+
+END</value>
+  </data>
+  <data name="textBox34.Text" xml:space="preserve">
+    <value>CREATE procedure [dbo].[proc_register_payment_signature]
+	@vsysdocnum		nvarchar(20),
+	@vbranchcode	nvarchar(20),
+	@vpv_id			nvarchar(20),
+	@vrs_id			nvarchar(20),
+	@vresponder		nvarchar(250),
+	@vposition		nvarchar(250),
+	@vrs_date		date,
+	@vinputter		nvarchar(250)
+as
+begin
+
+	IF(NOT EXISTS( SELECT 1 FROM tbluna_payment_signature as a where a.branchcode=@vBranchCode and a.sysdocnum=@vsysdocnum) AND EXISTS (SELECT A.[pv_id] FROM [tblunapaymentvoucher] AS a where a.branchcode=@vBranchCode and a.[pv_id]=@vpv_id) )begin 
+
+		INSERT INTO [dbo].[tbluna_payment_signature]
+           ([sysdocnum]
+           ,[branchcode]
+           ,[pv_id]
+           ,[rs_id]
+           ,[responder]
+           ,[position]
+           ,[rs_date]
+           ,[inputter]
+           ,[created_at])
+		VALUES (@vsysdocnum,@vBranchCode,@vpv_id,@vrs_id,@vresponder,@vposition,@vrs_date,@vinputter,getdate())
+
+	end else begin 
+		
+		update a set 
+			a.[pv_id]=@vpv_id,
+			a.[rs_id]=@vrs_id,
+			a.[responder]=@vresponder,
+			a.[position]=@vposition,
+			a.[rs_date]=@vrs_date,
+			a.[created_at]=getdate()
+		from [tbluna_payment_signature] as a where a.branchcode=@vBranchCode and a.[sysdocnum]=@vsysdocnum
+	end ;
+
+	select @vpv_id as trancode ;
+
+ --- proc_register_paymentsub N'',N'0101',N'DRA0031',N'',N'3',N'0'
+end</value>
+  </data>
+  <data name="textBox35.Text" xml:space="preserve">
+    <value>
+ALTER PROCEDURE [dbo].[proc_register_cost]
+	@vstatus		nvarchar(25),
+	@vbranchcode	nvarchar(25),
+	@vpro_code		nvarchar(25),
+	@vstock_code	nvarchar(25),
+	@vbatch_id		nvarchar(25),
+	@vCost			money,
+	@vinputter		nvarchar(250)
+AS
+BEGIN
+
+	DECLARE @vsysdocnum nvarchar(25)
+	IF (@vstatus ='I')BEGIN
+			SELECT 'A'
+		
+		IF NOT EXISTS (SELECT A.batch_id FROM tblcost AS A WHERE A.branchcode=@vbranchcode AND A.stock_code=@vstock_code AND A.pro_code=@vpro_code AND A.batch_id=@vbatch_id)BEGIN
+			
+			EXEC proc_next_id @vbranchcode,'COST_NUM','1',@vsysdocnum out ;
+			INSERT INTO [dbo].[tblcost]
+			   ([sysdocnum]
+			   ,[branchcode]
+			   ,[pro_code]
+			   ,stock_code
+			   ,[batch_id]
+			   ,[cost]
+			   ,[inputter]
+			   ,[create_at]) values (@vsysdocnum,@vbranchcode,@vpro_code,@vstock_code,@vbatch_id,@vCost,@vinputter,GETDATE())
+		END ELSE BEGIN
+
+			UPDATE A SET A.cost=@vCost
+			FROM tblcost AS A WHERE A.branchcode=@vbranchcode AND A.stock_code=@vstock_code AND A.pro_code=@vpro_code AND A.batch_id=@vbatch_id
+
+		END
+	END ELSE IF (@vstatus ='generate')BEGIN
+		
+		DELETE A FROM tblcost AS A WHERE A.branchcode=@vbranchcode AND A.stock_code=@vstock_code AND A.pro_code=@vpro_code AND A.batch_id=@vbatch_id
+		IF EXISTS (SELECT A.batch_id FROM tblPurchaseOrderDetails AS A WHERE A.branchcode=@vbranchcode AND A.sto_id=@vstock_code AND A.pro_code=@vpro_code AND A.batch_id=@vbatch_id)BEGIN
+
+			INSERT INTO [dbo].[tblcost]
+			   ([sysdocnum]
+			   ,[branchcode]
+			   ,[pro_code]
+			   ,stock_code
+			   ,[batch_id]
+			   ,[cost]
+			   ,[inputter]
+			   ,[create_at])
+			   SELECT DISTINCT 
+					A.sysdocnum,
+					A.branchcode,
+					A.pro_code,
+					A.sto_id,
+					A.batch_id,
+					(ISNULL(A.cost,0)+ ISNULL(A.oth_cost,0)),
+				    @vinputter,
+					a.create_at
+			   FROM tblPurchaseOrderDetails AS A WHERE A.branchcode=@vbranchcode AND A.sto_id=@vstock_code AND A.pro_code=@vpro_code AND A.batch_id=@vbatch_id 
+		END ELSE BEGIN
+			DELETE A FROM tblcost AS A WHERE A.branchcode=@vbranchcode AND A.stock_code=@vstock_code AND A.pro_code=@vpro_code AND A.batch_id=@vbatch_id
+			EXEC proc_next_id @vbranchcode,'COST_NUM','1',@vsysdocnum out ;
+
+			INSERT INTO [dbo].[tblcost]
+			   ([sysdocnum]
+			   ,[branchcode]
+			   ,[pro_code]
+			   ,stock_code
+			   ,[batch_id]
+			   ,[cost]
+			   ,[inputter]
+			   ,[create_at])
+			   SELECT TOP 1  
+					@vsysdocnum,
+					A.branchcode,
+					A.pro_code,
+					@vstock_code,
+					A.batch_id,
+					(ISNULL(A.cost,0)+ ISNULL(A.oth_cost,0)),
+				    @vinputter,
+					GETDATE()
+			   
+			   FROM tblPurchaseOrderDetails AS A WHERE A.branchcode=@vbranchcode AND A.pro_code=@vpro_code AND A.batch_id=@vbatch_id 
+
+		END
+
+	END
+
+END</value>
+  </data>
+  <data name="textBox36.Text" xml:space="preserve">
+    <value> CREATE procedure [dbo].[proc_register_paymentsub]
+	@vsysdocnum		nvarchar(20),
+	@vBranchCode	nvarchar(20),
+	@vpv_id			nvarchar(20),
+	@vpay_no		nvarchar(20),
+	@vpv_desc		nvarchar(250),
+	@vamount		money
+as
+begin
+
+	IF(NOT EXISTS( SELECT * FROM tblunapaymentsub as a where a.branchcode=@vBranchCode and a.sysdocnum=@vsysdocnum) AND EXISTS (SELECT A.[pv_id] FROM [tblunapaymentvoucher] AS a where a.branchcode=@vBranchCode and a.[pv_id]=@vpv_id) )begin 
+		
+		if(@vsysdocnum='')begin
+			exec proc_next_id @vbranchcode,'PV_SYSDOC','1',@vsysdocnum out ;
+		end
+		
+
+		SELECT @vsysdocnum 
+
+		INSERT INTO [dbo].[tblunapaymentsub]
+           ([sysdocnum]
+           ,[branchcode]
+           ,[pv_id]
+           ,[pay_no]
+           ,[pay_des]
+           ,[pay_amount]
+		   ,[create_at])
+		VALUES (@vsysdocnum,@vBranchCode,@vpv_id,@vpay_no,@vpv_desc,@vamount,getdate())
+
+	end else begin 
+		
+		update a set 
+			a.[pv_id]=@vpv_id,
+			a.[pay_no]=@vpay_no,
+			a.[pay_des]=@vpv_desc,
+			a.[pay_amount]=@vamount,
+			a.[create_at]=getdate()
+		from [tblunapaymentsub] as a where a.branchcode=@vBranchCode and a.[sysdocnum]=@vsysdocnum
+	end ;
+
+	select @vpv_id as trancode ;
+
+ --- proc_register_paymentsub N'',N'0101',N'DRA0031',N'',N'3',N'0'
+end</value>
+  </data>
+  <data name="textBox37.Text" xml:space="preserve">
+    <value>CREATE PROCEDURE [dbo].[proc_register_paymentvoucher]
+	@vCMD			nvarchar(20),
+	@vpv_id			nvarchar(20),
+	@vBranchCode	nvarchar(20),
+	@vpay_date		date,
+	@vpay_to		nvarchar(250),
+	@vpay_option	nvarchar(250),
+	@vreceipt		nvarchar(250),
+	@vinvoice		nvarchar(250),
+	@vinputter		nvarchar(250)
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+	DECLARE @vpv_id_next	nvarchar(50)
+	DECLARE @vpv_id_type	nvarchar(50)
+
+	-------------------------------------------------
+	-- INSERT NEW DRAFT
+	-------------------------------------------------
+	IF (@vCMD = 'I'
+		AND NOT EXISTS (
+			SELECT 1 
+			FROM tblunapaymentvoucher
+			WHERE branchcode = @vBranchCode
+			AND pv_id = @vpv_id
+		))
+	BEGIN
+
+		INSERT INTO tblunapaymentvoucher
+		(
+			pv_id,
+			branchcode,
+			pay_date,
+			pay_to,
+			pay_option,
+			receipt,
+			invoice,
+			inputter,
+			draft,
+			created_at
+		)
+		VALUES
+		(
+			@vpv_id,
+			@vBranchCode,
+			@vpay_date,
+			@vpay_to,
+			@vpay_option,
+			@vreceipt,
+			@vinvoice,
+			@vinputter,
+			'0',
+			GETDATE()
+		)
+
+	END
+
+	-------------------------------------------------
+	-- COMMIT DRAFT TO REAL PV NUMBER
+	-------------------------------------------------
+	ELSE IF (
+		@vCMD = 'commit'
+		AND EXISTS (
+			SELECT 1
+			FROM tblunapaymentvoucher
+			WHERE branchcode = @vBranchCode
+			AND pv_id = @vpv_id
+			AND ISNULL(draft,'0') = '0'
+			AND LEFT(pv_id,2) = 'DR'
+		)
+	)
+	BEGIN
+
+		SELECT TOP 1
+			@vpv_id_type = ISNULL(A.group_line,'paymentvoucher')
+		FROM tblpaymentlines A
+		INNER JOIN tblunapaymentvoucher B
+			ON A.branchcode = B.branchcode
+			AND A.line_id = B.pay_option
+		WHERE B.branchcode = @vBranchCode
+		AND B.pv_id = @vpv_id
+
+		EXEC proc_next_id
+			@vBranchCode,
+			@vpv_id_type,
+			'paymentvoucher',
+			@vpv_id_next OUTPUT
+
+		-------------------------------------------------
+		-- UPDATE MAIN TABLE
+		-------------------------------------------------
+		UPDATE tblunapaymentvoucher
+		SET
+			pv_id		= @vpv_id_next,
+			pay_date	= @vpay_date,
+			pay_to		= @vpay_to,
+			pay_option	= @vpay_option,
+			receipt		= @vreceipt,
+			invoice		= @vinvoice,
+			inputter	= @vinputter,
+			draft		= '1',
+			created_at	= GETDATE()
+		WHERE branchcode = @vBranchCode
+		AND pv_id = @vpv_id
+
+		-------------------------------------------------
+		-- UPDATE SUB TABLE
+		-------------------------------------------------
+		UPDATE tblunapaymentsub
+		SET pv_id = @vpv_id_next
+		WHERE branchcode = @vBranchCode
+		AND pv_id = @vpv_id
+
+		SET @vpv_id = @vpv_id_next
+
+	END
+
+	-------------------------------------------------
+	-- NORMAL UPDATE
+	-------------------------------------------------
+	ELSE
+	BEGIN
+
+		UPDATE tblunapaymentvoucher
+		SET
+			pay_date	= @vpay_date,
+			pay_to		= @vpay_to,
+			pay_option	= @vpay_option,
+			receipt		= @vreceipt,
+			invoice		= @vinvoice,
+			inputter	= @vinputter,
+			created_at	= GETDATE()
+		WHERE branchcode = @vBranchCode
+		AND pv_id = @vpv_id
+
+	END
+
+	-------------------------------------------------
+	-- RETURN RESULT
+	-------------------------------------------------
+	SELECT @vpv_id AS trancode
+
+END</value>
+  </data>
+  <data name="textBox38.Text" xml:space="preserve">
+    <value>CREATE procedure [dbo].[rpt_account_payable] 
+	@vBranchcode	nvarchar(20),
+	@vsupply_id		nvarchar(20),
+	@vdate_from		date,
+	@vdate_to		date
+AS
+BEGIN
+	
+	SELECT a.[ap_id]
+		  ,a.[branchcode]
+		  ,a.[ap_date]
+		  ,a.[invoice]
+		  ,a.[remark]
+		  ,a.[amount] AS TotalAmount
+		  ,a.[inputter],
+		  b.sup_id,
+		  b.sup_name
+	into #tmp_account_payable
+	from tbl_account_payable as a 
+	inner join tblSupplies as b on a.branchcode=b.branchcode and a.supply_id=b.sup_id
+	where a.branchcode=@vBranchcode and a.supply_id like @vsupply_id+'%' and a.[ap_date] &lt;=@vdate_to
+		
+	SELECT DISTINCT
+		a.ap_id,
+		a.branchcode,
+		a.sup_name,
+		STUFF((
+			SELECT ', ' + b2.[description]
+			FROM tbl_account_payable_sub b2
+			WHERE b2.ap_id = a.ap_id 
+			  AND b2.branchcode = a.branchcode
+			FOR XML PATH(''), TYPE
+		).value('.', 'NVARCHAR(MAX)'), 1, 2, '') AS [description]
+	INTO #tmp_AP_description
+	FROM #tmp_account_payable AS a
+	INNER JOIN tbl_account_payable_sub AS b ON a.branchcode = b.branchcode AND a.ap_id = b.ap_id
+	GROUP BY a.ap_id,a.branchcode,a.sup_name
+
+	select a.ap_id,
+		   a.branchcode,
+		   a.sup_name,
+		   b.sysdocnum,
+		   b.amount,
+		   b.[description]
+	into #tmp_ap_details	
+	from #tmp_account_payable as a 
+	inner join tbl_account_payable_sub as b on a.branchcode=b.branchcode and a.ap_id=b.ap_id
+
+
+	select a.ap_id,
+		   a.branchcode,
+		   a.sup_name,
+		   b.sysdoc,
+		   b.amount,
+		   b.paiddate,
+		   b.remark
+	into #tmp_ap_paid
+	from #tmp_account_payable as a 
+	inner join tbl_account_payable_paid as b on a.branchcode=b.branchcode and a.ap_id=b.ap_id
+	where b.paiddate&lt;= @vdate_to
+
+
+	select a.ap_id,
+		   a.branchcode,
+		   SUM(a.amount) AS amount
+	into #tmp_ap_paid_summary
+	FROM #tmp_ap_paid AS A 
+	GROUP BY a.ap_id,a.branchcode
+
+
+
+
+	SELECT a.[ap_id]
+		  ,a.[branchcode]
+		  ,a.[ap_date]
+		  ,a.[invoice]
+		  ,a.TotalAmount
+		  ,a.sup_name,
+			isnull(b.description,'') as description,
+			isnull(c.sysdoc,'') as sysdoc,
+			isnull(c.paiddate,GETDATE()) as paiddate,
+			isnull(c.amount,0) as amount,
+			(a.TotalAmount - isnull(s.amount,0)) as balance
+	from #tmp_account_payable as a 
+	inner join #tmp_AP_description as b on a.branchcode=b.branchcode and a.ap_id=b.ap_id
+	left join #tmp_ap_paid as c on a.branchcode=c.branchcode and a.ap_id=c.ap_id
+	left join #tmp_ap_paid_summary as s on a.branchcode=s.branchcode and a.ap_id=s.ap_id
+	order by a.ap_id,c.paiddate
+
+
+	--- exec rpt_account_payable '0101','S0003','2026-03-01','2026-03-31'
+	--- exec rpt_account_payable '0101','%','2026-03-01','2026-04-30'
+
+END </value>
+  </data>
+  <data name="textBox39.Text" xml:space="preserve">
+    <value>ALTER procedure [dbo].[rpt_product_details] 
+	@vBranchcode	nvarchar(20),
+	@vsup_id		nvarchar(20),
+	@vsto_id		nvarchar(20),
+	@vpro_id		nvarchar(20),
+	@vline_id		nvarchar(20),
+	@vmol_id		nvarchar(20),
+	@vpacking_id	nvarchar(20),
+	@vdate_from		date,
+	@vdate_to		date
+AS
+BEGIN
+
+		select distinct 
+		       a.pro_code,
+			   b.pro_name,
+			   a.BranchCode,
+			   a.stock_code,
+			   b.mol_id,
+			   b.pack_id,
+			   b.line_id
+		into #tmpActive
+		from TblTransactions as a 
+		inner join tblProducts as b on a.BranchCode=b.branchcode and a.pro_code=b.pro_code
+		where a.BranchCode=@vBranchcode and a.stock_code like @vsto_id +'%' and a.pro_code like @vpro_id +'%' and a.trans_date&lt;=@vdate_to
+		order by a.pro_code,a.BranchCode,a.stock_code
+
+
+
+
+		select distinct 
+		       a.pro_code,
+			   a.pro_name,
+			   a.BranchCode,
+			   a.stock_code,
+			   a.mol_id,
+			   c.line_name as mol_name,
+			   a.pack_id,
+			   d.line_name as pack_name,
+			   a.line_id,
+			   b.line_name
+		into #tmpActiveDetails
+		from #tmpActive as a 
+		inner join tblLines as b on a.BranchCode=b.branchcode and a.line_id=b.line_id
+		inner join tblLines as c on a.BranchCode=c.branchcode and a.mol_id=c.line_id
+		inner join tblLines as d on a.BranchCode=d.branchcode and a.pack_id=d.line_id
+
+		select distinct 
+		       a.pro_code,
+			   a.BranchCode,
+			   a.stock_code,
+			   b.batch_id,
+			   SUM(b.qty) as qty
+		into #tmpOpening
+		FROM #tmpActive AS A
+		INNER JOIN TblTransactions AS B ON A.BranchCode=B.BranchCode AND A.pro_code=B.pro_code AND A.stock_code=B.stock_code and  b.trans_date&lt;@vdate_from
+		group by a.pro_code,
+			   a.BranchCode,
+			   a.stock_code,
+			   b.batch_id HAVING  SUM(b.qty)&lt;&gt;0
+
+
+
+
+
+		select a.pro_code,
+			   a.BranchCode,
+			   a.stock_code,
+			   a.trans_code,
+			   a.batch_id,
+			   a.trans_date,
+			   a.qty,
+			   a.qty_balance,
+			   a.sysdocnum,
+			   a.status,
+			   a.inputter,
+			   a.create_at,
+			   a.exp_date,
+			   a.referent
+		into #tmpTransactions
+		from TblTransactions as a 
+		inner join #tmpActive as b ON A.BranchCode=B.BranchCode AND A.pro_code=B.pro_code AND A.stock_code=B.stock_code 
+		where a.BranchCode=@vBranchcode and a.stock_code like @vsto_id +'%' and a.pro_code like @vpro_id +'%' and a.trans_date between @vdate_from and @vdate_to
+		order by a.pro_code,a.batch_id,a.sysdocnum,a.stock_code
+ 
+		
+
+
+
+		select distinct 
+			   a.pro_code,
+			   a.BranchCode,
+			   a.stock_code,
+			   a.batch_id,
+			   a.qty,
+			   b.cost,
+			   b.oth_cost,
+			   a.trans_date,
+			   a.trans_code,
+			   b.exp_date
+		into #tmpPO
+		from #tmpTransactions as a inner join tblPurchaseOrderDetails as b on a.BranchCode=b.branchcode and a.pro_code=b.pro_code and a.stock_code=b.sto_id and a.batch_id=b.batch_id and a.referent=b.po_id
+		where a.trans_code in ('01') 
+
+
+
+		select distinct 
+			   a.pro_code,
+			   a.BranchCode,
+			   a.stock_code,
+			   a.batch_id,
+			   abs(a.qty) as qty,
+			   b.cost,
+			   (abs(a.qty)*b.cost) as t_cost,
+			   b.amount,
+			   (abs(a.qty)*b.amount) as t_amount,
+			   a.trans_date,
+			   a.trans_code,
+			   a.exp_date,
+			   a.referent
+		into #tmpSale
+		from #tmpTransactions as a left join tblStockOuts as b on a.BranchCode=b.branchcode and a.pro_code=b.pro_code and a.stock_code=b.sto_id and a.batch_id=b.batch_id and a.referent=b.rcp_num
+		where a.trans_code in ('02') 
+
+		---  rpt_product_details N'0101',N'%',N'%',N'PRO202512-0001',N'%',N'%',N'%',N'2026/01/01',N'2026/01/01'
+
+
+		select a.pro_code,
+			   a.BranchCode,
+			   a.stock_code,
+			   a.batch_id,
+			   sum(a.qty) as qty
+		into #tmpOther
+		from #tmpTransactions as a 
+		where a.trans_code not in ('01','02') and a.pro_code like @vpro_id +'%' and a.stock_code like @vsto_id+'%'
+		group by a.pro_code,
+			   a.BranchCode,
+			   a.stock_code,
+			   a.batch_id
+
+
+		--- Merge all transaction and generate report
+		create table #tmpMerge (pro_code nvarchar(25) , branchcode nvarchar(25) , stock_code nvarchar(25))
+		insert into #tmpMerge (pro_code,branchcode,stock_code) select distinct pro_code,branchcode,stock_code from #tmpOpening as a 
+		insert into #tmpMerge (pro_code,branchcode,stock_code) select distinct pro_code,branchcode,stock_code from #tmpPO as a 
+		insert into #tmpMerge (pro_code,branchcode,stock_code) select distinct pro_code,branchcode,stock_code from #tmpSale as a 
+		insert into #tmpMerge (pro_code,branchcode,stock_code) select distinct pro_code,branchcode,stock_code from #tmpOther as a 
+
+
+		select distinct
+			   a.pro_code,
+			   a.branchcode,
+			   a.stock_code,
+			   convert(int,0) AS qty_opening,
+			   convert(int,0) AS qty_po,
+			   convert(money,0) AS cost_po,
+			   convert(money,0) AS oth_cost_po,
+			   convert(money,0) AS qty_sale,
+			   convert(money,0) AS t_cost_sale,
+			   convert(money,0) AS t_amount_sale,
+			   convert(money,0) AS other_qty,
+			   convert(money,0) AS qty_ending,
+			   convert(money,0) AS cost_ending,
+			   convert(nvarchar(50),'') AS STATUS
+		into #tmpTransBatch
+		from #tmpMerge as a 
+
+
+ 		select distinct 
+		       a.pro_code,
+			   a.BranchCode,
+			   a.stock_code,
+			   b.batch_id,
+			   Max(isnull(c.cost,0)) as cost,
+			   SUM(b.qty) as qty
+		into #tmpEnding
+		FROM #tmpTransBatch AS A
+		INNER JOIN TblTransactions AS B ON A.BranchCode=B.BranchCode AND A.pro_code=B.pro_code AND A.stock_code=B.stock_code and  b.trans_date&lt;=@vdate_to
+		LEFT JOIN tblcost AS C ON C.BranchCode=B.BranchCode AND C.pro_code=B.pro_code AND C.stock_code=B.stock_code and C.batch_id=b.batch_id
+		group by a.pro_code,
+			   a.BranchCode,
+			   a.stock_code,
+			   b.batch_id HAVING SUM(b.qty)&lt;&gt;0
+
+
+		
+		select distinct 
+		       a.pro_code,
+			   a.BranchCode,
+			   a.stock_code,
+			   a.cost,
+			   a.qty,
+			   (a.cost*a.qty) as t_cost 
+		into #tmpTotalEnding
+		FROM #tmpEnding AS A
+		order by a.pro_code,
+			   a.BranchCode,
+			   a.stock_code
+
+
+		select distinct 
+		       a.pro_code,
+			   a.BranchCode,
+			   a.stock_code,
+			   SUM(a.qty) as qty,
+			   SUM(a.t_cost) as t_cost
+		into #tmpEndingSumamry
+		FROM #tmpTotalEnding AS A
+		group by a.pro_code,
+			   a.BranchCode,
+			   a.stock_code
+
+		select a.BranchCode,
+			   a.stock_code,
+			   a.pro_code,
+			   sum(a.qty) as qty
+		into #tmpOpeningSummary
+		from #tmpOpening as a group by 
+			   a.BranchCode,
+			   a.stock_code,
+			   a.pro_code
+
+		select a.BranchCode,
+			   a.stock_code,
+			   a.pro_code,
+			   sum(a.qty) as qty
+		into #tmpOtherSumamry
+		from #tmpOther as a group by 
+			   a.BranchCode,
+			   a.stock_code,
+			   a.pro_code
+
+		select a.BranchCode,
+			   a.stock_code,
+			   a.pro_code,
+			   sum(a.qty) as qty,
+			   sum(a.cost) as cost,
+			   sum(a.oth_cost) as oth_cost
+		into #tmpPOSummary
+		from #tmpPO as a group by 
+			   a.BranchCode,
+			   a.stock_code,
+			   a.pro_code
+
+			   
+		select a.BranchCode,
+			   a.stock_code,
+			   a.pro_code,
+			   sum(a.qty) as qty,
+			   sum(a.t_cost) as t_cost,
+			   sum(a.t_amount) as t_amount
+		into #tmpSaleSummary
+		from #tmpSale as a group by 
+			   a.BranchCode,
+			   a.stock_code,
+			   a.pro_code
+ 
+
+		update a set a.qty_opening=b.qty from #tmpTransBatch as a inner join #tmpOpeningSummary as b on a.branchcode=b.branchcode and a.stock_code=b.stock_code and a.pro_code=b.pro_code
+		update a set a.qty_po=b.qty,cost_po=b.cost,a.oth_cost_po=b.oth_cost from #tmpTransBatch as a inner join #tmpPOSummary as b on a.branchcode=b.branchcode and a.stock_code=b.stock_code and a.pro_code=b.pro_code
+		update a set a.qty_sale=b.qty,a.t_cost_sale=b.t_cost,a.t_amount_sale=b.t_amount from #tmpTransBatch as a inner join #tmpSaleSummary as b on a.branchcode=b.branchcode and a.stock_code=b.stock_code and a.pro_code=b.pro_code
+		update a set a.other_qty=b.qty from #tmpTransBatch as a inner join #tmpOtherSumamry as b on a.branchcode=b.branchcode and a.stock_code=b.stock_code and a.pro_code=b.pro_code
+		update a set a.qty_ending=b.qty , a.cost_ending=b.t_cost from #tmpTransBatch as a inner join #tmpEndingSumamry as b on a.branchcode=b.branchcode and a.stock_code=b.stock_code and a.pro_code=b.pro_code
+
+
+	---  rpt_product_details N'0101',N'%',N'%',N'PRO202510-0018',N'%',N'%',N'%',N'2025/12/01',N'2025/12/28'
+
+	---  rpt_product_details N'0101',N'%',N'%',N'%',N'%',N'%',N'%',N'2025/12/01',N'2025/12/29'
+
+		select distinct 
+		       a.pro_code,
+			   a.pro_name,
+			   a.BranchCode,
+			   a.stock_code,
+			   a.mol_name,
+			   a.pack_name,
+			   b.qty_opening,
+			   b.qty_po,
+			   b.cost_po,
+			   (b.qty_po*b.cost_po) as t_cost_po,
+			   b.oth_cost_po,
+			   (b.qty_po*b.oth_cost_po) as t_oth_cost_po,
+			   b.qty_sale,
+			   b.t_cost_sale,
+			   b.t_amount_sale,
+			   b.other_qty,
+			   b.qty_ending,
+			   b.cost_ending
+		INTO #tmpFinal
+		from #tmpActiveDetails as a 
+		INNER JOIN #tmpTransBatch AS B ON A.BranchCode=B.branchcode AND A.stock_code=B.stock_code AND A.pro_code=B.pro_code
+	 
+
+ 
+
+		select distinct 
+		       a.pro_code,
+			   a.pro_name,
+			   b.sto_name,
+			   a.mol_name,
+			   a.pack_name,
+			   sum(a.qty_opening) as qty_opening,
+			   sum(a.qty_po) as qty_po,
+			   sum(a.cost_po) as cost_po,
+			   sum(a.oth_cost_po) as oth_cost_po,
+			   sum(a.t_oth_cost_po) as t_oth_cost_po,
+			   sum(a.qty_sale) as qty_sale,
+			   sum(a.t_cost_sale) as t_cost_sale,
+			   sum(a.t_amount_sale) as t_amount_sale,
+			   sum(a.other_qty) as other_qty,
+			   sum(a.qty_ending) as qty_ending,
+			   sum(isnull(a.cost_ending,0)) as cost_ending
+		from #tmpFinal as a 
+		inner join tblStockMenu as b on a.BranchCode=b.branchcode and a.stock_code=b.sto_id
+		group by a.pro_code,
+			   a.pro_name,
+			   b.sto_name,
+			   a.mol_name,
+			   a.pack_name
+			   order by a.pro_code,b.sto_name
+
+END </value>
+  </data>
+  <data name="textBox41.Text" xml:space="preserve">
+    <value>ALTER PROCEDURE [dbo].[proc_register_account_payable_paid]
+	@vCMD			nvarchar(20),
+	@vsysdoc		nvarchar(20),
+	@vbranchcode	nvarchar(20),
+	@vap_id			nvarchar(20),
+	@vpaid_date		date,
+	@vamount		MONEY,
+	@vremark		nvarchar(250),
+	@vinputter		nvarchar(250)
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+	-------------------------------------------------
+	-- INSERT NEW commit
+	-------------------------------------------------
+	  IF (
+		@vCMD = 'commit'
+		AND EXISTS (
+			SELECT 1
+			FROM [tbl_account_payable]
+			WHERE branchcode = @vBranchCode
+			AND [ap_id] = @vap_id
+		)
+	)
+	BEGIN
+
+		EXEC proc_next_id
+			@vBranchCode,
+			'AccountPayablePaid',
+			'9',
+			@vsysdoc OUTPUT
+
+
+		INSERT INTO [dbo].[tbl_account_payable_paid]
+           ([sysdoc]
+           ,[branchcode]
+           ,[ap_id]
+           ,[paiddate]
+           ,[remark]
+           ,[amount]
+           ,[inputter]
+           ,[created_at])
+		   VALUES (@vsysdoc,@vbranchcode,@vap_id,@vpaid_date,@vremark,@vamount,@vinputter,GETDATE())
+
+		   SET @vap_id =@vsysdoc 
+	END
+ 
+	SELECT @vap_id AS trancode
+
+END
+
+</value>
+  </data>
+  <data name="textBox42.Text" xml:space="preserve">
+    <value>delete from [tbl_payment_response]
+delete from [tblpaymentlines]
+delete from [tblReports]
+
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'1', N'Customer info', N'rpt_customer_info', N'0101', 1, 1, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'2', N'Product details', N'rpt_product_details', N'0101', 1, 2, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'3', N'- - - - - -', N'- - - - - -', N'0101', 1, 10, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'5', N'POS details', N'rpt_pos_details', N'0101', 2, 1, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'6', N'POS Summary', N'rpt_pos_summary', N'0101', 2, 2, 0, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'4', N'- - - - - -', N'- - - - - -', N'0101', 2, 10, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'8', N'PO summary', N'rpt_po_summary', N'0101', 3, 1, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'9', N'PO details', N'rpt_po_details', N'0101', 3, 2, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'7', N'- - - - - -', N'- - - - - -', N'0101', 3, 10, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'10', N'In-Stock Summary', N'rpt_in_stock', N'0101', 4, 2, 0, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'13', N'Stock In-Out', N'rpt_in_stock_inout', N'0101', 4, 8, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'14', N'Stock Transfer details', N'rpt_stock_transfer', N'0101', 4, 8, 0, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'11', N'Stock Transfer summary', N'rpt_stock_transfer', N'0101', 4, 9, 0, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'12', N'- - - - - -', N'- - - - - -', N'0101', 4, 10, 1, 1)
+
+
+
+INSERT [dbo].[tbl_payment_response] ([rs_id], [branchcode], [title], [rs_default], [rs_default_position], [active], [create_at]) VALUES (N'RS001', N'0101', N'Prepared by :', N'', N'', 1, NULL)
+INSERT [dbo].[tbl_payment_response] ([rs_id], [branchcode], [title], [rs_default], [rs_default_position], [active], [create_at]) VALUES (N'RS002', N'0101', N'Authorized by :', N'', N'', 1, NULL)
+INSERT [dbo].[tbl_payment_response] ([rs_id], [branchcode], [title], [rs_default], [rs_default_position], [active], [create_at]) VALUES (N'RS003', N'0101', N'Received by :', N'', N'', 1, NULL)
+INSERT [dbo].[tblpaymentlines] ([line_id], [branchcode], [title], [account], [group_line], [active], [remark], [inputter], [created_at]) VALUES (N'P001', N'0101', N'Cash', NULL, N'PV01', 1, N'cash check ', N'IT.SYSTEM', CAST(N'2026-03-04T15:47:53.463' AS DateTime))
+INSERT [dbo].[tblpaymentlines] ([line_id], [branchcode], [title], [account], [group_line], [active], [remark], [inputter], [created_at]) VALUES (N'P002', N'0101', N'Bank Transfer', N'010 500 313', N'PV02', 1, N'cash check ', N'IT.SYSTEM', CAST(N'2026-03-04T15:47:53.463' AS DateTime))
+INSERT [dbo].[tblpaymentlines] ([line_id], [branchcode], [title], [account], [group_line], [active], [remark], [inputter], [created_at]) VALUES (N'P004', N'0101', N'Check', N'010500313', N'PV02', 1, N'cash check ', N'IT.SYSTEM', CAST(N'2026-03-04T15:47:53.463' AS DateTime))
+
+
+delete from [tblReports]
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'13', N'Account Payable', N'rpt_account_payable', N'0202', 5, 1, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'1', N'Customer info', N'rpt_customer_info', N'0202', 1, 1, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'2', N'Product details', N'rpt_product_details', N'0202', 1, 2, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'3', N'- - - - - -', N'- - - - - -', N'0202', 1, 10, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'5', N'POS details', N'rpt_pos_details', N'0202', 2, 1, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'6', N'POS Summary', N'rpt_pos_summary', N'0202', 2, 2, 0, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'4', N'- - - - - -', N'- - - - - -', N'0202', 2, 10, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'8', N'PO summary', N'rpt_po_summary', N'0202', 3, 1, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'9', N'PO details', N'rpt_po_details', N'0202', 3, 2, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'7', N'- - - - - -', N'- - - - - -', N'0202', 3, 10, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'10', N'In-Stock Summary', N'rpt_in_stock', N'0202', 4, 2, 0, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'13', N'Stock In-Out', N'rpt_in_stock_inout', N'0202', 4, 8, 1, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'14', N'Stock Transfer details', N'rpt_stock_transfer', N'0202', 4, 8, 0, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'11', N'Stock Transfer summary', N'rpt_stock_transfer', N'0202', 4, 9, 0, 1)
+INSERT [dbo].[tblReports] ([RptCode], [RptTitle], [RptName], [BranchCode], [Level], [Order], [Active], [Flag]) VALUES (N'12', N'- - - - - -', N'- - - - - -', N'0202', 4, 10, 1, 1)
+
+
+
+ declare @vbranchcode nvarchar(50)
+ set @vbranchcode= isnull((select top 1 branchcode from sys_user_logins),'0101')
+
+ update a set a.branchcode=@vbranchcode from [tbl_payment_response] as a 
+ update a set a.branchcode=@vbranchcode from [tblpaymentlines] as a 
+ update a set a.branchcode=@vbranchcode from [tblReports] as a 
+
+</value>
+  </data>
+  <data name="textBox40.Text" xml:space="preserve">
+    <value>create procedure [dbo].[proc_print_PaymentVoucher]
+	@vstatus		nvarchar(50),
+	@vbranchcode	nvarchar(10),
+	@vpv_id			nvarchar(50)
+AS 
+BEGIN
+	
+	IF(@vstatus='una_print')BEGIN
+		
+		 select a.pv_id,
+				a.branchcode,
+			    a.pay_date,
+				a.invoice,
+				a.receipt,
+				a.inputter,
+				a.pay_to,
+				b.create_at,
+				b.pay_no,
+				b.pay_des,
+				b.pay_amount,
+				b.sysdocnum,
+				dbo.fun_product_line('payment',a.branchcode,a.pv_id) as option_title
+		 from tblunapaymentvoucher AS a  
+		 inner join tblunapaymentsub as b on a.branchcode=b.branchcode and a.pv_id=b.pv_id
+		 where a.branchcode=@vbranchcode and a.pv_id=@vpv_id
+		 order by b.sysdocnum 
+	END
+	ELSE IF(@vstatus='una_signature')BEGIN
+		
+		select distinct 
+		       a.pv_id,
+			   a.branchcode,
+			   B.responder,
+			   B.position,
+			   B.rs_date,
+			   c.title as rs_title,
+			   b.created_at
+		from tblunapaymentvoucher as a 
+		inner join tbluna_payment_signature as b on a.branchcode=b.branchcode and a.pv_id=b.pv_id
+		left join tbl_payment_response as c on b.branchcode=c.branchcode and c.rs_id=b.rs_id
+		where a.branchcode=@vbranchcode and a.pv_id=@vpv_id
+		order by b.created_at
+
+	END
+
+	--- proc_print_PaymentVoucher 'una_signature','0101','PV02-2026-00007'
+	--- proc_print_PaymentVoucher 'una_print','0101','PV01-2026-00003'
+
+end</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -29,17 +29,20 @@ namespace HMS_TAX.Setting
                 {
                     try
                     {
-                        sql.dt_getdata(((TextBox)(this.Controls[("textBox" + i.ToString())])).Text);
+                        if(!string.IsNullOrWhiteSpace(((TextBox)(this.Controls[("textBox" + i.ToString())])).Text))
+                        {
+                            sql.dt_getdata(((TextBox)(this.Controls[("textBox" + i.ToString())])).Text);
+                        }
                     }
                     catch
                     {
-                        //MessageBox.Show(ex.ToString());
                     }
                 }
                 sql.dt_getdata("INSERT INTO sysversions (version,date_at,tag) VALUES ('" + variables.vNewVersion + "',GETDATE(),'1')");
                 this.Close();
             }
-            catch {
+            catch
+            {
                 this.Close();
             }
         }

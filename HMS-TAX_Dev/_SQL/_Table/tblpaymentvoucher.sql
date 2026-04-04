@@ -18,9 +18,6 @@ CREATE TABLE [dbo].[tblpaymentvoucher](
 	[pay_option] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
 
-ALTER TABLE [dbo].[tblpaymentvoucher] ADD  CONSTRAINT [DF_tblpaymentvoucher_created_at]  DEFAULT (getdate()) FOR [created_at]
-GO
 
 

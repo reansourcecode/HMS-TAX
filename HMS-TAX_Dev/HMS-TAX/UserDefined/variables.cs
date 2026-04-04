@@ -10,9 +10,9 @@ namespace HMS_TAX.UserDefined
     public static class variables
     {
         #region Version Info
-        public static string vlastVersion = "0.0.0.1";
-        public static string vNewVersion = "0.0.0.2";
-        public static string vReleaseDate = "22-22-2026";
+        public static string vlastVersion = "0.0.0.2";
+        public static string vNewVersion = "0.0.0.3";
+        public static string vReleaseDate = "04-04-2026";
         public static string vTittle = "Hospital Management System V " + vNewVersion;
         #endregion
 
