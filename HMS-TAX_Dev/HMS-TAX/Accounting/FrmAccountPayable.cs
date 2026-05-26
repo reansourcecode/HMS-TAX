@@ -187,7 +187,7 @@ namespace HMS_TAX.Function
                             (i+1).ToString(),
                             dt.Rows[i]["description"].ToString(),
                             decimal.TryParse(dt.Rows[i]["amount"].ToString(), out decimal amt)
-                            ? amt.ToString("00.0") : "00.0"
+                            ? amt.ToString("00.00") : "00.00"
                         );
 
                         decimal.TryParse(dt.Rows[i]["amount"].ToString(), out vAmount);

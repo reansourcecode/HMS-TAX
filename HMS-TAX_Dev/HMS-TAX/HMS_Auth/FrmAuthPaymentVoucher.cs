@@ -88,8 +88,8 @@ namespace HMS_TAX.HMS_Auth
                         row["pay_no"]?.ToString() ?? string.Empty,
                         row["pay_des"]?.ToString() ?? string.Empty,
                         decimal.TryParse(row["pay_amount"]?.ToString(), out decimal amt)
-                            ? amt.ToString("00.0")
-                            : "00.0"
+                            ? amt.ToString("00.00")
+                            : "00.00"
                     );
                 }
             }

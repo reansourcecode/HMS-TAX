@@ -207,7 +207,7 @@ namespace HMS_TAX.HMS
                             dt.Rows[i]["pay_no"].ToString(),
                             dt.Rows[i]["pay_des"].ToString(),
                             decimal.TryParse(dt.Rows[i]["pay_amount"].ToString(), out decimal amt)
-                            ? amt.ToString("00.0"): "00.0"
+                            ? amt.ToString("00.00"): "00.00"
                         );
 
                         vTotal_row++;

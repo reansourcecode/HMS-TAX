@@ -498,4 +498,3 @@ D:\_Dev\HMS-TAX-V.0.0.3\HMS-TAX\obj\Debug\HMS-TAX.csproj.CoreCompileInputs.cache
 D:\_Dev\HMS-TAX-V.0.0.3\HMS-TAX\obj\Debug\HMS-TAX.csproj.Up2Date
 D:\_Dev\HMS-TAX-V.0.0.3\HMS-TAX\obj\Debug\HMS_TAX.exe
 D:\_Dev\HMS-TAX-V.0.0.3\HMS-TAX\obj\Debug\HMS_TAX.pdb
-D:\_Dev\HMS-TAX-V.0.0.3\HMS-TAX\obj\Debug\HMS_TAX.exe.config

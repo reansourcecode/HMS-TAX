@@ -23,7 +23,7 @@ namespace HMS_TAX
                 string s = xml.EncryptData("sa");
                 //s = xml.EncryptData("System");
 
-                s = xml.EncryptData("love");
+                s = xml.EncryptData("ABCabc123$");
                 xml.ReadXmlLogIn(Application.StartupPath + @"\sys.xml");
 
                 variables.Pcon.ConnectionString = variables.PConnectionString;

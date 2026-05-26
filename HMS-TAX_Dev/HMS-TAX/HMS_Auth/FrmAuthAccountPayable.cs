@@ -75,8 +75,8 @@ namespace HMS_TAX.HMS_Auth
                         row["sysdocnum"]?.ToString() ?? string.Empty,
                         row["description"]?.ToString() ?? string.Empty,
                         decimal.TryParse(row["amount"]?.ToString(), out decimal amt)
-                            ? amt.ToString("00.0")
-                            : "00.0"
+                            ? amt.ToString("00.00")
+                            : "00.00"
                     );
                 }
             }
