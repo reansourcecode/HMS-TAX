@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using ComponentFactory.Krypton.Toolkit;
 using HMS_TAX.UserDefined;
-using DevComponents.DotNetBar;
-using ComponentFactory.Krypton.Toolkit;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
 
 namespace HMS_TAX
 {
@@ -26,8 +21,8 @@ namespace HMS_TAX
             try
             {
                 this.Text = variables.vTittle;
-                txtUserName.Text = "reanit";
-                txtPassword.Text = "love";
+                //txtUserName.Text = "reanit";
+                //txtPassword.Text = "love";
 
                 //// convert to dynamic 
                 //variables.PConnectionString = "Data Source=JOINCODER-SV;Initial Catalog=HMS_TAX;User ID=sa;Password=love;";
@@ -46,40 +41,40 @@ namespace HMS_TAX
             if (txtUserName.Text.Trim() == string.Empty)
             {
                 // check user info 
-                MessageBox.Show(this,variables.vMsg_user, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, variables.vMsg_user, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtUserName.Focus();
                 return false;
             }
             else if (txtPassword.Text.Trim() == string.Empty)
             {
                 // check user password 
-                MessageBox.Show(this,variables.vMsg_user, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, variables.vMsg_user, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
                 return false;
             }
 
             return true;
         }
- 
+
         private void btnCommit_Click(object sender, EventArgs e)
         {
             try
             {
-                if (isOk()==true)
+                if (isOk() == true)
                 {
 
                     DataTable dt = new DataTable();
-                    
+
                     List<parasql> arr = new List<parasql>();
                     arr.Add(new parasql { paraname = "@vUserlogin", sqltype = SqlDbType.NVarChar, values = txtUserName.Text.Trim() });
                     dt = sql.Data_Execute("proc_user_login", arr);
 
-                   /// ប្រសិនបើមាន user 
+                    /// ប្រសិនបើមាន user 
                     if (dt.Rows.Count > 0)
                     {
                         /// មាន user ហើយតើវានៅប្រើប្រាស់បាន ឬមួយគេបិទចោលហើយ 
                         /// 
-                        if(dt.Rows[0]["active"].ToString() != "Yes")
+                        if (dt.Rows[0]["active"].ToString() != "Yes")
                         {
                             MessageBox.Show(variables.vMsg_user_inactive, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -87,7 +82,7 @@ namespace HMS_TAX
                         else
                         {
                             bool vpwd = xml_security.ComparePasswords(dt.Rows[0]["user_pwd"].ToString(), txtPassword.Text.ToString());
-                           // ឆែកមើល password តើត្រឹមត្រូវដែរឬទេ ដោយប្រើប្រាស់ salt 
+                            // ឆែកមើល password តើត្រឹមត្រូវដែរឬទេ ដោយប្រើប្រាស់ salt 
                             if (vpwd == true)
                             {
                                 /// ប្រសិនបើមាន user + password ត្រឹមត្រូវ ទើបយើងធ្វើការងារបន្ត
@@ -106,7 +101,7 @@ namespace HMS_TAX
                                 MessageBox.Show(variables.vMsg_user_Invalid, variables.vTittle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
-                            
+
                     }
                     else
                     {
@@ -127,7 +122,7 @@ namespace HMS_TAX
         {
             if (e.KeyChar == '\r')
             {
-               btnCommit_Click(sender, e);  
+                btnCommit_Click(sender, e);
             }
         }
 

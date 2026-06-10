@@ -1,13 +1,10 @@
-﻿using System;
+﻿using ComponentFactory.Krypton.Toolkit;
+using HMS_TAX.UserDefined;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
-using HMS_TAX.UserDefined;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace HMS_TAX.Function
@@ -308,7 +305,7 @@ namespace HMS_TAX.Function
                         ws = (Microsoft.Office.Interop.Excel.Worksheet)workbookReport.Worksheets[1];
 
                         int Start = 8;
-                        ws.Cells[5, "A"] = "AP DETAIL FOR " + dtFrom.Value.ToString("dd/MM/yyyy") +" - "+ dtTo.Value.ToString("dd/MM/yyyy");
+                        ws.Cells[5, "A"] = "AP DETAIL FOR " + dtFrom.Value.ToString("dd/MM/yyyy") + " - " + dtTo.Value.ToString("dd/MM/yyyy");
                         progressbarsetup.Visible = true;
                         progressbarsetup.Minimum = 0;
                         progressbarsetup.Maximum = dt.Rows.Count + 1;
@@ -326,7 +323,7 @@ namespace HMS_TAX.Function
                             {
 
                                 ws.Cells[rowIndex, "A"] = currentApId;
-                                ws.Cells[rowIndex, "B"] = Convert.ToDateTime(dt.Rows[i]["ap_date"]).ToString("dd/MM/yyyy");
+                                ws.Cells[rowIndex, "B"] = Convert.ToDateTime(dt.Rows[i]["ap_date"]).ToString("dd/MMM/yyyy");
                                 ws.Cells[rowIndex, "C"] = dt.Rows[i]["invoice"].ToString();
                                 ws.Cells[rowIndex, "D"] = dt.Rows[i]["sup_name"].ToString();
                                 ws.Cells[rowIndex, "E"] = dt.Rows[i]["description"].ToString();
@@ -341,7 +338,7 @@ namespace HMS_TAX.Function
 
                             // Always write F, G, H
                             ws.Cells[rowIndex, "G"] = DateTime.TryParse(dt.Rows[i]["paiddate"]?.ToString(), out var paidDate)
-                                ? paidDate.ToString("dd/MM/yyyy")
+                                ? paidDate.ToString("dd/MMM/yyyy")
                                 : "";
 
                             ws.Cells[rowIndex, "H"] = dt.Rows[i]["amount"].ToString();
@@ -371,8 +368,6 @@ namespace HMS_TAX.Function
             }
             catch { }
         }
-
-
 
         void rpt_pos_details()
         {
@@ -577,7 +572,7 @@ namespace HMS_TAX.Function
                         ws = (Microsoft.Office.Interop.Excel.Worksheet)workbookReport.Worksheets[1];
 
                         int Start = 7;
-                        ws.Cells[3, "H"] = dtFrom.Value.ToString("yyyy/MM/dd") +"-"+ dtTo.Value.ToString("yyyy/MM/dd");
+                        ws.Cells[3, "H"] = dtFrom.Value.ToString("yyyy/MM/dd") + "-" + dtTo.Value.ToString("yyyy/MM/dd");
 
                         progressbarsetup.Visible = true;
                         progressbarsetup.Minimum = 0;
@@ -867,7 +862,7 @@ namespace HMS_TAX.Function
         {
             try
             {
-                lblShow.Text =  rtpData[2, e.RowIndex].Value.ToString();
+                lblShow.Text = rtpData[2, e.RowIndex].Value.ToString();
                 PCode = rtpData[0, e.RowIndex].Value.ToString();
             }
             catch { }
